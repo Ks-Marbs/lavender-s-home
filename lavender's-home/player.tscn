@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://nmn8nnwaymm3"]
+
+[ext_resource type="Script" uid="uid://bff4evm16ro7l" path="res://player.gd" id="1_26y8w"]
+[ext_resource type="Texture2D" uid="uid://bbeabcmreb7b2" path="res://images/lav.1.1.1.1.1.png" id="2_onrkg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tia2a"]
+size = Vector2(36, 36)
+
+[node name="Lav" type="Area2D"]
+process_physics_priority = 1
+physics_interpolation_mode = 1
+disable_mode = 2
+monitoring = false
+monitorable = false
+script = ExtResource("1_26y8w")
+
+[node name="Sprite2d" type="Sprite2D" parent="."]
+texture = ExtResource("2_onrkg")
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tia2a")
+
+[node name="DownRay" type="RayCast2D" parent="."]
+target_position = Vector2(0, 19)
+collide_with_areas = true
+
+[node name="UpRay" type="RayCast2D" parent="."]
+target_position = Vector2(0, -19)
+collide_with_areas = true
+
+[node name="RightRay" type="RayCast2D" parent="."]
+target_position = Vector2(19, 0)
+collide_with_areas = true
+
+[node name="LeftRay" type="RayCast2D" parent="."]
+target_position = Vector2(-19, 0)
+collide_with_areas = true
