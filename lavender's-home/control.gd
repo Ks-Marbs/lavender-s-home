@@ -23,6 +23,9 @@ func _process(delta: float) -> void:
 	if $down.button_pressed:
 		Input.action_press("down")
 		on = true
+	if $i.button_pressed:
+		Input.action_press("interact")
+		on = true
 	if on and not $lef.button_pressed:
 		Input.action_release("left")
 	if  on and not $righ.button_pressed:
@@ -31,4 +34,6 @@ func _process(delta: float) -> void:
 		Input.action_release("up")
 	if  on and not $down.button_pressed:
 		Input.action_release("down")
+	if  on and not $i.button_pressed:
+		Input.action_release("interact")
 	pass

@@ -1,14 +1,14 @@
-AudioStreamPlayer
+TextureProgressBar
 RichTextLabel
+Area2D
+AudioStreamPlayer
 Sprite2D
 TextureButton
 Button
 HSlider
-Area2D
 ColorRect
 CanvasLayer
 Camera2D
 CollisionShape2D
-TextureProgressBar
 CharacterBody2D
 TileMapLayer

@@ -1,4 +1,9 @@
-res://Start.tscn
+res://stairs.gd
+res://sec.gd
+res://cle.tscn
+res://cle.gd
 res://global.gd
-res://testlvl.tscn
-res://player.gd
+res://level_2.tscn
+res://level_1.tscn
+res://ctrl.tscn
+res://control.gd

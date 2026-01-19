@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://nmn8nnwaymm3"]
 
 [ext_resource type="Script" uid="uid://bff4evm16ro7l" path="res://player.gd" id="1_26y8w"]
-[ext_resource type="Texture2D" uid="uid://bbeabcmreb7b2" path="res://images/lav.1.1.1.1.1.png" id="2_onrkg"]
+[ext_resource type="Texture2D" uid="uid://des6yebi1duk" path="res://images/lav1.1.1.png" id="2_onrkg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tia2a"]
 size = Vector2(36, 36)
@@ -15,7 +15,11 @@ monitorable = false
 script = ExtResource("1_26y8w")
 
 [node name="Sprite2d" type="Sprite2D" parent="."]
+position = Vector2(-18, -18)
 texture = ExtResource("2_onrkg")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 36, 36)
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_tia2a")

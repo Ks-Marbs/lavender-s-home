@@ -1,11 +1,12 @@
 extends Area2D
 var isbox := false
+var hurten := false
 var del = 0.18
 var yes = true
 var isplayer := true
 var isgoal := false
 var tile_size := 36
-var step_size := 6
+var step_size := 4.5
 var last_move := Vector2.ONE
 var nextplan_move := Vector2.ONE
 var moving := false
@@ -13,6 +14,9 @@ var can_move := false
 var xcell := (position.x - (int(position.x) % 36)) / 36
 var ycell := (position.y - (int(position.y) % 36)) / 36
 var sprite:=[[[[[[]]]]]]
+var t1:=0 # direction
+var t2:= 0 #frame
+var wiggling := false
 
 func prepare():
 	for i in range(1):
@@ -20,96 +24,81 @@ func prepare():
 		for j in range(1):
 			sprite[i].append([])
 			for k in range(1):
-				sprite[i][j].append([])
-				for l in range(4):
-					sprite[i][j][k].append([])
-					for m in range(1):
-						sprite[i][j][k][l].append([])
-						for n in range(6):
-							sprite[i][j][k][l][m].append(load("res://images/lav"+"1"+"."+"1"+"."+"1"+"."+str(l)+"."+"1"+"."+str(n)+".png"))
+				sprite[i][j].append(load("res://images/lav"+"1"+"."+"1"+"."+"1"+".png"))
+
 func control():
 	if not Global.toggle and not Global.clear:
 		if Global.get_matrix(xcell, ycell, Global.room_matrix) == 0:
-			if (Input.is_action_pressed("right") or Input.is_action_pressed("left")) \
-			and Global.get_matrix(xcell+Input.get_axis("left","right"), ycell, Global.room_matrix) != 999:
-				can_move = true
+			if (Input.is_action_pressed("right") or Input.is_action_pressed("left")):
 				nextplan_move = Vector2.RIGHT * Input.get_axis("left","right")
-				if nextplan_move == Vector2.RIGHT and $RightRay.is_colliding():
-					await get_tree().create_timer(del).timeout
-					if $RightRay.get_collider().can_move and not $RightRay.get_collider().moving:
+				if Global.get_matrix(xcell+Input.get_axis("left","right"), ycell, Global.room_matrix) != 999:
+					can_move = true
+					if nextplan_move == Vector2.RIGHT and $RightRay.is_colliding():
+						await get_tree().create_timer(del).timeout
+						if $RightRay.get_collider().can_move and not $RightRay.get_collider().moving:
+							move_step(nextplan_move)
+							await get_tree().create_timer(Global.mini_delay).timeout
+					elif nextplan_move == Vector2.LEFT and $LeftRay.is_colliding():
+						await get_tree().create_timer(del).timeout
+						if $LeftRay.get_collider().can_move  and not $LeftRay.get_collider().moving:
+							move_step(nextplan_move)
+							await get_tree().create_timer(Global.mini_delay).timeout
+					else:
 						move_step(nextplan_move)
-						nextplan_move =Vector2.ZERO
-						await get_tree().create_timer(Global.mini_delay).timeout
-				elif nextplan_move == Vector2.LEFT and $LeftRay.is_colliding():
-					await get_tree().create_timer(del).timeout
-					if $LeftRay.get_collider().can_move  and not $LeftRay.get_collider().moving:
-						move_step(nextplan_move)
-						nextplan_move =Vector2.ZERO 
-						await get_tree().create_timer(Global.mini_delay).timeout
-				else:
-					move_step(nextplan_move)
 
-			if (Input.is_action_pressed("up") or Input.is_action_pressed("down")) \
-				and Global.get_matrix(xcell, ycell+Input.get_axis("up","down"), Global.room_matrix) != 999:
-				can_move = true
+			if (Input.is_action_pressed("up") or Input.is_action_pressed("down")):
 				nextplan_move = Vector2.DOWN * Input.get_axis("up","down")
-				if nextplan_move == Vector2.UP and $UpRay.is_colliding():
-					await get_tree().create_timer(del).timeout
-					if $UpRay.get_collider().can_move  and not $UpRay.get_collider().moving:
+				if Global.get_matrix(xcell, ycell+Input.get_axis("up","down"), Global.room_matrix) != 999:
+					can_move = true
+					if nextplan_move == Vector2.UP and $UpRay.is_colliding():
+						await get_tree().create_timer(del).timeout
+						if $UpRay.get_collider().can_move  and not $UpRay.get_collider().moving:
+							move_step(nextplan_move)
+							await get_tree().create_timer(Global.mini_delay).timeout
+					elif nextplan_move == Vector2.DOWN and $DownRay.is_colliding():
+						await get_tree().create_timer(del).timeout
+						if $DownRay.get_collider().can_move  and not $DownRay.get_collider().moving:
+							move_step(nextplan_move)
+							await get_tree().create_timer(Global.mini_delay).timeout
+					else:
 						move_step(nextplan_move)
-						nextplan_move =Vector2.ZERO 
-						await get_tree().create_timer(Global.mini_delay).timeout
-				elif nextplan_move == Vector2.DOWN and $DownRay.is_colliding():
-					await get_tree().create_timer(del).timeout
-					if $DownRay.get_collider().can_move  and not $DownRay.get_collider().moving:
-						move_step(nextplan_move)
-						nextplan_move =Vector2.ZERO 
-						await get_tree().create_timer(Global.mini_delay).timeout
-				else:
-					move_step(nextplan_move)
 
 		else:
-			if (Input.is_action_pressed("right") or Input.is_action_pressed("left")) \
-			and (Global.get_matrix(xcell, ycell, Global.room_matrix) == Global.get_matrix(xcell +Input.get_axis("left","right"), ycell, Global.room_matrix) \
-			or Global.get_matrix(xcell + Input.get_axis("left","right"), ycell, Global.room_matrix) == 0):
+			if (Input.is_action_pressed("right") or Input.is_action_pressed("left")):
 				nextplan_move = Vector2.RIGHT * Input.get_axis("left","right")
-				can_move = true
-
-				if nextplan_move == Vector2.RIGHT and $RightRay.is_colliding():
-					await get_tree().create_timer(del).timeout
-					if $RightRay.get_collider().can_move and not $RightRay.get_collider().moving:
+				if (Global.get_matrix(xcell, ycell, Global.room_matrix) == Global.get_matrix(xcell +Input.get_axis("left","right"), ycell, Global.room_matrix) \
+				or Global.get_matrix(xcell + Input.get_axis("left","right"), ycell, Global.room_matrix) == 0):
+					can_move = true
+					if nextplan_move == Vector2.RIGHT and $RightRay.is_colliding():
+						await get_tree().create_timer(del).timeout
+						if $RightRay.get_collider().can_move and not $RightRay.get_collider().moving:
+							move_step(nextplan_move)
+							await get_tree().create_timer(Global.mini_delay).timeout
+					elif nextplan_move == Vector2.LEFT and $LeftRay.is_colliding():
+						await get_tree().create_timer(del).timeout
+						if $LeftRay.get_collider().can_move and not $LeftRay.get_collider().moving:
+							move_step(nextplan_move)
+							await get_tree().create_timer(Global.mini_delay).timeout
+					else:
 						move_step(nextplan_move)
-						nextplan_move =Vector2.ZERO 
-						await get_tree().create_timer(Global.mini_delay).timeout
-				elif nextplan_move == Vector2.LEFT and $LeftRay.is_colliding():
-					await get_tree().create_timer(del).timeout
-					if $LeftRay.get_collider().can_move and not $LeftRay.get_collider().moving:
-						move_step(nextplan_move)
-						nextplan_move =Vector2.ZERO 
-						await get_tree().create_timer(Global.mini_delay).timeout
-				else:
-					move_step(nextplan_move)
 
-			elif (Input.is_action_pressed("down") or Input.is_action_pressed("up")) \
-				and (Global.get_matrix(xcell, ycell, Global.room_matrix) == Global.get_matrix(xcell, ycell + Input.get_axis("up","down"), Global.room_matrix) \
-				or Global.get_matrix(xcell , ycell + Input.get_axis("up","down"), Global.room_matrix) == 0):
+			elif (Input.is_action_pressed("down") or Input.is_action_pressed("up")):
 				nextplan_move = Vector2.DOWN * Input.get_axis("up","down")
-				can_move = true
-
-				if nextplan_move == Vector2.DOWN and $DownRay.is_colliding():
-					await get_tree().create_timer(del).timeout
-					if $DownRay.get_collider().can_move and not $DownRay.get_collider().moving:
+				if (Global.get_matrix(xcell, ycell, Global.room_matrix) == Global.get_matrix(xcell, ycell + Input.get_axis("up","down"), Global.room_matrix) \
+				or Global.get_matrix(xcell , ycell + Input.get_axis("up","down"), Global.room_matrix) == 0):
+					can_move = true
+					if nextplan_move == Vector2.DOWN and $DownRay.is_colliding():
+						await get_tree().create_timer(del).timeout
+						if $DownRay.get_collider().can_move and not $DownRay.get_collider().moving:
+							move_step(nextplan_move)
+							await get_tree().create_timer(Global.mini_delay).timeout 
+					elif nextplan_move == Vector2.UP and $UpRay.is_colliding():
+						await get_tree().create_timer(del).timeout
+						if $UpRay.get_collider().can_move and not $UpRay.get_collider().moving:
+							move_step(nextplan_move)
+							await get_tree().create_timer(Global.mini_delay).timeout
+					else:
 						move_step(nextplan_move)
-						nextplan_move =Vector2.ZERO 
-						await get_tree().create_timer(Global.mini_delay).timeout 
-				elif nextplan_move == Vector2.UP and $UpRay.is_colliding():
-					await get_tree().create_timer(del).timeout
-					if $UpRay.get_collider().can_move and not $UpRay.get_collider().moving:
-						move_step(nextplan_move)
-						nextplan_move =Vector2.ZERO 
-						await get_tree().create_timer(Global.mini_delay).timeout
-				else:
-					move_step(nextplan_move)
 
 func may_slide(dir):
 	if Global.get_matrix(xcell, ycell, Global.room_matrix) == 0:
@@ -131,30 +120,53 @@ func may_slide(dir):
 	return can_move
 
 func wiggle():
-	while yes:
-		await get_tree().create_timer(Global.wiggle_delay).timeout
+	if not wiggling:
+		wiggling = true
+		while int(position.x) % tile_size == 0 and int(position.y) % tile_size == 0:
+			match nextplan_move:
+				Vector2.UP:
+					t1=0
+				Vector2.DOWN:
+					t1=1
+				Vector2.LEFT:
+					t1=2
+				Vector2.RIGHT:
+					t1=3
+			t2+=1
+			if t2==4:
+				t2=0
+			$Sprite2d.region_rect=Rect2(t1*72,t2*36,36,36)
+			await get_tree().create_timer( Global.mini_delay*1.5).timeout
+		wiggling = false
 
 func _ready():
-	wiggle()
 	prepare()
+	wiggle()
 	move_step(Vector2.ZERO)
 
 
 func _process(delta):
 	del = delta
+	$Camera2D/helf.value = Global.health
 
-	if $DownRay.is_colliding() and $DownRay.get_collider().isgoal:
-		$DownRay.add_exception($DownRay.get_collider())
-	elif $UpRay.is_colliding() and $UpRay.get_collider().isgoal:
-		$UpRay.add_exception($UpRay.get_collider())
-	elif $LeftRay.is_colliding() and $LeftRay.get_collider().isgoal:
-		$LeftRay.add_exception($LeftRay.get_collider())
-	elif $RightRay.is_colliding() and $RightRay.get_collider().isgoal:
-		$RightRay.add_exception($RightRay.get_collider())
+	if moving or not (int(position.x) % tile_size == 0 and int(position.y) % tile_size == 0):
+		hurten = false
+		can_move = false
+		return
+
+	if Global.get_matrix(xcell, ycell, Global.hurt_matrix) != 0:
+		if not hurten and (int(position.x) % tile_size == 0 and int(position.y) % tile_size == 0):
+			hurten = true
+			Global.health  -= Global.get_matrix(xcell, ycell, Global.hurt_matrix)
+			if Global.health <= 0:
+				Global.health = 100
+				get_tree().change_scene_to_file("res://Start.tscn")
 
 	if moving or not (int(position.x) % tile_size == 0 and int(position.y) % tile_size == 0):
 		can_move = false
 		return
+	elif not wiggling:
+		wiggle()
 
 	if Global.get_matrix(xcell,ycell,Global.special_matrix) == 1:
 		if may_slide(nextplan_move) == true and nextplan_move != Vector2.ZERO:
@@ -194,17 +206,15 @@ func _process(delta):
 		control()
 
 func move_step(dir: Vector2) -> void:
-	var i:=0
-	var j:=0
 	match dir:
 		Vector2.UP:
-			j=0
+			t1=0
 		Vector2.DOWN:
-			j=1
+			t1=1
 		Vector2.LEFT:
-			j=2
+			t1=2
 		Vector2.RIGHT:
-			j=3
+			t1=3
 	moving = true
 	if dir != Vector2.ZERO:
 		Global.moves += 1
@@ -212,10 +222,10 @@ func move_step(dir: Vector2) -> void:
 	await get_tree().create_timer(Global.mini_delay).timeout
 
 	while int(position.x) % tile_size != 0 or int(position.y) % tile_size != 0:
-		i+=1
-		if i==6:
-			i=0
-		$Sprite2d.texture=sprite[0][0][0][j][0][i]
+		t2+=1
+		if t2==4:
+			t2=0
+		$Sprite2d.region_rect=Rect2(t1*72+36,t2*36,36,36)
 		position += dir * step_size
 		await get_tree().create_timer(Global.mini_delay).timeout
 	last_move = dir
@@ -223,19 +233,30 @@ func move_step(dir: Vector2) -> void:
 	ycell = (position.y - (int(position.y) % 36)) / 36
 	Global.x = xcell
 	Global.y = ycell
-	if Global.get_matrix(xcell,ycell,Global.special_matrix) == 0:
-		await get_tree().create_timer(Global.full_delay).timeout
 	moving = false
 	
 func ice_step(dir: Vector2) -> void:
+	match dir:
+		Vector2.UP:
+			t1=0
+		Vector2.DOWN:
+			t1=1
+		Vector2.LEFT:
+			t1=2
+		Vector2.RIGHT:
+			t1=3
 	if not (Global.toggle or Global.clear):
 		moving = true
 		position += dir * step_size
 		await get_tree().create_timer(Global.mini_delay).timeout
 
 		while int(position.x) % tile_size != 0 or int(position.y) % tile_size != 0:
+			t2+=1
+			if t2==4:
+				t2=0
+			$Sprite2d.region_rect=Rect2(t1*72,t2*36,36,36)
 			position += dir * step_size
-			await get_tree().create_timer(Global.mini_delay).timeout
+			await get_tree().create_timer( Global.mini_delay*1.5).timeout
 		last_move = dir
 		xcell = (position.x - (int(position.x) % 36)) / 36
 		ycell = (position.y - (int(position.y) % 36)) / 36

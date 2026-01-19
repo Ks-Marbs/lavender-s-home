@@ -9,7 +9,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if $start.button_pressed:
-		get_tree().change_scene_to_file("res://testlvl.tscn")
+		get_tree().change_scene_to_file("res://level_1.tscn")
 	if $settings.button_pressed:
 		Global.toggle = true
 	if $credits.button_pressed:

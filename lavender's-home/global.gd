@@ -1,10 +1,13 @@
 extends Node
 #just adding this so i can make a repoaaaaaaaaaaaaaa
-var mini_delay := 0.13
+var took_stairs := false
+var mini_delay := 0.15
 var full_delay := 0
-var wiggle_delay = full_delay*5
+var health := 0
+var wiggle_delay = 4
 var room_matrix := []
 var special_matrix := []
+var hurt_matrix := []
 var cols = 17
 var rows = 14
 var GridT = 0.5
@@ -16,11 +19,11 @@ var clear = false
 var level = 1
 var x := 0
 var y := 0
+var loading := false
 var save:=[[0,0,0,0,1],\
 [1,50,40,30,1],[2,78,68,58,0],[3,73,63,53,0],[4,105,95,85,0],[5,65,55,45,0],\
 [6,80,70,60,0],[7,86,76,66,0],[8,108,98,88,0],[9,48,38,28,0],[10,66,56,46,1],\
 [11,62,52,42,0],[12,118,108,98,0],[13,109,99,89,0],[14,115,105,95,0],[15,730,700,670,0]]
-
 
 
 func get_matrix(a,b,mat):
@@ -28,18 +31,28 @@ func get_matrix(a,b,mat):
 		return mat[a][b]
 	else:
 		return 999
+
+
 func prepare(n):
+	loading = true
 	fgoals = 0
 	goals = 0
 	fill_rect(room_matrix,0,0,cols,rows,999)
 	fill_rect(special_matrix,0,0,cols,rows,0)
+	fill_rect(hurt_matrix,0,0,cols,rows,0)
 	match n:
 		1:
 			cols = 17
 			rows = 14
 			fill_rect(room_matrix,0,0,cols,rows,1) #bg
 			fill_rect(room_matrix,0,0,0,1,999)
-
+		2:
+			cols = 17
+			rows = 14
+			fill_rect(room_matrix,0,0,cols,rows,1) #bg
+			fill_rect(room_matrix,0,0,0,1,999)
+	await get_tree().create_timer(3).timeout
+	loading = false
 
 func _ready():
 	for a in range(64):
@@ -50,6 +63,7 @@ func _ready():
 			r.append(999)
 		room_matrix.append(r)
 		special_matrix.append(c)
+		hurt_matrix.append(c)
 		
 func fill_rect(m, a, b, c, d, v):
 
