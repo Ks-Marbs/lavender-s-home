@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtqaclbjr2ntx"
-path="res://.godot/imported/arr - Copy.png-eb8372a6fcc050dee82e951b3d5d3339.ctex"
+uid="uid://6o3yaoq0otig"
+path="res://.godot/imported/lavbox.png-660bb6f8481b0888e273795d7cb6102d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/arr - Copy.png"
-dest_files=["res://.godot/imported/arr - Copy.png-eb8372a6fcc050dee82e951b3d5d3339.ctex"]
+source_file="res://images/lavbox.png"
+dest_files=["res://.godot/imported/lavbox.png-660bb6f8481b0888e273795d7cb6102d.ctex"]
 
 [params]
 

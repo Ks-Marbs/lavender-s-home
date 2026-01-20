@@ -23,8 +23,8 @@ Audio="*res://audio.tscn"
 
 [display]
 
-window/size/viewport_width=1050
-window/size/viewport_height=612
+window/size/viewport_width=1296
+window/size/viewport_height=720
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 

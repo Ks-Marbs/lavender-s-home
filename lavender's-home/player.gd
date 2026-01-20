@@ -136,7 +136,7 @@ func wiggle():
 			if t2==4:
 				t2=0
 			$Sprite2d.region_rect=Rect2(t1*72,t2*36,36,36)
-			await get_tree().create_timer( Global.mini_delay*1.5).timeout
+			await get_tree().create_timer(Global.mini_delay*1.5).timeout
 		wiggling = false
 
 func _ready():
@@ -148,22 +148,11 @@ func _ready():
 func _process(delta):
 	del = delta
 	$Camera2D/helf.value = Global.health
+	$Camera2D/helf/RichTextLabel.text = str(Global.moves)
 
 	if moving or not (int(position.x) % tile_size == 0 and int(position.y) % tile_size == 0):
+		can_move = false
 		hurten = false
-		can_move = false
-		return
-
-	if Global.get_matrix(xcell, ycell, Global.hurt_matrix) != 0:
-		if not hurten and (int(position.x) % tile_size == 0 and int(position.y) % tile_size == 0):
-			hurten = true
-			Global.health  -= Global.get_matrix(xcell, ycell, Global.hurt_matrix)
-			if Global.health <= 0:
-				Global.health = 100
-				get_tree().change_scene_to_file("res://Start.tscn")
-
-	if moving or not (int(position.x) % tile_size == 0 and int(position.y) % tile_size == 0):
-		can_move = false
 		return
 	elif not wiggling:
 		wiggle()
@@ -204,6 +193,13 @@ func _process(delta):
 
 	elif Global.get_matrix(xcell, ycell, Global.special_matrix) == 0:
 		control()
+
+	if (not hurten):
+		Global.health  -= Global.get_matrix(xcell, ycell, Global.hurt_matrix)
+		if Global.health <= 0:
+			Global.health = 100
+			get_tree().change_scene_to_file("res://Start.tscn")
+		hurten = true
 
 func move_step(dir: Vector2) -> void:
 	match dir:

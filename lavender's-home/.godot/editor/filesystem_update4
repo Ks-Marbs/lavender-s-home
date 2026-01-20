@@ -7,3 +7,5 @@ res://level_2.tscn
 res://level_1.tscn
 res://ctrl.tscn
 res://control.gd
+res://Start.tscn
+res://player.gd

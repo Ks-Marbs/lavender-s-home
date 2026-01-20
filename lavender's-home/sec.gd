@@ -16,8 +16,13 @@ func _ready() -> void:
 	Global.moves = 0
 	for cell in $ice.get_used_cells():
 		Global.special_matrix[cell.x][cell.y] = 1
-	for cell in $stuff.get_used_cells():
-		Global.room_matrix[cell.x][cell.y] = 999
+	for cell in $stuff.get_used_cells_by_id(-1,Vector2i(3,6)):
+			Global.room_matrix[cell.x][cell.y] = 999
+	for i in range(5):
+		for cell in $stuff.get_used_cells_by_id(-1,Vector2i(i,7)):
+				Global.room_matrix[cell.x][cell.y] = i
+		for c in $hurt.get_used_cells_by_id(-1,Vector2i(i,7)):
+				Global.hurt_matrix[c.x][c.y] = i*5
 
 func _process(delta: float) -> void:
 	$grid.self_modulate = Color(1.0, 1.0, 1.0, Global.GridT)

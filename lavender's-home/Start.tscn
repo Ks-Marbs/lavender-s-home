@@ -618,8 +618,11 @@ z_index = 12
 position = Vector2(581, 347)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(586, 309)
-zoom = Vector2(0.66, 0.66)
+z_index = 60
+position = Vector2(571, 315)
+ignore_rotation = false
+zoom = Vector2(1.1, 1.1)
+editor_draw_drag_margin = true
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 z_index = 25

@@ -3,7 +3,7 @@ extends Node
 var took_stairs := false
 var mini_delay := 0.15
 var full_delay := 0
-var health := 0
+var health := 100
 var wiggle_delay = 4
 var room_matrix := []
 var special_matrix := []
@@ -44,13 +44,9 @@ func prepare(n):
 		1:
 			cols = 17
 			rows = 14
-			fill_rect(room_matrix,0,0,cols,rows,1) #bg
-			fill_rect(room_matrix,0,0,0,1,999)
 		2:
 			cols = 17
 			rows = 14
-			fill_rect(room_matrix,0,0,cols,rows,1) #bg
-			fill_rect(room_matrix,0,0,0,1,999)
 	await get_tree().create_timer(3).timeout
 	loading = false
 
@@ -58,12 +54,14 @@ func _ready():
 	for a in range(64):
 		var c := []
 		var r:=[]
+		var k:=[]
 		for b in range(64):
 			c.append(0)
+			k.append(0)
 			r.append(999)
 		room_matrix.append(r)
 		special_matrix.append(c)
-		hurt_matrix.append(c)
+		hurt_matrix.append(k)
 		
 func fill_rect(m, a, b, c, d, v):
 
