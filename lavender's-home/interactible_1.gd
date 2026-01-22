@@ -43,4 +43,6 @@ func _process(delta: float) -> void:
 	else:
 		interaction = 0
 		vis = 0
-#AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+
+
+#From here on is just game

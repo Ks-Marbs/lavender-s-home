@@ -1,4 +1,5 @@
 extends Area2D
+var interaction=0
 var can_move := false
 var isplayer := false
 var yes=true

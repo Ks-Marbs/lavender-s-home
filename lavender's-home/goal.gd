@@ -2,7 +2,9 @@ extends Area2D
 var one = preload("res://images/goal1.png")
 var two = preload("res://images/goal2.png")
 var can_move := true
+var interaction=0
 var moving := false
+var soap := 1
 var isplayer := false
 var isbox := false
 var isgoal := true

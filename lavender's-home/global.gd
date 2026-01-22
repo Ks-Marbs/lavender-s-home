@@ -1,6 +1,7 @@
 extends Node
 #just adding this so i can make a repoaaaaaaaaaaaaaa
 var took_stairs := false
+var talking := false
 var mini_delay := 0.15
 var full_delay := 0
 var health := 100
@@ -15,6 +16,7 @@ var goals := 0
 var fgoals := 0
 var toggle = false
 var moves := 0
+var soap := 1
 var clear = false
 var level = 1
 var x := 0
@@ -64,7 +66,6 @@ func _ready():
 		hurt_matrix.append(k)
 		
 func fill_rect(m, a, b, c, d, v):
-
 	for f in range(a, c + 1):
 		for g in range(b, d + 1):
 			m[f][g] = v

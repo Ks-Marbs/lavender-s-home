@@ -1,3 +1,4 @@
+Button
 RichTextLabel
 NinePatchRect
 Sprite2D
@@ -5,7 +6,6 @@ TextureProgressBar
 Area2D
 AudioStreamPlayer
 TextureButton
-Button
 HSlider
 ColorRect
 CanvasLayer

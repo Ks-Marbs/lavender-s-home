@@ -1,12 +1,13 @@
 res://cle.tscn::5891f541f9926557ea981910939e45a5::1768788803::res://.godot/exported/133200997/export-2039ae0b20b6b7a2119d6cf910e9ad3d-cle.scn
-res://level_1.tscn::ddf940fbf7c7196ad6ed774de1b651fc::1768841110::res://.godot/exported/133200997/export-63309efd344a9c730c2375c6c1edaf63-level_1.scn
-res://level_2.tscn::053f480bf16764ca30614236ea3d4cd2::1768841147::res://.godot/exported/133200997/export-f232880c53f78a005d817f1d8d602f60-level_2.scn
+res://level_1.tscn::da0db5568f55a12f7c136ddfb63691ae::1769096930::res://.godot/exported/133200997/export-63309efd344a9c730c2375c6c1edaf63-level_1.scn
+res://level_2.tscn::d2f567f7af34eb420db7819a33260bee::1768940844::res://.godot/exported/133200997/export-f232880c53f78a005d817f1d8d602f60-level_2.scn
 res://LS.tscn::60cd6e019f84335970983c23a4041b0b::1767750130::res://.godot/exported/133200997/export-8968da065729ecb8eef2764bf6f49838-LS.scn
 res://player.tscn::3cd6d7e4d148dffdca15d0eb36fb04d1::1768296962::res://.godot/exported/133200997/export-36a25e342948d0ceacc500772b5412b3-player.scn
 res://setrs.tscn::c96ed77eef5345f40144f2a0e67116e8::1767750131::res://.godot/exported/133200997/export-b22123560c93f5ee115877e5e4e19151-setrs.scn
 res://sets.tscn::a2478ac320c3e0eda4cae78ba5f1fa6b::1767750131::res://.godot/exported/133200997/export-892c86ce401c44e58013d76b19cd3cd4-sets.scn
 res://settings.tscn::00764540fe0ef3f0b5cab892335c799c::1768753509::res://.godot/exported/133200997/export-5e6299b8d8c40760f2987e3552e86b12-settings.scn
-res://Start.tscn::94023b8ab38f4bd05280c4804651e60d::1768769974::res://.godot/exported/133200997/export-32f7a05784f14728eb5e2e40fb0fbaf5-Start.scn
-res://ctrl.tscn::f3d658834502f5fba29cb29348ef60d1::1768840639::res://.godot/exported/133200997/export-74bf0d9e253cdbd65ccbc23e94258e84-ctrl.scn
+res://Start.tscn::ab19223190ee991053478d0b00557012::1768925024::res://.godot/exported/133200997/export-32f7a05784f14728eb5e2e40fb0fbaf5-Start.scn
+res://ctrl.tscn::f3d658834502f5fba29cb29348ef60d1::1769097969::res://.godot/exported/133200997/export-74bf0d9e253cdbd65ccbc23e94258e84-ctrl.scn
 res://default_bus_layout.tres::fa869ed18637eebb4f53061e5e6409ea::1767750130::res://.godot/exported/133200997/export-19246414aa9fb561ced4b8dce477acec-default_bus_layout.res
 res://audio.tscn::cdaf17212a0801efd949bb7b4c507c12::1767750130::res://.godot/exported/133200997/export-a3841a5db3e457cce0dd686bc6d5c314-audio.scn
+res://something.tres::b21963b6e986ae7b2327bf4d851e7a01::1769097645::res://.godot/exported/133200997/export-98abdab7838ca07d2509c80e3d5bb5bd-something.res

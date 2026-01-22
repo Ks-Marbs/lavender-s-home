@@ -1,16 +1,20 @@
-[gd_scene load_steps=38 format=4 uid="uid://e6u4g4ull36a"]
+[gd_scene load_steps=42 format=4 uid="uid://e6u4g4ull36a"]
 
 [ext_resource type="Script" uid="uid://dqfsvggvnc0dp" path="res://sec.gd" id="1_kb5eu"]
 [ext_resource type="Texture2D" uid="uid://cifxu36r16yf6" path="res://images/Tiles.png" id="2_lfy8a"]
 [ext_resource type="PackedScene" uid="uid://nmn8nnwaymm3" path="res://player.tscn" id="3_ethxx"]
 [ext_resource type="Texture2D" uid="uid://cf2yxomaxsn4h" path="res://images/pause.png" id="4_3o2xh"]
 [ext_resource type="Script" uid="uid://df30jy0aafqqa" path="res://pause.gd" id="5_duihb"]
+[ext_resource type="Script" uid="uid://cq685e0q7nasv" path="res://soap.gd" id="5_hycyb"]
 [ext_resource type="PackedScene" uid="uid://7a3wlvb055dm" path="res://ctrl.tscn" id="6_b6mmh"]
+[ext_resource type="Texture2D" uid="uid://iky5xn8su7j3" path="res://images/soap.png" id="6_swvua"]
 [ext_resource type="Texture2D" uid="uid://6o3yaoq0otig" path="res://images/lavbox.png" id="6_ttn6t"]
 [ext_resource type="PackedScene" uid="uid://cooh78l4g1j6h" path="res://settings.tscn" id="7_ttn6t"]
 [ext_resource type="PackedScene" uid="uid://23d48043kb4t" path="res://cle.tscn" id="8_ia5ws"]
 [ext_resource type="Texture2D" uid="uid://ccjqj5qb05efv" path="res://images/prw1.png" id="9_be5co"]
+[ext_resource type="Theme" uid="uid://cfbvw2nuu400q" path="res://something.tres" id="9_ka01f"]
 [ext_resource type="Script" uid="uid://dywsmow2s7ukk" path="res://mim.gd" id="10_hycyb"]
+[ext_resource type="Texture2D" uid="uid://b3n8qkar6dd4x" path="res://images/prw1 - Copy.png" id="10_swvua"]
 [ext_resource type="Texture2D" uid="uid://d8nsluttxg0l" path="res://images/Helf under.png" id="11_3o2xh"]
 [ext_resource type="Script" uid="uid://bymwfndph2ybh" path="res://box_1.gd" id="11_swvua"]
 [ext_resource type="Texture2D" uid="uid://gtsxxlvjn3gu" path="res://images/Helf over.png" id="12_duihb"]
@@ -4307,9 +4311,54 @@ horizontal_alignment = 1
 deselect_on_focus_loss_enabled = false
 drag_and_drop_selection_enabled = false
 
+[node name="Soap" type="Area2D" parent="."]
+position = Vector2(504, 216)
+script = ExtResource("5_hycyb")
+
+[node name="Sprite2d" type="Sprite2D" parent="Soap"]
+position = Vector2(-18, -18)
+texture = ExtResource("6_swvua")
+centered = false
+offset = Vector2(0, -1)
+region_enabled = true
+region_rect = Rect2(0, 0, 36, 36)
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="Soap"]
+shape = SubResource("RectangleShape2D_swvua")
+
+[node name="DownRay" type="RayCast2D" parent="Soap"]
+target_position = Vector2(0, 18.1)
+collide_with_areas = true
+
+[node name="UpRay" type="RayCast2D" parent="Soap"]
+target_position = Vector2(0, -18.1)
+collide_with_areas = true
+
+[node name="RightRay" type="RayCast2D" parent="Soap"]
+target_position = Vector2(18.1, 0)
+collide_with_areas = true
+
+[node name="LeftRay" type="RayCast2D" parent="Soap"]
+target_position = Vector2(-19, 0)
+collide_with_areas = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Soap"]
+offset_left = -35.0
+offset_top = -29.0
+offset_right = 37.0
+offset_bottom = -9.0
+theme_override_fonts/normal_font = ExtResource("27_be5co")
+theme_override_font_sizes/normal_font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_ka01f")
+text = "Soap"
+fit_content = true
+horizontal_alignment = 1
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
 [node name="Lav" parent="." groups=["box"] instance=ExtResource("3_ethxx")]
 z_index = 3
-position = Vector2(504, 0)
+position = Vector2(468, 180)
 input_pickable = false
 priority = 1
 
@@ -4331,19 +4380,118 @@ target_position = Vector2(18.1, 0)
 [node name="Camera2D" type="Camera2D" parent="Lav"]
 zoom = Vector2(2.5, 2.5)
 
-[node name="NinePatchRect" type="NinePatchRect" parent="Lav/Camera2D"]
-offset_left = 126.0
-offset_top = -144.0
-offset_right = 486.0
-offset_bottom = -36.0
+[node name="TextBox" type="NinePatchRect" parent="Lav/Camera2D"]
+z_index = 9
+offset_left = -234.0
+offset_top = 18.0
+offset_right = 234.0
+offset_bottom = 126.0
 texture = ExtResource("6_ttn6t")
 region_rect = Rect2(0, 0, 108, 108)
-patch_margin_left = 48
-patch_margin_top = 48
-patch_margin_right = 48
-patch_margin_bottom = 48
+patch_margin_left = 36
+patch_margin_top = 36
+patch_margin_right = 24
+patch_margin_bottom = 24
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
+
+[node name="text" type="RichTextLabel" parent="Lav/Camera2D/TextBox"]
+modulate = Color(1, 1, 1, 0.99607843)
+layout_mode = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 444.0
+offset_bottom = 84.0
+theme = ExtResource("9_ka01f")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "Oh...Hi [Lavender]... you think i should sign up?"
+fit_content = true
+scroll_active = false
+vertical_alignment = 1
+justification_flags = 131
+text_direction = 1
+
+[node name="Textname" type="NinePatchRect" parent="Lav/Camera2D/TextBox"]
+self_modulate = Color(0.92941177, 0.7529412, 1, 1)
+z_index = 9
+layout_mode = 0
+offset_top = -36.0
+offset_right = 108.0
+texture = ExtResource("10_swvua")
+draw_center = false
+patch_margin_right = 36
+patch_margin_bottom = 36
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="text" type="RichTextLabel" parent="Lav/Camera2D/TextBox/Textname"]
+modulate = Color(1, 1, 1, 0.99607843)
+layout_mode = 0
+offset_left = 6.0
+offset_right = 109.0
+offset_bottom = 36.0
+theme = ExtResource("9_ka01f")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "Lavender"
+fit_content = true
+scroll_active = false
+vertical_alignment = 1
+justification_flags = 131
+text_direction = 1
+
+[node name="Button0" type="Button" parent="Lav/Camera2D/TextBox"]
+layout_mode = 0
+offset_left = 408.0
+offset_top = 60.0
+offset_right = 432.0
+offset_bottom = 89.5
+theme = ExtResource("9_ka01f")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+action_mode = 0
+text = ">"
+flat = true
+alignment = 0
+icon_alignment = 2
+
+[node name="Button1" type="Button" parent="Lav/Camera2D/TextBox"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 24.0
+offset_right = 216.0
+offset_bottom = 48.0
+theme = ExtResource("9_ka01f")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = ">"
+flat = true
+alignment = 0
+
+[node name="Button2" type="Button" parent="Lav/Camera2D/TextBox"]
+layout_mode = 0
+offset_left = 252.0
+offset_top = 24.0
+offset_right = 432.0
+offset_bottom = 48.0
+theme = ExtResource("9_ka01f")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = ">"
+flat = true
+alignment = 0
+
+[node name="Button3" type="Button" parent="Lav/Camera2D/TextBox"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 60.0
+offset_right = 216.0
+offset_bottom = 84.0
+theme = ExtResource("9_ka01f")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = ">"
+flat = true
+alignment = 0
 
 [node name="pause" type="TextureButton" parent="Lav/Camera2D"]
 offset_left = 204.0
@@ -4376,7 +4524,7 @@ scale = Vector2(0.4, 0.4)
 
 [node name="minimap" type="TileMapLayer" parent="Lav/Camera2D"]
 self_modulate = Color(0.500095, 0.50009507, 0.5000949, 1)
-position = Vector2(-222.00003, -80)
+position = Vector2(-227.00003, -59)
 scale = Vector2(0.17, 0.17)
 tile_map_data = PackedByteArray("AAAAAAAAAQAaAA8AAAAAAAEAAQAaABAAAAAAAAIAAQAaABEAAAAAAAMAAQAaABIAAAAAAAQAAQAaABMAAAAAAAUAAQAaABQAAAAAAAYAAQAaABUAAAAAAAcAAQAaABYAAAAAAAgAAQAaABcAAAAAAAoAAQAaABkAAAAAAAsAAQAaABoAAAABAAAAAQAbAA8AAAABAAEAAQAbABAAAAABAAIAAQAbABEAAAABAAMAAQAbABIAAAABAAQAAQAbABMAAAABAAUAAQAbABQAAAABAAYAAQAbABUAAAABAAcAAQAbABYAAAABAAgAAQAbABcAAAABAAkAAQAbABgAAAABAAoAAQAbABkAAAABAAsAAQAbABoAAAACAAAAAQAcAA8AAAACAAEAAQAcABAAAAACAAIAAQAcABEAAAACAAMAAQAcABIAAAACAAQAAQAcABMAAAACAAUAAQAcABQAAAACAAYAAQAcABUAAAACAAcAAQAcABYAAAACAAgAAQAcABcAAAACAAkAAQAcABgAAAACAAoAAQAcABkAAAACAAsAAQAcABoAAAADAAAAAQAdAA8AAAADAAEAAQAdABAAAAADAAQAAQAdABMAAAADAAUAAQAdABQAAAADAAYAAQAdABUAAAADAAcAAQAdABYAAAADAAgAAQAdABcAAAADAAkAAQAdABgAAAADAAoAAQAdABkAAAADAAsAAQAdABoAAAAEAAAAAQAeAA8AAAAEAAEAAQAeABAAAAAEAAIAAQAeABEAAAAEAAMAAQAeABIAAAAEAAQAAQAeABMAAAAEAAUAAQAeABQAAAAEAAYAAQAeABUAAAAEAAcAAQAeABYAAAAEAAgAAQAeABcAAAAEAAkAAQAeABgAAAAEAAoAAQAeABkAAAAEAAsAAQAeABoAAAAFAAAAAQAfAA8AAAAFAAEAAQAfABAAAAAFAAIAAQAfABEAAAAFAAMAAQAfABIAAAAFAAQAAQAfABMAAAAFAAYAAQAfABUAAAAFAAcAAQAfABYAAAAFAAgAAQAfABcAAAAFAAkAAQAfABgAAAAFAAoAAQAfABkAAAAFAAsAAQAfABoAAAAGAAAAAQAgAA8AAAAGAAEAAQAgABAAAAAGAAIAAQAgABEAAAAGAAMAAQAgABIAAAAGAAQAAQAgABMAAAAGAAcAAQAgABYAAAAGAAgAAQAgABcAAAAGAAkAAQAgABgAAAAHAAAAAQAhAA8AAAAHAAEAAQAhABAAAAAHAAIAAQAhABEAAAAHAAMAAQAhABIAAAAHAAQAAQAhABMAAAAHAAUAAQAhABQAAAAHAAYAAQAhABUAAAAHAAcAAQAhABYAAAAHAAgAAQAhABcAAAAHAAkAAQAhABgAAAAHAAoAAQAhABkAAAAHAAsAAQAhABoAAAAIAAAAAQAiAA8AAAAIAAEAAQAiABAAAAAIAAIAAQAiABEAAAAIAAMAAQAiABIAAAAIAAQAAQAiABMAAAAIAAUAAQAiABQAAAAIAAYAAQAiABUAAAAIAAcAAQAiABYAAAAIAAgAAQAiABcAAAAIAAkAAQAiABgAAAAIAAoAAQAiABkAAAAIAAsAAQAiABoAAAAJAAAAAQAjAA8AAAAJAAEAAQAjABAAAAAJAAIAAQAjABEAAAAJAAMAAQAjABIAAAAJAAQAAQAjABMAAAAJAAUAAQAjABQAAAAJAAYAAQAjABUAAAAJAAcAAQAjABYAAAAJAAgAAQAjABcAAAAJAAkAAQAjABgAAAAJAAoAAQAjABkAAAAJAAsAAQAjABoAAAAKAAAAAQAkAA8AAAAKAAEAAQAkABAAAAAKAAIAAQAkABEAAAAKAAMAAQAkABIAAAAKAAQAAQAkABMAAAAKAAUAAQAkABQAAAAKAAYAAQAkABUAAAAKAAcAAQAkABYAAAAKAAgAAQAkABcAAAAKAAkAAQAkABgAAAAKAAoAAQAkABkAAAAKAAsAAQAkABoAAAALAAAAAQAlAA8AAAALAAEAAQAlABAAAAALAAIAAQAlABEAAAALAAMAAQAlABIAAAALAAQAAQAlABMAAAALAAUAAQAlABQAAAALAAYAAQAlABUAAAALAAgAAQAlABcAAAALAAkAAQAlABgAAAALAAoAAQAlABkAAAALAAsAAQAlABoAAAAAAAwAAQAaABsAAAAAAA0AAQAaABwAAAAAAA4AAQAaAB0AAAABAAwAAQAbABsAAAABAA0AAQAbABwAAAABAA4AAQAbAB0AAAACAAwAAQAcABsAAAACAA0AAQAcABwAAAACAA4AAQAcAB0AAAADAAwAAQAdABsAAAADAA0AAQAdABwAAAADAA4AAQAdAB0AAAAEAAwAAQAeABsAAAAEAA0AAQAeABwAAAAEAA4AAQAeAB0AAAAFAAwAAQAfABsAAAAFAA0AAQAfABwAAAAFAA4AAQAfAB0AAAAGAA0AAQAgABwAAAAHAAwAAQAhABsAAAAHAA0AAQAhABwAAAAIAAwAAQAiABsAAAAIAA0AAQAiABwAAAAJAAwAAQAjABsAAAAJAA0AAQAjABwAAAAJAA4AAQAjAB0AAAAKAAwAAQAkABsAAAAKAA0AAQAkABwAAAAKAA4AAQAkAB0AAAALAAwAAQAlABsAAAALAA0AAQAlABwAAAALAA4AAQAlAB0AAAAMAAAAAQAmAA8AAAAMAAEAAQAmABAAAAAMAAIAAQAmABEAAAAMAAMAAQAmABIAAAAMAAQAAQAmABMAAAAMAAUAAQAmABQAAAAMAAYAAQAmABUAAAAMAAcAAQAmABYAAAAMAAgAAQAmABcAAAAMAAkAAQAmABgAAAAMAAoAAQAmABkAAAAMAAsAAQAmABoAAAAMAAwAAQAmABsAAAAMAA0AAQAmABwAAAAMAA4AAQAmAB0AAAANAAAAAQAnAA8AAAANAAEAAQAnABAAAAANAAIAAQAnABEAAAANAAMAAQAnABIAAAANAAQAAQAnABMAAAANAAUAAQAnABQAAAANAAYAAQAnABUAAAANAAcAAQAnABYAAAANAAgAAQAnABcAAAANAAkAAQAnABgAAAANAAoAAQAnABkAAAANAAsAAQAnABoAAAANAAwAAQAnABsAAAANAA0AAQAnABwAAAANAA4AAQAnAB0AAAAOAAAAAQAoAA8AAAAOAAEAAQAoABAAAAAOAAIAAQAoABEAAAAOAAMAAQAoABIAAAAOAAQAAQAoABMAAAAOAAUAAQAoABQAAAAOAAYAAQAoABUAAAAOAAcAAQAoABYAAAAOAAgAAQAoABcAAAAOAAkAAQAoABgAAAAOAAoAAQAoABkAAAAOAAsAAQAoABoAAAAOAAwAAQAoABsAAAAOAA0AAQAoABwAAAAOAA4AAQAoAB0AAAAPAAEAAQApABAAAAAPAAIAAQApABEAAAAPAAMAAQApABIAAAAPAAQAAQApABMAAAAPAAUAAQApABQAAAAPAAYAAQApABUAAAAPAAcAAQApABYAAAAPAAgAAQApABcAAAAPAAkAAQApABgAAAAPAAoAAQApABkAAAAPAAsAAQApABoAAAAPAAwAAQApABsAAAAPAA0AAQApABwAAAAPAA4AAQApAB0AAAAQAAAAAQAqAA8AAAAQAAEAAQAqABAAAAAQAAIAAQAqABEAAAAQAAMAAQAqABIAAAAQAAQAAQAqABMAAAAQAAUAAQAqABQAAAAQAAYAAQAqABUAAAAQAAcAAQAqABYAAAAQAAgAAQAqABcAAAAQAAkAAQAqABgAAAAQAAoAAQAqABkAAAAQAAsAAQAqABoAAAAQAAwAAQAqABsAAAAQAA0AAQAqABwAAAAQAA4AAQAqAB0AAAARAAAAAQArAA8AAAARAAEAAQArABAAAAARAAIAAQArABEAAAARAAMAAQArABIAAAARAAQAAQArABMAAAARAAUAAQArABQAAAARAAYAAQArABUAAAARAAcAAQArABYAAAARAAgAAQArABcAAAARAAkAAQArABgAAAARAAoAAQArABkAAAARAAsAAQArABoAAAARAAwAAQArABsAAAARAA0AAQArABwAAAARAA4AAQArAB0AAAAGAAoAAQAgABkAAAAGAAsAAQAgABoAAAAGAAwAAQAgABsAAAADAAMAAQAdABIAAAADAAIAAQAdABEAAAAGAAUAAQAgABQAAAAGAAYAAQAgABUAAAAFAAUAAQAfABQAAAAAAAkAAQAaABgAAAAPAAAAAQApAA8AAAAHAA4AAQAhAB0AAAAGAA4AAQAgAB0AAAAIAA4AAQAiAB0AAAALAAcAAQAlABYAAAA=")
 tile_set = SubResource("TileSet_fi1vt")
@@ -4413,9 +4561,8 @@ scroll_active = false
 vertical_alignment = 1
 
 [node name="Box" type="Area2D" parent="." groups=["box"]]
-visible = false
 z_index = 3
-position = Vector2(36, 216)
+position = Vector2(540, 180)
 script = ExtResource("11_swvua")
 
 [node name="Sprite2d" type="Sprite2D" parent="Box"]

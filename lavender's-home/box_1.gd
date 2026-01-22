@@ -1,6 +1,7 @@
 extends Area2D
 #Box
 var del=0
+var interaction=0
 var yes = true
 var isplayer := false
 var isbox := true

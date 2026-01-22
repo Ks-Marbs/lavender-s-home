@@ -1,5 +1,6 @@
 extends Area2D
 var isbox := false
+var on := false
 var hurten := false
 var del = 0.18
 var yes = true
@@ -27,7 +28,7 @@ func prepare():
 				sprite[i][j].append(load("res://images/lav"+"1"+"."+"1"+"."+"1"+".png"))
 
 func control():
-	if not Global.toggle and not Global.clear:
+	if not Global.toggle and not Global.clear and not Global.talking:
 		if Global.get_matrix(xcell, ycell, Global.room_matrix) == 0:
 			if (Input.is_action_pressed("right") or Input.is_action_pressed("left")):
 				nextplan_move = Vector2.RIGHT * Input.get_axis("left","right")
@@ -200,6 +201,349 @@ func _process(delta):
 			Global.health = 100
 			get_tree().change_scene_to_file("res://Start.tscn")
 		hurten = true
+
+	if $RightRay.is_colliding() and $RightRay.get_collider().interaction != 0:
+		Global.talking = true
+		match $RightRay.get_collider().text_mat[$RightRay.get_collider().interaction][1]:
+			0:
+				$Camera2D/TextBox.texture = load("res://images/lavbox.png")
+				$Camera2D/TextBox/text.text = $RightRay.get_collider().text_mat[$RightRay.get_collider().interaction][0]
+				$Camera2D/TextBox/Textname.position = Vector2(360,-36)
+				$Camera2D/TextBox/Textname.self_modulate = Color(0.694, 0.478, 1.0)
+				$Camera2D/TextBox/Textname/text.text = "Lavender"
+			1:
+				$Camera2D/TextBox.texture = load("res://images/soapbox.png")
+				$Camera2D/TextBox/text.text = $RightRay.get_collider().text_mat[$RightRay.get_collider().interaction][0]
+				$Camera2D/TextBox/Textname.position = Vector2(0,-36)
+				$Camera2D/TextBox/Textname.self_modulate = Color(0.929, 0.753, 1.0)
+				$Camera2D/TextBox/Textname/text.text = "Soap"
+		match $RightRay.get_collider().text_mat[$RightRay.get_collider().interaction][3]:
+			0:
+				$Camera2D/TextBox/Button0.visible = 1
+				$Camera2D/TextBox/Button1.visible = 0
+				$Camera2D/TextBox/Button2.visible = 0
+				$Camera2D/TextBox/Button3.visible = 0
+				$Camera2D/TextBox/Button0.size = Vector2(36,24)
+				$Camera2D/TextBox/Button0.text = ">"
+				$Camera2D/TextBox/Button0.position = Vector2(420,66)
+			1:
+				$Camera2D/TextBox/Button0.visible = 1
+				$Camera2D/TextBox/Button1.visible = 1
+				$Camera2D/TextBox/Button2.visible = 0
+				$Camera2D/TextBox/Button3.visible = 0
+				$Camera2D/TextBox/Button0.size = Vector2(180,24)
+				$Camera2D/TextBox/Button0.position = Vector2(36,24)
+				$Camera2D/TextBox/Button1.position = Vector2(36,60)
+				$Camera2D/TextBox/Button0.text = $RightRay.get_collider().text_mat[$RightRay.get_collider().interaction][4]
+				$Camera2D/TextBox/Button1.text = $RightRay.get_collider().text_mat[$RightRay.get_collider().interaction][6]
+				if $Camera2D/TextBox/Button0.button_pressed:
+					$RightRay.get_collider().interaction=$RightRay.get_collider().text_mat[$RightRay.get_collider().interaction][5]
+				if $Camera2D/TextBox/Button1.button_pressed:
+					$RightRay.get_collider().interaction=$RightRay.get_collider().text_mat[$RightRay.get_collider().interaction][7]
+			2:
+				$Camera2D/TextBox/Button0.visible = 1
+				$Camera2D/TextBox/Button1.visible = 1
+				$Camera2D/TextBox/Button2.visible = 1
+				$Camera2D/TextBox/Button3.visible = 0
+				$Camera2D/TextBox/Button0.size = Vector2(180,24)
+				$Camera2D/TextBox/Button0.position = Vector2(36,24)
+				$Camera2D/TextBox/Button1.position = Vector2(252,24)
+				$Camera2D/TextBox/Button2.position = Vector2(144,60)
+				$Camera2D/TextBox/Button0.text = $RightRay.get_collider().text_mat[$RightRay.get_collider().interaction][4]
+				$Camera2D/TextBox/Button1.text = $RightRay.get_collider().text_mat[$RightRay.get_collider().interaction][6]
+				$Camera2D/TextBox/Button2.text = $RightRay.get_collider().text_mat[$RightRay.get_collider().interaction][8]
+				if $Camera2D/TextBox/Button0.button_pressed:
+					$RightRay.get_collider().interaction=$RightRay.get_collider().text_mat[$RightRay.get_collider().interaction][5]
+				if $Camera2D/TextBox/Button1.button_pressed:
+					$RightRay.get_collider().interaction=$RightRay.get_collider().text_mat[$RightRay.get_collider().interaction][7]
+				if $Camera2D/TextBox/Button2.button_pressed:
+					$RightRay.get_collider().interaction=$RightRay.get_collider().text_mat[$RightRay.get_collider().interaction][9]
+			3:
+				$Camera2D/TextBox/Button0.visible = 1
+				$Camera2D/TextBox/Button1.visible = 1
+				$Camera2D/TextBox/Button2.visible = 1
+				$Camera2D/TextBox/Button3.visible = 1
+				$Camera2D/TextBox/Button0.size = Vector2(180,24)
+				$Camera2D/TextBox/Button0.position = Vector2(36,24)
+				$Camera2D/TextBox/Button1.position = Vector2(252,24)
+				$Camera2D/TextBox/Button2.position = Vector2(36,60)
+				$Camera2D/TextBox/Button3.position = Vector2(252,60)
+				$Camera2D/TextBox/Button0.text = $RightRay.get_collider().text_mat[$RightRay.get_collider().interaction][4]
+				$Camera2D/TextBox/Button1.text = $RightRay.get_collider().text_mat[$RightRay.get_collider().interaction][6]
+				$Camera2D/TextBox/Button2.text = $RightRay.get_collider().text_mat[$RightRay.get_collider().interaction][8]
+				$Camera2D/TextBox/Button3.text = $RightRay.get_collider().text_mat[$RightRay.get_collider().interaction][10]
+				if $Camera2D/TextBox/Button0.button_pressed:
+					$RightRay.get_collider().interaction=$RightRay.get_collider().text_mat[$RightRay.get_collider().interaction][5]
+				if $Camera2D/TextBox/Button1.button_pressed:
+					$RightRay.get_collider().interaction=$RightRay.get_collider().text_mat[$RightRay.get_collider().interaction][7]
+				if $Camera2D/TextBox/Button2.button_pressed:
+					$RightRay.get_collider().interaction=$RightRay.get_collider().text_mat[$RightRay.get_collider().interaction][9]
+				if $Camera2D/TextBox/Button3.button_pressed:
+					$RightRay.get_collider().interaction=$RightRay.get_collider().text_mat[$RightRay.get_collider().interaction][11]
+
+		$Camera2D/TextBox.visible = 1
+		$Camera2D/pause.visible = 0
+		$Camera2D/Control.visible = 0
+		$Camera2D/minimap.visible = 0
+		$Camera2D/helf.visible = 0
+	elif $LeftRay.is_colliding() and $LeftRay.get_collider().interaction != 0:
+		
+		match $LeftRay.get_collider().text_mat[$LeftRay.get_collider().interaction][1]:
+			0:
+				$Camera2D/TextBox.texture = load("res://images/lavbox.png")
+				$Camera2D/TextBox/text.text = $LeftRay.get_collider().text_mat[$LeftRay.get_collider().interaction][0]
+				$Camera2D/TextBox/Textname.position = Vector2(360,-36)
+				$Camera2D/TextBox/Textname.self_modulate = Color(0.694, 0.478, 1.0)
+				$Camera2D/TextBox/Textname/text.text = "Lavender"
+			1:
+				$Camera2D/TextBox.texture = load("res://images/soapbox.png")
+				$Camera2D/TextBox/text.text = $LeftRay.get_collider().text_mat[$LeftRay.get_collider().interaction][0]
+				$Camera2D/TextBox/Textname.position = Vector2(0,-36)
+				$Camera2D/TextBox/Textname.self_modulate = Color(0.929, 0.753, 1.0)
+				$Camera2D/TextBox/Textname/text.text = "Soap"
+		match $LeftRay.get_collider().text_mat[$LeftRay.get_collider().interaction][3]:
+			0:
+				$Camera2D/TextBox/Button0.visible = 1
+				$Camera2D/TextBox/Button1.visible = 0
+				$Camera2D/TextBox/Button2.visible = 0
+				$Camera2D/TextBox/Button3.visible = 0
+				$Camera2D/TextBox/Button0.size = Vector2(24,24)
+				$Camera2D/TextBox/Button0.text = ">"
+				$Camera2D/TextBox/Button0.position = Vector2(420,66)
+			1:
+				$Camera2D/TextBox/Button0.visible = 1
+				$Camera2D/TextBox/Button1.visible = 1
+				$Camera2D/TextBox/Button2.visible = 0
+				$Camera2D/TextBox/Button3.visible = 0
+				$Camera2D/TextBox/Button0.size = Vector2(180,24)
+				$Camera2D/TextBox/Button0.position = Vector2(36,24)
+				$Camera2D/TextBox/Button1.position = Vector2(36,60)
+				$Camera2D/TextBox/Button0.text = $LeftRay.get_collider().text_mat[$LeftRay.get_collider().interaction][4]
+				$Camera2D/TextBox/Button1.text = $LeftRay.get_collider().text_mat[$LeftRay.get_collider().interaction][6]
+				if $Camera2D/TextBox/Button0.button_pressed:
+					$LeftRay.get_collider().interaction=$LeftRay.get_collider().text_mat[$LeftRay.get_collider().interaction][5]
+				if $Camera2D/TextBox/Button1.button_pressed:
+					$LeftRay.get_collider().interaction=$LeftRay.get_collider().text_mat[$LeftRay.get_collider().interaction][7]
+			2:
+				$Camera2D/TextBox/Button0.visible = 1
+				$Camera2D/TextBox/Button1.visible = 1
+				$Camera2D/TextBox/Button2.visible = 1
+				$Camera2D/TextBox/Button3.visible = 0
+				$Camera2D/TextBox/Button0.size = Vector2(180,24)
+				$Camera2D/TextBox/Button0.position = Vector2(36,24)
+				$Camera2D/TextBox/Button1.position = Vector2(252,24)
+				$Camera2D/TextBox/Button2.position = Vector2(144,60)
+				$Camera2D/TextBox/Button0.text = $LeftRay.get_collider().text_mat[$LeftRay.get_collider().interaction][4]
+				$Camera2D/TextBox/Button1.text = $LeftRay.get_collider().text_mat[$LeftRay.get_collider().interaction][6]
+				$Camera2D/TextBox/Button2.text = $LeftRay.get_collider().text_mat[$LeftRay.get_collider().interaction][8]
+				if $Camera2D/TextBox/Button0.button_pressed:
+					$LeftRay.get_collider().interaction=$LeftRay.get_collider().text_mat[$LeftRay.get_collider().interaction][5]
+				if $Camera2D/TextBox/Button1.button_pressed:
+					$LeftRay.get_collider().interaction=$LeftRay.get_collider().text_mat[$LeftRay.get_collider().interaction][7]
+				if $Camera2D/TextBox/Button2.button_pressed:
+					$LeftRay.get_collider().interaction=$LeftRay.get_collider().text_mat[$LeftRay.get_collider().interaction][9]
+			3:
+				$Camera2D/TextBox/Button0.visible = 1
+				$Camera2D/TextBox/Button1.visible = 1
+				$Camera2D/TextBox/Button2.visible = 1
+				$Camera2D/TextBox/Button3.visible = 1
+				$Camera2D/TextBox/Button0.size = Vector2(180,24)
+				$Camera2D/TextBox/Button0.position = Vector2(36,24)
+				$Camera2D/TextBox/Button1.position = Vector2(252,24)
+				$Camera2D/TextBox/Button2.position = Vector2(36,60)
+				$Camera2D/TextBox/Button3.position = Vector2(252,60)
+				$Camera2D/TextBox/Button0.text = $LeftRay.get_collider().text_mat[$LeftRay.get_collider().interaction][4]
+				$Camera2D/TextBox/Button1.text = $LeftRay.get_collider().text_mat[$LeftRay.get_collider().interaction][6]
+				$Camera2D/TextBox/Button2.text = $LeftRay.get_collider().text_mat[$LeftRay.get_collider().interaction][8]
+				$Camera2D/TextBox/Button3.text = $LeftRay.get_collider().text_mat[$LeftRay.get_collider().interaction][10]
+				if $Camera2D/TextBox/Button0.button_pressed:
+					$LeftRay.get_collider().interaction=$LeftRay.get_collider().text_mat[$LeftRay.get_collider().interaction][5]
+				if $Camera2D/TextBox/Button1.button_pressed:
+					$LeftRay.get_collider().interaction=$LeftRay.get_collider().text_mat[$LeftRay.get_collider().interaction][7]
+				if $Camera2D/TextBox/Button2.button_pressed:
+					$LeftRay.get_collider().interaction=$LeftRay.get_collider().text_mat[$LeftRay.get_collider().interaction][9]
+				if $Camera2D/TextBox/Button3.button_pressed:
+					$LeftRay.get_collider().interaction=$LeftRay.get_collider().text_mat[$LeftRay.get_collider().interaction][11]
+
+		$Camera2D/TextBox.visible = 1
+		$Camera2D/pause.visible = 0
+		$Camera2D/Control.visible = 0
+		$Camera2D/minimap.visible = 0
+		$Camera2D/helf.visible = 0
+	elif $UpRay.is_colliding() and $UpRay.get_collider().interaction != 0:
+		match $UpRay.get_collider().text_mat[$UpRay.get_collider().interaction][1]:
+			0:
+				$Camera2D/TextBox.texture = load("res://images/lavbox.png")
+				$Camera2D/TextBox/text.text = $UpRay.get_collider().text_mat[$UpRay.get_collider().interaction][0]
+				$Camera2D/TextBox/Textname.position = Vector2(360,-36)
+				$Camera2D/TextBox/Textname.self_modulate = Color(0.694, 0.478, 1.0)
+				$Camera2D/TextBox/Textname/text.text = "Lavender"
+			1:
+				$Camera2D/TextBox.texture = load("res://images/soapbox.png")
+				$Camera2D/TextBox/text.text = $UpRay.get_collider().text_mat[$UpRay.get_collider().interaction][0]
+				$Camera2D/TextBox/Textname.position = Vector2(0,-36)
+				$Camera2D/TextBox/Textname.self_modulate = Color(0.929, 0.753, 1.0)
+				$Camera2D/TextBox/Textname/text.text = "Soap"
+		match $UpRay.get_collider().text_mat[$UpRay.get_collider().interaction][3]:
+			0:
+				$Camera2D/TextBox/Button0.visible = 1
+				$Camera2D/TextBox/Button1.visible = 0
+				$Camera2D/TextBox/Button2.visible = 0
+				$Camera2D/TextBox/Button3.visible = 0
+				$Camera2D/TextBox/Button0.size = Vector2(24,24)
+				$Camera2D/TextBox/Button0.text = ">"
+				$Camera2D/TextBox/Button0.position = Vector2(420,66)
+			1:
+				$Camera2D/TextBox/Button0.visible = 1
+				$Camera2D/TextBox/Button1.visible = 1
+				$Camera2D/TextBox/Button2.visible = 0
+				$Camera2D/TextBox/Button3.visible = 0
+				$Camera2D/TextBox/Button0.size = Vector2(180,24)
+				$Camera2D/TextBox/Button0.position = Vector2(36,24)
+				$Camera2D/TextBox/Button1.position = Vector2(36,60)
+				$Camera2D/TextBox/Button0.text = $UpRay.get_collider().text_mat[$UpRay.get_collider().interaction][4]
+				$Camera2D/TextBox/Button1.text = $UpRay.get_collider().text_mat[$UpRay.get_collider().interaction][6]
+				if $Camera2D/TextBox/Button0.button_pressed:
+					$UpRay.get_collider().interaction=$UpRay.get_collider().text_mat[$UpRay.get_collider().interaction][5]
+				if $Camera2D/TextBox/Button1.button_pressed:
+					$UpRay.get_collider().interaction=$UpRay.get_collider().text_mat[$UpRay.get_collider().interaction][7]
+			2:
+				$Camera2D/TextBox/Button0.visible = 1
+				$Camera2D/TextBox/Button1.visible = 1
+				$Camera2D/TextBox/Button2.visible = 1
+				$Camera2D/TextBox/Button3.visible = 0
+				$Camera2D/TextBox/Button0.size = Vector2(180,24)
+				$Camera2D/TextBox/Button0.position = Vector2(36,24)
+				$Camera2D/TextBox/Button1.position = Vector2(252,24)
+				$Camera2D/TextBox/Button2.position = Vector2(144,60)
+				$Camera2D/TextBox/Button0.text = $UpRay.get_collider().text_mat[$UpRay.get_collider().interaction][4]
+				$Camera2D/TextBox/Button1.text = $UpRay.get_collider().text_mat[$UpRay.get_collider().interaction][6]
+				$Camera2D/TextBox/Button2.text = $UpRay.get_collider().text_mat[$UpRay.get_collider().interaction][8]
+				if $Camera2D/TextBox/Button0.button_pressed:
+					$UpRay.get_collider().interaction=$UpRay.get_collider().text_mat[$UpRay.get_collider().interaction][5]
+				if $Camera2D/TextBox/Button1.button_pressed:
+					$UpRay.get_collider().interaction=$UpRay.get_collider().text_mat[$UpRay.get_collider().interaction][7]
+				if $Camera2D/TextBox/Button2.button_pressed:
+					$UpRay.get_collider().interaction=$UpRay.get_collider().text_mat[$UpRay.get_collider().interaction][9]
+			3:
+				$Camera2D/TextBox/Button0.visible = 1
+				$Camera2D/TextBox/Button1.visible = 1
+				$Camera2D/TextBox/Button2.visible = 1
+				$Camera2D/TextBox/Button3.visible = 1
+				$Camera2D/TextBox/Button0.size = Vector2(180,24)
+				$Camera2D/TextBox/Button0.position = Vector2(36,24)
+				$Camera2D/TextBox/Button1.position = Vector2(252,24)
+				$Camera2D/TextBox/Button2.position = Vector2(36,60)
+				$Camera2D/TextBox/Button3.position = Vector2(252,60)
+				$Camera2D/TextBox/Button0.text = $UpRay.get_collider().text_mat[$UpRay.get_collider().interaction][4]
+				$Camera2D/TextBox/Button1.text = $UpRay.get_collider().text_mat[$UpRay.get_collider().interaction][6]
+				$Camera2D/TextBox/Button2.text = $UpRay.get_collider().text_mat[$UpRay.get_collider().interaction][8]
+				$Camera2D/TextBox/Button3.text = $UpRay.get_collider().text_mat[$UpRay.get_collider().interaction][10]
+				if $Camera2D/TextBox/Button0.button_pressed:
+					$UpRay.get_collider().interaction=$UpRay.get_collider().text_mat[$UpRay.get_collider().interaction][5]
+				if $Camera2D/TextBox/Button1.button_pressed:
+					$UpRay.get_collider().interaction=$UpRay.get_collider().text_mat[$UpRay.get_collider().interaction][7]
+				if $Camera2D/TextBox/Button2.button_pressed:
+					$UpRay.get_collider().interaction=$UpRay.get_collider().text_mat[$UpRay.get_collider().interaction][9]
+				if $Camera2D/TextBox/Button3.button_pressed:
+					$UpRay.get_collider().interaction=$UpRay.get_collider().text_mat[$UpRay.get_collider().interaction][11]
+
+		$Camera2D/TextBox.visible = 1
+		$Camera2D/pause.visible = 0
+		$Camera2D/Control.visible = 0
+		$Camera2D/minimap.visible = 0
+		$Camera2D/helf.visible = 0
+	elif $DownRay.is_colliding() and $DownRay.get_collider().interaction != 0:
+		match $DownRay.get_collider().text_mat[$DownRay.get_collider().interaction][1]:
+			0:
+				$Camera2D/TextBox.texture = load("res://images/lavbox.png")
+				$Camera2D/TextBox/text.text = $DownRay.get_collider().text_mat[$DownRay.get_collider().interaction][0]
+				$Camera2D/TextBox/Textname.position = Vector2(360,-36)
+				$Camera2D/TextBox/Textname.self_modulate = Color(0.694, 0.478, 1.0)
+				$Camera2D/TextBox/Textname/text.text = "Lavender"
+			1:
+				$Camera2D/TextBox.texture = load("res://images/soapbox.png")
+				$Camera2D/TextBox/text.text = $DownRay.get_collider().text_mat[$DownRay.get_collider().interaction][0]
+				$Camera2D/TextBox/Textname.position = Vector2(0,-36)
+				$Camera2D/TextBox/Textname.self_modulate = Color(0.929, 0.753, 1.0)
+				$Camera2D/TextBox/Textname/text.text = "Soap"
+		match $DownRay.get_collider().text_mat[$DownRay.get_collider().interaction][3]:
+			0:
+				$Camera2D/TextBox/Button0.visible = 1
+				$Camera2D/TextBox/Button1.visible = 0
+				$Camera2D/TextBox/Button2.visible = 0
+				$Camera2D/TextBox/Button3.visible = 0
+				$Camera2D/TextBox/Button0.size = Vector2(24,24)
+				$Camera2D/TextBox/Button0.text = ">"
+				$Camera2D/TextBox/Button0.position = Vector2(420,66)
+			1:
+				$Camera2D/TextBox/Button0.visible = 1
+				$Camera2D/TextBox/Button1.visible = 1
+				$Camera2D/TextBox/Button2.visible = 0
+				$Camera2D/TextBox/Button3.visible = 0
+				$Camera2D/TextBox/Button0.size = Vector2(180,24)
+				$Camera2D/TextBox/Button0.position = Vector2(36,24)
+				$Camera2D/TextBox/Button1.position = Vector2(36,60)
+				$Camera2D/TextBox/Button0.text = $DownRay.get_collider().text_mat[$DownRay.get_collider().interaction][4]
+				$Camera2D/TextBox/Button1.text = $DownRay.get_collider().text_mat[$DownRay.get_collider().interaction][6]
+				if $Camera2D/TextBox/Button0.button_pressed:
+					$DownRay.get_collider().interaction=$DownRay.get_collider().text_mat[$DownRay.get_collider().interaction][5]
+				if $Camera2D/TextBox/Button1.button_pressed:
+					$DownRay.get_collider().interaction=$DownRay.get_collider().text_mat[$DownRay.get_collider().interaction][7]
+			2:
+				$Camera2D/TextBox/Button0.visible = 1
+				$Camera2D/TextBox/Button1.visible = 1
+				$Camera2D/TextBox/Button2.visible = 1
+				$Camera2D/TextBox/Button3.visible = 0
+				$Camera2D/TextBox/Button0.size = Vector2(180,24)
+				$Camera2D/TextBox/Button0.position = Vector2(36,24)
+				$Camera2D/TextBox/Button1.position = Vector2(252,24)
+				$Camera2D/TextBox/Button2.position = Vector2(144,60)
+				$Camera2D/TextBox/Button0.text = $DownRay.get_collider().text_mat[$DownRay.get_collider().interaction][4]
+				$Camera2D/TextBox/Button1.text = $DownRay.get_collider().text_mat[$DownRay.get_collider().interaction][6]
+				$Camera2D/TextBox/Button2.text = $DownRay.get_collider().text_mat[$DownRay.get_collider().interaction][8]
+				if $Camera2D/TextBox/Button0.button_pressed:
+					$DownRay.get_collider().interaction=$DownRay.get_collider().text_mat[$DownRay.get_collider().interaction][5]
+				if $Camera2D/TextBox/Button1.button_pressed:
+					$DownRay.get_collider().interaction=$DownRay.get_collider().text_mat[$DownRay.get_collider().interaction][7]
+				if $Camera2D/TextBox/Button2.button_pressed:
+					$DownRay.get_collider().interaction=$DownRay.get_collider().text_mat[$DownRay.get_collider().interaction][9]
+			3:
+				$Camera2D/TextBox/Button0.visible = 1
+				$Camera2D/TextBox/Button1.visible = 1
+				$Camera2D/TextBox/Button2.visible = 1
+				$Camera2D/TextBox/Button3.visible = 1
+				$Camera2D/TextBox/Button0.size = Vector2(180,24)
+				$Camera2D/TextBox/Button0.position = Vector2(36,24)
+				$Camera2D/TextBox/Button1.position = Vector2(252,24)
+				$Camera2D/TextBox/Button2.position = Vector2(36,60)
+				$Camera2D/TextBox/Button3.position = Vector2(252,60)
+				$Camera2D/TextBox/Button0.text = $DownRay.get_collider().text_mat[$DownRay.get_collider().interaction][4]
+				$Camera2D/TextBox/Button1.text = $DownRay.get_collider().text_mat[$DownRay.get_collider().interaction][6]
+				$Camera2D/TextBox/Button2.text = $DownRay.get_collider().text_mat[$DownRay.get_collider().interaction][8]
+				$Camera2D/TextBox/Button3.text = $DownRay.get_collider().text_mat[$DownRay.get_collider().interaction][10]
+				if $Camera2D/TextBox/Button0.button_pressed:
+					$DownRay.get_collider().interaction=$DownRay.get_collider().text_mat[$DownRay.get_collider().interaction][5]
+				if $Camera2D/TextBox/Button1.button_pressed:
+					$DownRay.get_collider().interaction=$DownRay.get_collider().text_mat[$DownRay.get_collider().interaction][7]
+				if $Camera2D/TextBox/Button2.button_pressed:
+					$DownRay.get_collider().interaction=$DownRay.get_collider().text_mat[$DownRay.get_collider().interaction][9]
+				if $Camera2D/TextBox/Button3.button_pressed:
+					$DownRay.get_collider().interaction=$DownRay.get_collider().text_mat[$DownRay.get_collider().interaction][11]
+
+		$Camera2D/TextBox.visible = 1
+		$Camera2D/pause.visible = 0
+		$Camera2D/Control.visible = 0
+		$Camera2D/minimap.visible = 0
+		$Camera2D/helf.visible = 0
+	else:
+		$Camera2D/TextBox.visible = 0
+		$Camera2D/pause.visible = 1
+		$Camera2D/Control.visible = 1
+		$Camera2D/minimap.visible = 1
+		$Camera2D/helf.visible = 1
+		Global.talking = false
+
 
 func move_step(dir: Vector2) -> void:
 	match dir:

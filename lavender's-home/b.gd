@@ -7,6 +7,7 @@ var wone = preload("res://images/prw1.png")
 var wtwo = preload("res://images/prw2.png")
 var can_move := true
 var moving := false
+var interaction=0
 var isplayer := false
 var isbox := false
 var isgoal := true
