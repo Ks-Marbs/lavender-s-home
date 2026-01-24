@@ -38,7 +38,7 @@ func _process(delta: float) -> void:
 	if active:
 		showtex()
 		$RichTextLabel.text = (str(self.name) + str(interaction))
-		if Input.is_action_just_pressed("interact"):
+		if Input.is_action_just_pressed("in"):
 			interaction += 1
 	else:
 		interaction = 0

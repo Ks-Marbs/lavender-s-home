@@ -9,7 +9,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	
+	$Allstats.text = "Health:"+str(Global.health)+"\n Hunger:"+str(Global.hunger)+"\n Hydration:"+str(Global.water)+"\n Sleepness:"+str(Global.sleep)
 	if $back.button_pressed:
 		Global.toggle = false
 	if $r.button_pressed:

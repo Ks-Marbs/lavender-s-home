@@ -149,6 +149,9 @@ func _ready():
 func _process(delta):
 	del = delta
 	$Camera2D/helf.value = Global.health
+	$Camera2D/helf/hunga.value = Global.hunger
+	$Camera2D/helf/wata.value = Global.water
+	$Camera2D/helf/eepy.value = Global.sleep
 	$Camera2D/helf/RichTextLabel.text = str(Global.moves)
 
 	if moving or not (int(position.x) % tile_size == 0 and int(position.y) % tile_size == 0):
@@ -203,6 +206,10 @@ func _process(delta):
 		hurten = true
 
 	if $RightRay.is_colliding() and $RightRay.get_collider().interaction != 0:
+		nextplan_move = Vector2(0,0)
+		t1 = 3
+		$RightRay.get_collider().nextplan_move= Vector2.ZERO
+		$RightRay.get_collider().t1 = 2
 		Global.talking = true
 		match $RightRay.get_collider().text_mat[$RightRay.get_collider().interaction][1]:
 			0:
@@ -226,6 +233,12 @@ func _process(delta):
 				$Camera2D/TextBox/Button0.size = Vector2(36,24)
 				$Camera2D/TextBox/Button0.text = ">"
 				$Camera2D/TextBox/Button0.position = Vector2(420,66)
+				if $Camera2D/TextBox/Button0.button_pressed:
+					if on:
+						$RightRay.get_collider().interaction=$RightRay.get_collider().text_mat[$RightRay.get_collider().interaction][4]
+					on = false
+				else:
+					on = true
 			1:
 				$Camera2D/TextBox/Button0.visible = 1
 				$Camera2D/TextBox/Button1.visible = 1
@@ -237,7 +250,11 @@ func _process(delta):
 				$Camera2D/TextBox/Button0.text = $RightRay.get_collider().text_mat[$RightRay.get_collider().interaction][4]
 				$Camera2D/TextBox/Button1.text = $RightRay.get_collider().text_mat[$RightRay.get_collider().interaction][6]
 				if $Camera2D/TextBox/Button0.button_pressed:
-					$RightRay.get_collider().interaction=$RightRay.get_collider().text_mat[$RightRay.get_collider().interaction][5]
+					if on:
+						$RightRay.get_collider().interaction=$RightRay.get_collider().text_mat[$RightRay.get_collider().interaction][5]
+					on = false
+				else:
+					on = true
 				if $Camera2D/TextBox/Button1.button_pressed:
 					$RightRay.get_collider().interaction=$RightRay.get_collider().text_mat[$RightRay.get_collider().interaction][7]
 			2:
@@ -253,7 +270,11 @@ func _process(delta):
 				$Camera2D/TextBox/Button1.text = $RightRay.get_collider().text_mat[$RightRay.get_collider().interaction][6]
 				$Camera2D/TextBox/Button2.text = $RightRay.get_collider().text_mat[$RightRay.get_collider().interaction][8]
 				if $Camera2D/TextBox/Button0.button_pressed:
-					$RightRay.get_collider().interaction=$RightRay.get_collider().text_mat[$RightRay.get_collider().interaction][5]
+					if on:
+						$RightRay.get_collider().interaction=$RightRay.get_collider().text_mat[$RightRay.get_collider().interaction][5]
+						on = false
+				else:
+					on = true
 				if $Camera2D/TextBox/Button1.button_pressed:
 					$RightRay.get_collider().interaction=$RightRay.get_collider().text_mat[$RightRay.get_collider().interaction][7]
 				if $Camera2D/TextBox/Button2.button_pressed:
@@ -273,7 +294,11 @@ func _process(delta):
 				$Camera2D/TextBox/Button2.text = $RightRay.get_collider().text_mat[$RightRay.get_collider().interaction][8]
 				$Camera2D/TextBox/Button3.text = $RightRay.get_collider().text_mat[$RightRay.get_collider().interaction][10]
 				if $Camera2D/TextBox/Button0.button_pressed:
-					$RightRay.get_collider().interaction=$RightRay.get_collider().text_mat[$RightRay.get_collider().interaction][5]
+					if on:
+						$RightRay.get_collider().interaction=$RightRay.get_collider().text_mat[$RightRay.get_collider().interaction][5]
+					on = false
+				else:
+					on = true
 				if $Camera2D/TextBox/Button1.button_pressed:
 					$RightRay.get_collider().interaction=$RightRay.get_collider().text_mat[$RightRay.get_collider().interaction][7]
 				if $Camera2D/TextBox/Button2.button_pressed:
@@ -287,7 +312,10 @@ func _process(delta):
 		$Camera2D/minimap.visible = 0
 		$Camera2D/helf.visible = 0
 	elif $LeftRay.is_colliding() and $LeftRay.get_collider().interaction != 0:
-		
+		nextplan_move = Vector2(0,0)
+		t1 = 2
+		$LeftRay.get_collider().nextplan_move= Vector2.ZERO
+		$LeftRay.get_collider().t1 = 3
 		match $LeftRay.get_collider().text_mat[$LeftRay.get_collider().interaction][1]:
 			0:
 				$Camera2D/TextBox.texture = load("res://images/lavbox.png")
@@ -310,6 +338,12 @@ func _process(delta):
 				$Camera2D/TextBox/Button0.size = Vector2(24,24)
 				$Camera2D/TextBox/Button0.text = ">"
 				$Camera2D/TextBox/Button0.position = Vector2(420,66)
+				if $Camera2D/TextBox/Button0.button_pressed:
+					if on:
+						$LeftRay.get_collider().interaction=$LeftRay.get_collider().text_mat[$LeftRay.get_collider().interaction][4]
+					on = false
+				else:
+					on = true
 			1:
 				$Camera2D/TextBox/Button0.visible = 1
 				$Camera2D/TextBox/Button1.visible = 1
@@ -321,7 +355,11 @@ func _process(delta):
 				$Camera2D/TextBox/Button0.text = $LeftRay.get_collider().text_mat[$LeftRay.get_collider().interaction][4]
 				$Camera2D/TextBox/Button1.text = $LeftRay.get_collider().text_mat[$LeftRay.get_collider().interaction][6]
 				if $Camera2D/TextBox/Button0.button_pressed:
-					$LeftRay.get_collider().interaction=$LeftRay.get_collider().text_mat[$LeftRay.get_collider().interaction][5]
+					if on:
+						$LeftRay.get_collider().interaction=$LeftRay.get_collider().text_mat[$LeftRay.get_collider().interaction][5]
+					on = false
+				else:
+					on = true
 				if $Camera2D/TextBox/Button1.button_pressed:
 					$LeftRay.get_collider().interaction=$LeftRay.get_collider().text_mat[$LeftRay.get_collider().interaction][7]
 			2:
@@ -337,7 +375,11 @@ func _process(delta):
 				$Camera2D/TextBox/Button1.text = $LeftRay.get_collider().text_mat[$LeftRay.get_collider().interaction][6]
 				$Camera2D/TextBox/Button2.text = $LeftRay.get_collider().text_mat[$LeftRay.get_collider().interaction][8]
 				if $Camera2D/TextBox/Button0.button_pressed:
-					$LeftRay.get_collider().interaction=$LeftRay.get_collider().text_mat[$LeftRay.get_collider().interaction][5]
+					if on:
+						$LeftRay.get_collider().interaction=$LeftRay.get_collider().text_mat[$LeftRay.get_collider().interaction][5]
+						on = false
+				else:
+					on = true
 				if $Camera2D/TextBox/Button1.button_pressed:
 					$LeftRay.get_collider().interaction=$LeftRay.get_collider().text_mat[$LeftRay.get_collider().interaction][7]
 				if $Camera2D/TextBox/Button2.button_pressed:
@@ -357,7 +399,11 @@ func _process(delta):
 				$Camera2D/TextBox/Button2.text = $LeftRay.get_collider().text_mat[$LeftRay.get_collider().interaction][8]
 				$Camera2D/TextBox/Button3.text = $LeftRay.get_collider().text_mat[$LeftRay.get_collider().interaction][10]
 				if $Camera2D/TextBox/Button0.button_pressed:
-					$LeftRay.get_collider().interaction=$LeftRay.get_collider().text_mat[$LeftRay.get_collider().interaction][5]
+					if on:
+						$LeftRay.get_collider().interaction=$LeftRay.get_collider().text_mat[$LeftRay.get_collider().interaction][5]
+						on = false
+				else:
+					on = true
 				if $Camera2D/TextBox/Button1.button_pressed:
 					$LeftRay.get_collider().interaction=$LeftRay.get_collider().text_mat[$LeftRay.get_collider().interaction][7]
 				if $Camera2D/TextBox/Button2.button_pressed:
@@ -371,6 +417,10 @@ func _process(delta):
 		$Camera2D/minimap.visible = 0
 		$Camera2D/helf.visible = 0
 	elif $UpRay.is_colliding() and $UpRay.get_collider().interaction != 0:
+		nextplan_move = Vector2(0,0)
+		t1 = 0
+		$UpRay.get_collider().nextplan_move= Vector2.ZERO
+		$UpRay.get_collider().t1 = 1
 		match $UpRay.get_collider().text_mat[$UpRay.get_collider().interaction][1]:
 			0:
 				$Camera2D/TextBox.texture = load("res://images/lavbox.png")
@@ -393,6 +443,12 @@ func _process(delta):
 				$Camera2D/TextBox/Button0.size = Vector2(24,24)
 				$Camera2D/TextBox/Button0.text = ">"
 				$Camera2D/TextBox/Button0.position = Vector2(420,66)
+				if $Camera2D/TextBox/Button0.button_pressed:
+					if on:
+						$UpRay.get_collider().interaction=$UpRay.get_collider().text_mat[$UpRay.get_collider().interaction][4]
+					on = false
+				else:
+					on = true
 			1:
 				$Camera2D/TextBox/Button0.visible = 1
 				$Camera2D/TextBox/Button1.visible = 1
@@ -404,7 +460,11 @@ func _process(delta):
 				$Camera2D/TextBox/Button0.text = $UpRay.get_collider().text_mat[$UpRay.get_collider().interaction][4]
 				$Camera2D/TextBox/Button1.text = $UpRay.get_collider().text_mat[$UpRay.get_collider().interaction][6]
 				if $Camera2D/TextBox/Button0.button_pressed:
-					$UpRay.get_collider().interaction=$UpRay.get_collider().text_mat[$UpRay.get_collider().interaction][5]
+					if on:
+						$UpRay.get_collider().interaction=$UpRay.get_collider().text_mat[$UpRay.get_collider().interaction][5]
+						on = false
+				else:
+					on = true
 				if $Camera2D/TextBox/Button1.button_pressed:
 					$UpRay.get_collider().interaction=$UpRay.get_collider().text_mat[$UpRay.get_collider().interaction][7]
 			2:
@@ -420,7 +480,11 @@ func _process(delta):
 				$Camera2D/TextBox/Button1.text = $UpRay.get_collider().text_mat[$UpRay.get_collider().interaction][6]
 				$Camera2D/TextBox/Button2.text = $UpRay.get_collider().text_mat[$UpRay.get_collider().interaction][8]
 				if $Camera2D/TextBox/Button0.button_pressed:
-					$UpRay.get_collider().interaction=$UpRay.get_collider().text_mat[$UpRay.get_collider().interaction][5]
+					if on:
+						$UpRay.get_collider().interaction=$UpRay.get_collider().text_mat[$UpRay.get_collider().interaction][5]
+						on = false
+				else:
+					on = true
 				if $Camera2D/TextBox/Button1.button_pressed:
 					$UpRay.get_collider().interaction=$UpRay.get_collider().text_mat[$UpRay.get_collider().interaction][7]
 				if $Camera2D/TextBox/Button2.button_pressed:
@@ -440,7 +504,11 @@ func _process(delta):
 				$Camera2D/TextBox/Button2.text = $UpRay.get_collider().text_mat[$UpRay.get_collider().interaction][8]
 				$Camera2D/TextBox/Button3.text = $UpRay.get_collider().text_mat[$UpRay.get_collider().interaction][10]
 				if $Camera2D/TextBox/Button0.button_pressed:
-					$UpRay.get_collider().interaction=$UpRay.get_collider().text_mat[$UpRay.get_collider().interaction][5]
+					if on:
+						$UpRay.get_collider().interaction=$UpRay.get_collider().text_mat[$UpRay.get_collider().interaction][5]
+						on = false
+				else:
+					on = true
 				if $Camera2D/TextBox/Button1.button_pressed:
 					$UpRay.get_collider().interaction=$UpRay.get_collider().text_mat[$UpRay.get_collider().interaction][7]
 				if $Camera2D/TextBox/Button2.button_pressed:
@@ -454,6 +522,10 @@ func _process(delta):
 		$Camera2D/minimap.visible = 0
 		$Camera2D/helf.visible = 0
 	elif $DownRay.is_colliding() and $DownRay.get_collider().interaction != 0:
+		nextplan_move = Vector2(0,0)
+		t1 = 1
+		$DownRay.get_collider().nextplan_move= Vector2.ZERO
+		$DownRay.get_collider().t1 = 0
 		match $DownRay.get_collider().text_mat[$DownRay.get_collider().interaction][1]:
 			0:
 				$Camera2D/TextBox.texture = load("res://images/lavbox.png")
@@ -476,6 +548,13 @@ func _process(delta):
 				$Camera2D/TextBox/Button0.size = Vector2(24,24)
 				$Camera2D/TextBox/Button0.text = ">"
 				$Camera2D/TextBox/Button0.position = Vector2(420,66)
+				if $Camera2D/TextBox/Button0.button_pressed:
+					if on:
+						$DownRay.get_collider().interaction=$DownRay.get_collider().text_mat[$DownRay.get_collider().interaction][4]
+					on = false
+					
+				else:
+					on = true
 			1:
 				$Camera2D/TextBox/Button0.visible = 1
 				$Camera2D/TextBox/Button1.visible = 1
@@ -487,7 +566,11 @@ func _process(delta):
 				$Camera2D/TextBox/Button0.text = $DownRay.get_collider().text_mat[$DownRay.get_collider().interaction][4]
 				$Camera2D/TextBox/Button1.text = $DownRay.get_collider().text_mat[$DownRay.get_collider().interaction][6]
 				if $Camera2D/TextBox/Button0.button_pressed:
-					$DownRay.get_collider().interaction=$DownRay.get_collider().text_mat[$DownRay.get_collider().interaction][5]
+					if on:
+						$DownRay.get_collider().interaction=$DownRay.get_collider().text_mat[$DownRay.get_collider().interaction][5]
+						on = false
+				else:
+					on = true
 				if $Camera2D/TextBox/Button1.button_pressed:
 					$DownRay.get_collider().interaction=$DownRay.get_collider().text_mat[$DownRay.get_collider().interaction][7]
 			2:
@@ -503,7 +586,11 @@ func _process(delta):
 				$Camera2D/TextBox/Button1.text = $DownRay.get_collider().text_mat[$DownRay.get_collider().interaction][6]
 				$Camera2D/TextBox/Button2.text = $DownRay.get_collider().text_mat[$DownRay.get_collider().interaction][8]
 				if $Camera2D/TextBox/Button0.button_pressed:
-					$DownRay.get_collider().interaction=$DownRay.get_collider().text_mat[$DownRay.get_collider().interaction][5]
+					if on:
+						$DownRay.get_collider().interaction=$DownRay.get_collider().text_mat[$DownRay.get_collider().interaction][5]
+					on = false
+				else:
+					on = true
 				if $Camera2D/TextBox/Button1.button_pressed:
 					$DownRay.get_collider().interaction=$DownRay.get_collider().text_mat[$DownRay.get_collider().interaction][7]
 				if $Camera2D/TextBox/Button2.button_pressed:
@@ -523,7 +610,11 @@ func _process(delta):
 				$Camera2D/TextBox/Button2.text = $DownRay.get_collider().text_mat[$DownRay.get_collider().interaction][8]
 				$Camera2D/TextBox/Button3.text = $DownRay.get_collider().text_mat[$DownRay.get_collider().interaction][10]
 				if $Camera2D/TextBox/Button0.button_pressed:
-					$DownRay.get_collider().interaction=$DownRay.get_collider().text_mat[$DownRay.get_collider().interaction][5]
+					if on:
+						$DownRay.get_collider().interaction=$DownRay.get_collider().text_mat[$DownRay.get_collider().interaction][5]
+						on = false
+				else:
+					on = true
 				if $Camera2D/TextBox/Button1.button_pressed:
 					$DownRay.get_collider().interaction=$DownRay.get_collider().text_mat[$DownRay.get_collider().interaction][7]
 				if $Camera2D/TextBox/Button2.button_pressed:
@@ -544,6 +635,8 @@ func _process(delta):
 		$Camera2D/helf.visible = 1
 		Global.talking = false
 
+	
+
 
 func move_step(dir: Vector2) -> void:
 	match dir:
@@ -558,6 +651,12 @@ func move_step(dir: Vector2) -> void:
 	moving = true
 	if dir != Vector2.ZERO:
 		Global.moves += 1
+		if Global.moves % 32 == 0:
+			Global.water -= 1
+		if Global.moves % 49 == 0:
+			Global.hunger -= 1
+		if Global.moves % 50 == 0:
+			Global.sleep -= 1
 	position += dir * step_size
 	await get_tree().create_timer(Global.mini_delay).timeout
 

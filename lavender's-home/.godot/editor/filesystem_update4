@@ -1,4 +1,7 @@
-res://ctrl.tscn
+res://level_1.tscn
 res://something.tres
-res://control.gd
+res://b.gd
+res://item.gd
+res://player.gd
 res://soap.gd
+res://stairs.gd

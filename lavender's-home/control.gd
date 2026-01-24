@@ -11,29 +11,34 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if $lef.button_pressed:
-		Input.action_press("left")
-		on = true
-	if $righ.button_pressed:
-		Input.action_press("right")
-		on = true
-	if $up.button_pressed:
-		Input.action_press("up")
-		on = true
 	if $down.button_pressed:
-		Input.action_press("down")
-		on = true
-	if $i.button_pressed:
-		Input.action_press("in")
-		on = true
-	if on and not $lef.button_pressed:
-		Input.action_release("left")
-	if  on and not $righ.button_pressed:
-		Input.action_release("right")
-	if  on and not $up.button_pressed:
-		Input.action_release("up")
-	if  on and not $down.button_pressed:
-		Input.action_release("down")
-	if  on and not $i.button_pressed:
-		Input.action_release("in")
+		if not Input.is_action_pressed("down"):
+			Input.action_press("down")
+	else:
+		if Input.is_action_pressed("down"):
+			Input.action_release("down")
+	if $up.button_pressed:
+		if not Input.is_action_pressed("up"):
+			Input.action_press("up")
+	else:
+		if Input.is_action_pressed("up"):
+			Input.action_release("up")
+	if $lef.button_pressed:
+		if not Input.is_action_pressed("left"):
+			Input.action_press("left")
+	else:
+		if Input.is_action_pressed("left"):
+			Input.action_release("left")
+	if $righ.button_pressed:
+		if not Input.is_action_pressed("right"):
+			Input.action_press("right")
+	else:
+		if Input.is_action_pressed("right"):
+			Input.action_release("right")
+	if $interact.button_pressed:
+		if not Input.is_action_pressed("in"):
+			Input.action_press("in")
+	else:
+		if Input.is_action_pressed("in"):
+			Input.action_release("in")
 	pass

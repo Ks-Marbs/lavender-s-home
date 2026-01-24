@@ -24,7 +24,8 @@ button_mask = 7
 texture_normal = ExtResource("2_cd56x")
 stretch_mode = 0
 
-[node name="i" type="TextureButton" parent="."]
+[node name="interact" type="TextureButton" parent="."]
+z_index = 1
 layout_mode = 0
 offset_left = 51.0
 offset_top = -18.0
