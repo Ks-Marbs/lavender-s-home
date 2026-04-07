@@ -4,6 +4,7 @@ var can_move := false
 var isplayer := false
 var yes=true
 var time= 2
+var item = 0
 var vis = 0.05
 var active = false
 var xcell := (position.x - (int(position.x) % 36)) / 36
@@ -29,7 +30,23 @@ func _process(delta: float) -> void:
 	$RichTextLabel.visible_characters = vis
 	if check():
 		if Input.is_action_pressed("in"):
-			Global.water += 10
+			match str(self.name)[0]:
+				"s":
+					match Global.level:
+						1:
+							get_tree().change_scene_to_file("res://level_2.tscn")
+							Global.level = 2
+						2:
+							get_tree().change_scene_to_file("res://level_1.tscn")
+							Global.level = 1
+				"d":
+					match Global.level:
+						3:
+							get_tree().change_scene_to_file("res://level_2.tscn")
+							Global.level = 2
+						2:
+							get_tree().change_scene_to_file("res://level_3.tscn")
+							Global.level = 3
 		vis += 0.05
 
 	else:

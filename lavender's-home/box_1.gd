@@ -3,6 +3,7 @@ extends Area2D
 var del=0
 var interaction=0
 var yes = true
+var item = 0
 var isplayer := false
 var isbox := true
 var isgoal := false

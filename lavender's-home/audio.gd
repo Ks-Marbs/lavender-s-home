@@ -1,11 +1,11 @@
-extends AudioStreamPlayer
+extends Node2D
+var a = 0
+var volume_linear:=1
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	$masterloop.play(a)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _physics_process(delta: float) -> void:
+	$masterloop.volume_linear = volume_linear
+	if $masterloop.get_playback_position() > a+8:
+		$masterloop.play(a)

@@ -25,17 +25,21 @@ region_rect = Rect2(0, 0, 36, 36)
 shape = SubResource("RectangleShape2D_tia2a")
 
 [node name="DownRay" type="RayCast2D" parent="."]
+position = Vector2(-5, 0)
 target_position = Vector2(0, 19)
 collide_with_areas = true
 
 [node name="UpRay" type="RayCast2D" parent="."]
+position = Vector2(5, 0)
 target_position = Vector2(0, -19)
 collide_with_areas = true
 
 [node name="RightRay" type="RayCast2D" parent="."]
+position = Vector2(0, 6)
 target_position = Vector2(19, 0)
 collide_with_areas = true
 
 [node name="LeftRay" type="RayCast2D" parent="."]
+position = Vector2(0, -8)
 target_position = Vector2(-19, 0)
 collide_with_areas = true

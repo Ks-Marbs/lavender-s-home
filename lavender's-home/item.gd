@@ -1,7 +1,8 @@
 extends Area2D
-var interaction = 1
+var interaction = 0
 var item = 1
 var can_move := false
+var on := true
 var isplayer := false
 var yes=true
 var time= 2
@@ -30,7 +31,16 @@ func _process(delta: float) -> void:
 	$RichTextLabel.visible_characters = vis
 	if check():
 		vis += 0.05
-
+		if Input.is_action_pressed("in"):
+			if Global.water < 100 and on:
+				on = false
+				visible = 0
+				Global.water += 10
+				if Global.water > 100:
+					Global.water = 100
+		return
 	else:
 		vis = 0
+	if not on:
+		visible = 0
 #AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA

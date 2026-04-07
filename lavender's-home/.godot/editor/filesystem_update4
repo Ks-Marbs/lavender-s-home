@@ -1,7 +1,12 @@
 res://level_1.tscn
 res://something.tres
-res://b.gd
-res://item.gd
+res://global.gd
 res://player.gd
+res://Start.tscn
+res://start.gd
+res://audio.tscn
+res://audio.gd
 res://soap.gd
-res://stairs.gd
+res://bob.tscn
+res://level_3.tscn
+res://player.tscn

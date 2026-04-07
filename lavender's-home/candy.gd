@@ -1,0 +1,46 @@
+extends Area2D
+var interaction = 0
+var item = 1
+var can_move := false
+var on := true
+var isplayer := false
+var yes=true
+var time= 2
+var vis = 0.05
+var active = false
+var xcell := (position.x - (int(position.x) % 36)) / 36
+var ycell := (position.y - (int(position.y) % 36)) / 36
+func _ready() -> void:
+	pass
+
+
+func check():
+	if(($LeftRay.is_colliding() and $LeftRay.get_collider().isplayer and $LeftRay.get_collider().t1==3) or\
+	 ($RightRay.is_colliding() and $RightRay.get_collider().isplayer and $RightRay.get_collider().t1==2) or\
+	($UpRay.is_colliding() and $UpRay.get_collider().isplayer and $UpRay.get_collider().t1==1) or\
+	($DownRay.is_colliding() and $DownRay.get_collider().isplayer and $DownRay.get_collider().t1==0)) and Global.get_matrix(xcell,ycell,Global.room_matrix)==0 or\
+	(($LeftRay.is_colliding() and $LeftRay.get_collider().isplayer and$LeftRay.get_collider().t1==3) and ((Global.get_matrix(xcell,ycell,Global.room_matrix)==Global.get_matrix(xcell-1,ycell,Global.room_matrix)) or Global.get_matrix(xcell-1,ycell,Global.room_matrix) == 0)) or\
+	 (($RightRay.is_colliding() and $RightRay.get_collider().isplayer and$RightRay.get_collider().t1==2) and ((Global.get_matrix(xcell,ycell,Global.room_matrix)==Global.get_matrix(xcell+1,ycell,Global.room_matrix)) or Global.get_matrix(xcell+1,ycell,Global.room_matrix) == 0)) or\
+	(($UpRay.is_colliding() and $UpRay.get_collider().isplayer and$UpRay.get_collider().t1==1)  and ((Global.get_matrix(xcell,ycell,Global.room_matrix)==Global.get_matrix(xcell,ycell-1,Global.room_matrix)) or Global.get_matrix(xcell,ycell-1,Global.room_matrix) == 0)) or\
+	(($DownRay.is_colliding() and $DownRay.get_collider().isplayer and$DownRay.get_collider().t1==0) and ((Global.get_matrix(xcell,ycell,Global.room_matrix)==Global.get_matrix(xcell,ycell+1,Global.room_matrix)) or Global.get_matrix(xcell,ycell+1,Global.room_matrix) == 0)):
+		return true
+	else:
+		return false
+
+func _process(delta: float) -> void:
+	$RichTextLabel.visible_characters = vis
+	if check():
+		vis += 0.05
+		if Input.is_action_pressed("in"):
+			if Global.hunger < 100 and on:
+				on = false
+				visible = 0
+				Global.hunger += 10
+				if Global.hunger > 100:
+					Global.hunger = 100
+		return
+	else:
+		vis = 0
+	if not on:
+		visible = 0
+#AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
