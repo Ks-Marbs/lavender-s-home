@@ -17,7 +17,7 @@ var interaction:= 0
 var item= 0
 var xcell := (position.x - (int(position.x) % 36)) / 36
 var ycell := (position.y - (int(position.y) % 36)) / 36
-var numb = 1
+var numb = 0
 var moving:= false
 var tile_size := 36
 var step_size := 4
@@ -45,8 +45,8 @@ func showtex():
 	vis += 0.2
 
 func control():
-	if not Global.toggle and not Global.clear and not Global.talking:
-		match Global[self.name][numb]:
+	if not Global.toggle and not Global.clear and not Global.talking and numb > 0:
+		match Global[self.name][numb+6]:
 			0:
 				nextplan_move = Vector2.ZERO
 			1:
@@ -111,9 +111,6 @@ func _process(delta):
 			if interaction == 0: 
 				interaction = 1
 				return
-			elif Global.story[Global.storystep][interaction][3]==0:
-				interaction = Global.story[Global.storystep][interaction][4]
-				return
 		else:
 			on = true
 	else:
@@ -162,6 +159,25 @@ func _process(delta):
 
 		0:
 			control()
+
+	if (interaction == 13 and Global.storystep == 0):
+		get_tree().change_scene_to_file("res://level_1.tscn")
+		Global.storystep+=1
+	if str(self.name) == "Soap" and interaction == 29 and Global.storystep == 1:
+		Global.black = true
+		await get_tree().create_timer(4).timeout
+		interaction = 0
+		Global.storystep = 2
+		Global.sleeping = true
+		visible = 0
+	if str(self.name) == "Winterblush" and interaction == 19 and Global.storystep == 2:
+		Global.black = true
+		await get_tree().create_timer(4).timeout
+		Global.storystep = 3
+		$Sprite2d.visible = 1
+		visible = 1
+		Global.sleeping = false
+		Global.black = false
 
 func move_step(dir: Vector2) -> void:
 	if dir != Vector2.ZERO:

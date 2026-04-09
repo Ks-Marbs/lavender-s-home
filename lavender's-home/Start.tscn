@@ -236,11 +236,6 @@ autowrap_mode = 0
 tab_size = 1
 horizontal_alignment = 1
 
-[node name="sets" parent="." instance=ExtResource("19_t2u55")]
-visible = false
-z_index = 12
-position = Vector2(-22, 49)
-
 [node name="Camera2D" type="Camera2D" parent="."]
 z_index = 60
 ignore_rotation = false
@@ -294,8 +289,17 @@ texture_hover = ExtResource("13_rd4an")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
-offset_left = -596.0
-offset_top = -377.0
-offset_right = 612.0
-offset_bottom = 400.0
+z_as_relative = false
+offset_left = -596.00006
+offset_top = -377.00003
+offset_right = 611.99994
+offset_bottom = 399.99997
 color = Color(0.00042642304, 0.00031762302, 0.0005454869, 0.81960785)
+
+[node name="sets" parent="." instance=ExtResource("19_t2u55")]
+visible = false
+top_level = true
+z_index = 18
+z_as_relative = false
+position = Vector2(-17, 80)
+scale = Vector2(0.95, 0.95)

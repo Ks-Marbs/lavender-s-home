@@ -1,29 +1,31 @@
-[gd_scene load_steps=5 format=3 uid="uid://ce7m475fwha0k"]
+[gd_scene load_steps=6 format=3 uid="uid://ce7m475fwha0k"]
 
-[ext_resource type="Script" uid="uid://cclu1mwkxhkaa" path="res://settings.gd" id="1_8i7gq"]
+[ext_resource type="Script" uid="uid://beds3ixbvr6l4" path="res://setrs.gd" id="1_b2vfk"]
 [ext_resource type="FontFile" uid="uid://djfbke8b4o6dx" path="res://images/something.ttf" id="2_b2vfk"]
-[ext_resource type="Texture2D" uid="uid://cpenogxa3lamr" path="res://images/icon.png" id="3_m1ukl"]
+[ext_resource type="Theme" uid="uid://cfbvw2nuu400q" path="res://something.tres" id="3_4b44x"]
+[ext_resource type="Texture2D" uid="uid://d052wn1c10xl2" path="res://images/icon.png" id="3_m1ukl"]
 
 [sub_resource type="GDScript" id="GDScript_upmy7"]
 
 [node name="sets" type="Node2D"]
-script = ExtResource("1_8i7gq")
+scale = Vector2(0.0036894954, 0.0036894954)
+script = ExtResource("1_b2vfk")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -2608.0
-offset_top = -1552.0
-offset_right = -988.07227
-offset_bottom = -706.05774
-scale = Vector2(3.91354, 4.967719)
+offset_left = -4266.044
+offset_top = -2074.7834
+offset_right = -2692.3264
+offset_bottom = -1228.8412
+scale = Vector2(5.5297346, 5.1559505)
 size_flags_stretch_ratio = 0.0
 color = Color(0.108259045, 3.8721188e-05, 0.14086977, 0.7254902)
 
 [node name="Settings" type="RichTextLabel" parent="."]
 custom_minimum_size = Vector2(36, 0)
-offset_left = -219.00003
-offset_top = -309.0
-offset_right = -141.33334
-offset_bottom = -285.77777
+offset_left = -587.85126
+offset_top = -460.8885
+offset_right = -387.85126
+offset_bottom = -437.6665
 scale = Vector2(6, 6)
 size_flags_horizontal = 3
 size_flags_vertical = 0
@@ -35,13 +37,15 @@ text = "5ettings"
 scroll_active = false
 autowrap_mode = 0
 tab_size = 1
+horizontal_alignment = 1
 script = SubResource("GDScript_upmy7")
+metadata/_edit_use_anchors_ = true
 
 [node name="back" type="Button" parent="."]
-offset_left = -102.0
-offset_top = 123.0
-offset_right = 102.0
-offset_bottom = 230.0
+offset_left = -196.83162
+offset_top = 160.82727
+offset_right = 226.55678
+offset_bottom = 267.82727
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.7891721, 0.7891721, 0.78917205, 1)
 theme_override_colors/font_hover_color = Color(0.8517688, 0.8517689, 0.8517693, 1)
@@ -52,10 +56,10 @@ flat = true
 
 [node name="Grid Opacity" type="RichTextLabel" parent="."]
 custom_minimum_size = Vector2(36, 0)
-offset_left = -253.0
-offset_top = -196.0
-offset_right = 278.0
-offset_bottom = -76.0
+offset_left = -484.2149
+offset_top = -330.94852
+offset_right = 515.785
+offset_bottom = -210.94852
 size_flags_horizontal = 3
 size_flags_vertical = 0
 size_flags_stretch_ratio = 20.0
@@ -67,14 +71,16 @@ text = " Grid Opacity
 scroll_active = false
 autowrap_mode = 0
 tab_size = 1
+horizontal_alignment = 1
 script = SubResource("GDScript_upmy7")
+metadata/_edit_use_anchors_ = true
 
 [node name="Volume" type="RichTextLabel" parent="."]
 custom_minimum_size = Vector2(36, 0)
-offset_left = -126.0
-offset_top = -45.0
-offset_right = 141.0
-offset_bottom = 75.0
+offset_left = -276.4837
+offset_top = -207.0656
+offset_right = 341.46362
+offset_bottom = -87.0656
 size_flags_horizontal = 3
 size_flags_vertical = 0
 size_flags_stretch_ratio = 20.0
@@ -85,13 +91,14 @@ text = "Volume"
 scroll_active = false
 autowrap_mode = 0
 tab_size = 1
+horizontal_alignment = 1
 script = SubResource("GDScript_upmy7")
 
 [node name="gos" type="HSlider" parent="."]
-offset_left = -242.0
-offset_top = -73.0
-offset_right = 251.0
-offset_bottom = -37.0
+offset_left = -242.40758
+offset_top = -235.30103
+offset_right = 250.59242
+offset_bottom = -199.30103
 theme_override_icons/grabber = ExtResource("3_m1ukl")
 theme_override_icons/grabber_highlight = ExtResource("3_m1ukl")
 theme_override_icons/grabber_disabled = ExtResource("3_m1ukl")
@@ -100,12 +107,13 @@ step = 0.1
 tick_count = 11
 ticks_on_borders = true
 ticks_position = 3
+metadata/_edit_use_anchors_ = true
 
 [node name="vol" type="HSlider" parent="."]
-offset_left = -241.00003
-offset_top = 57.0
-offset_right = 251.99997
-offset_bottom = 93.0
+offset_left = -241.40758
+offset_top = -119.30102
+offset_right = 251.59242
+offset_bottom = -83.30102
 theme_override_icons/grabber = ExtResource("3_m1ukl")
 theme_override_icons/grabber_highlight = ExtResource("3_m1ukl")
 theme_override_icons/grabber_disabled = ExtResource("3_m1ukl")
@@ -114,3 +122,41 @@ step = 0.1
 tick_count = 11
 ticks_on_borders = true
 ticks_position = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Language" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(36, 0)
+offset_left = -355.0468
+offset_top = -78.96307
+offset_right = 451.22797
+offset_bottom = 41.036926
+size_flags_horizontal = 3
+size_flags_vertical = 0
+size_flags_stretch_ratio = 20.0
+localize_numeral_system = false
+theme = ExtResource("3_4b44x")
+theme_override_fonts/normal_font = ExtResource("2_b2vfk")
+theme_override_font_sizes/normal_font_size = 72
+text = "Language"
+scroll_active = false
+autowrap_mode = 0
+tab_size = 0
+horizontal_alignment = 1
+script = SubResource("GDScript_upmy7")
+
+[node name="lan" type="OptionButton" parent="."]
+offset_left = -215.6901
+offset_top = 52.836983
+offset_right = 21.309937
+offset_bottom = 93.33698
+scale = Vector2(2, 2)
+theme = ExtResource("3_4b44x")
+flat = true
+selected = 0
+item_count = 3
+popup/item_0/text = "English"
+popup/item_0/id = 0
+popup/item_1/text = "Português"
+popup/item_1/id = 1
+popup/item_2/text = "𐑖𐑱𐑝𐑾𐑯"
+popup/item_2/id = 2

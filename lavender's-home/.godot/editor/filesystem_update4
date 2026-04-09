@@ -10,3 +10,16 @@ res://soap.gd
 res://bob.tscn
 res://level_3.tscn
 res://player.tscn
+res://level_2.tscn
+res://item.gd
+res://candy.gd
+res://sec.gd
+res://stairs.gd
+res://cle.tscn
+res://cle.gd
+res://setrs.tscn
+res://settin.gd
+res://settings.tscn
+res://setrs.gd
+res://slep.gd
+res://export_presets.cfg

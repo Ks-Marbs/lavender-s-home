@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://vi4sb3skm5dd" path="res://settin.gd" id="1_3ykye"]
 [ext_resource type="Theme" uid="uid://cfbvw2nuu400q" path="res://something.tres" id="3_gc0em"]
 [ext_resource type="FontFile" uid="uid://djfbke8b4o6dx" path="res://images/something.ttf" id="4_3j6r5"]
-[ext_resource type="Texture2D" uid="uid://cpenogxa3lamr" path="res://images/icon.png" id="5_cj1lu"]
+[ext_resource type="Texture2D" uid="uid://d052wn1c10xl2" path="res://images/icon.png" id="5_cj1lu"]
 
 [sub_resource type="GDScript" id="GDScript_upmy7"]
 
@@ -226,5 +226,5 @@ popup/item_0/text = "English"
 popup/item_0/id = 0
 popup/item_1/text = "Português"
 popup/item_1/id = 1
-popup/item_2/text = "Shavian"
+popup/item_2/text = "𐑖𐑱𐑝𐑾𐑯"
 popup/item_2/id = 2

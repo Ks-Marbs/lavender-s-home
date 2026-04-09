@@ -29,18 +29,14 @@ func check():
 
 func _process(delta: float) -> void:
 	$RichTextLabel.visible_characters = vis
+	if Input.is_action_just_released("in") and on and Global.hunger < 100 and check():
+		on = false
+		visible = 0
+		Global.hunger += 10
+		if Global.hunger > 100:
+			Global.hunger = 100
 	if check():
 		vis += 0.05
-		if Input.is_action_pressed("in"):
-			if Global.hunger < 100 and on:
-				on = false
-				visible = 0
-				Global.hunger += 10
-				if Global.hunger > 100:
-					Global.hunger = 100
-		return
 	else:
 		vis = 0
-	if not on:
-		visible = 0
 #AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA

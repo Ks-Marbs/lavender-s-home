@@ -31,7 +31,8 @@ func _process(delta: float) -> void:
 	if check():
 		if Input.is_action_pressed("in"):
 			match str(self.name)[0]:
-				"s":
+				"S":
+					Global.took_stairs = true
 					match Global.level:
 						1:
 							get_tree().change_scene_to_file("res://level_2.tscn")
@@ -39,7 +40,8 @@ func _process(delta: float) -> void:
 						2:
 							get_tree().change_scene_to_file("res://level_1.tscn")
 							Global.level = 1
-				"d":
+				"D":
+					Global.took_door = true
 					match Global.level:
 						3:
 							get_tree().change_scene_to_file("res://level_2.tscn")

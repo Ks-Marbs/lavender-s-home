@@ -1,6 +1,7 @@
 extends Area2D
 var isbox := false
 var on := false
+var boop:= true
 var hurten := false
 var del = 0.18
 var yes = true
@@ -24,7 +25,10 @@ func e(ray):
 	else:
 		return Global.story[Global.storystep][ray.get_collider().interaction][2][Global.lang]
 
-func prepare():
+func blop(ray):
+	await get_tree().create_timer(Global.story[Global.storystep][ray.get_collider().interaction][2]).timeout
+	ray.get_collider().interaction = Global.story[Global.storystep][ray.get_collider().interaction][3]
+	boop = true
 	pass
 
 func setbutton(button,text,pos,size,vis):
@@ -147,7 +151,6 @@ func wiggle():
 		wiggling = false
 
 func _ready():
-	prepare()
 	wiggle()
 	move_step(Vector2.ZERO)
 
@@ -175,8 +178,10 @@ func interact(ray):
 				$Camera2D/TextBox/Textname.self_modulate = Color(0.695, 0.478, 1.0, 1.0)
 				$Camera2D/TextBox/Textname/text.text = (["Lavender","Lavender","·𐑤𐑨𐑝𐑩𐑯𐑛𐑼"])[Global.lang]
 				$Camera2D/TextBox/icon.visible = 1
+				$Camera2D/TextBox.visible = 1
 				$Camera2D/TextBox/Textname.visible = 1
 				$Camera2D/TextBox/icon.texture = load("res://images/lavicon"+str(Global.story[Global.storystep][ray.get_collider().interaction][1])+".png")
+				$anim.visible = 0
 			1:
 				$Camera2D/TextBox.texture = load("res://images/soapbox.png")
 				$Camera2D/TextBox/icon.position = Vector2(0,-216)
@@ -184,108 +189,144 @@ func interact(ray):
 				$Camera2D/TextBox/Textname.self_modulate = Color(0.929, 0.753, 1.0)
 				$Camera2D/TextBox/Textname/text.text = (["Soap","Soap","·𐑕𐑴𐑐"])[Global.lang]
 				$Camera2D/TextBox/icon.visible = 1
+				$Camera2D/TextBox.visible = 1
 				$Camera2D/TextBox/Textname.visible = 1
 				$Camera2D/TextBox/icon.texture = load("res://images/soapicon"+str(Global.story[Global.storystep][ray.get_collider().interaction][1])+".png")
+				$anim.visible = 0
 			2:
 				$Camera2D/TextBox.texture = load("res://images/wbbox.png")
 				$Camera2D/TextBox/icon.position = Vector2(0,-216)
+				$Camera2D/TextBox.visible = 1
 				$Camera2D/TextBox/Textname.position = Vector2(0,-36)
 				$Camera2D/TextBox/Textname.self_modulate = Color(0.847, 0.443, 0.926, 1.0)
 				$Camera2D/TextBox/Textname/text.text = (["Winterblush","Winterblush","·𐑢𐑦𐑯𐑑𐑼𐑚𐑤𐑳𐑖"])[Global.lang]
 				$Camera2D/TextBox/icon.visible = 1
 				$Camera2D/TextBox/Textname.visible = 1
 				$Camera2D/TextBox/icon.texture = load("res://images/wbicon"+str(Global.story[Global.storystep][ray.get_collider().interaction][1])+".png")
+				$anim.visible = 0
 			3:
 				$Camera2D/TextBox.texture = load("res://images/petalbox.png")
 				$Camera2D/TextBox/icon.position = Vector2(0,-216)
+				$Camera2D/TextBox.visible = 1
 				$Camera2D/TextBox/Textname.position = Vector2(0,-36)
 				$Camera2D/TextBox/Textname.self_modulate = Color(0.697, 0.531, 0.974, 1.0)
 				$Camera2D/TextBox/Textname/text.text = (["Petal","Petal","·𐑐𐑧𐑑𐑩𐑤"])[Global.lang]
 				$Camera2D/TextBox/icon.visible = 1
 				$Camera2D/TextBox/Textname.visible = 1
 				$Camera2D/TextBox/icon.texture = load("res://images/petalicon"+str(Global.story[Global.storystep][ray.get_collider().interaction][1])+".png")
+				$anim.visible = 0
 			4:
 				$Camera2D/TextBox.texture = load("res://images/lavbox.png")
 				$Camera2D/TextBox/icon.position = Vector2(324,-216)
-				
+				$Camera2D/TextBox.visible = 1
 				$Camera2D/TextBox/Textname.position = Vector2(412,-36)
 				$Camera2D/TextBox/Textname.self_modulate = Color(0.695, 0.478, 1.0, 1.0)
 				$Camera2D/TextBox/Textname/text.text = (["Lavender","Lavender","·𐑤𐑨𐑝𐑩𐑯𐑛𐑼"])[Global.lang]
 				$Camera2D/TextBox/icon.texture = load("res://images/lavicon1"+str(Global.story[Global.storystep][ray.get_collider().interaction][1])+".png")
 				$Camera2D/TextBox/icon.visible = 1
 				$Camera2D/TextBox/Textname.visible = 1
+				$anim.visible = 0
 			5:
 				$Camera2D/TextBox.texture = load("res://images/lavbox.png")
-				
+				$Camera2D/TextBox.visible = 1
 				$Camera2D/TextBox/Textname.visible = 0
 				$Camera2D/TextBox/icon.visible = 0
+				$anim.visible = 0
+			6:
+				$Camera2D/TextBox.texture = load("res://images/lavbox.png")
+				$Camera2D/TextBox.visible = 0
+				$Camera2D/TextBox/icon.visible = 0
+				$anim.visible = 0
 
-		match Global.story[Global.storystep][ray.get_collider().interaction][3]:
-			0:
-				setbutton($Camera2D/TextBox/Button0,">",Vector2(504,54),Vector2(36,24),1)
-				$Camera2D/TextBox/text.text = e(ray)
+			"A":
+				$Camera2D/TextBox.visible = 0
+				$anim.visible = 1
+				$anim.texture = Global.story[Global.storystep][ray.get_collider().interaction][1]
+				if boop:
+					boop = false
+					blop(ray)
+			"B":
+				$Camera2D/TextBox/Button0.visible = 0
 				$Camera2D/TextBox/Button1.visible = 0
 				$Camera2D/TextBox/Button2.visible = 0
 				$Camera2D/TextBox/Button3.visible = 0
-				if $Camera2D/TextBox/Button0.button_pressed:
-					if on:
-						ray.get_collider().interaction=Global.story[Global.storystep][ray.get_collider().interaction][4]
-					on = false
-				else:
-					on = true
-			2:
-				setbutton($Camera2D/TextBox/Button0,Global.story[Global.storystep][ray.get_collider().interaction][4][Global.lang],Vector2(36,24),Vector2(216,24),1)
-				setbutton($Camera2D/TextBox/Button1,Global.story[Global.storystep][ray.get_collider().interaction][6][Global.lang],Vector2(36,60),Vector2(216,24),1)
-				$Camera2D/TextBox/Button2.visible = 0
-				$Camera2D/TextBox/Button3.visible = 0
-				$Camera2D/TextBox/text.text = e(ray)
-				if $Camera2D/TextBox/Button0.button_pressed:
-					if on:
-						ray.get_collider().interaction=Global.story[Global.storystep][ray.get_collider().interaction][5]
-					on = false
-				else:
-					on = true
-				if $Camera2D/TextBox/Button1.button_pressed:
-					ray.get_collider().interaction=Global.story[Global.storystep][ray.get_collider().interaction][7]
-			3:
-				setbutton($Camera2D/TextBox/Button0,Global.story[Global.storystep][ray.get_collider().interaction][4][Global.lang],Vector2(36,24),Vector2(216,24),1)
-				setbutton($Camera2D/TextBox/Button1,Global.story[Global.storystep][ray.get_collider().interaction][6][Global.lang],Vector2(216,24),Vector2(216,24),1)
-				setbutton($Camera2D/TextBox/Button2,Global.story[Global.storystep][ray.get_collider().interaction][8][Global.lang],Vector2(162,60),Vector2(216,24),1)
-				$Camera2D/TextBox/Button3.visible = 0
-				$Camera2D/TextBox/text.text = e(ray)
-				if $Camera2D/TextBox/Button0.button_pressed:
-					if on:
-						ray.get_collider().interaction=Global.story[Global.storystep][ray.get_collider().interaction][5]
-						on = false
-				else:
-					on = true
-				if $Camera2D/TextBox/Button1.button_pressed:
-					ray.get_collider().interaction=Global.story[Global.storystep][ray.get_collider().interaction][7]
-				if $Camera2D/TextBox/Button2.button_pressed:
-					ray.get_collider().interaction=Global.story[Global.storystep][ray.get_collider().interaction][9]
-			4:
-				setbutton($Camera2D/TextBox/Button0,Global.story[Global.storystep][ray.get_collider().interaction][4][Global.lang],Vector2(36,24),Vector2(216,24),1)
-				setbutton($Camera2D/TextBox/Button1,Global.story[Global.storystep][ray.get_collider().interaction][6][Global.lang],Vector2(216,24),Vector2(216,24),1)
-				setbutton($Camera2D/TextBox/Button2,Global.story[Global.storystep][ray.get_collider().interaction][8][Global.lang],Vector2(36,60),Vector2(216,24),1)
-				setbutton($Camera2D/TextBox/Button3,Global.story[Global.storystep][ray.get_collider().interaction][10][Global.lang],Vector2(216,60),Vector2(216,24),1)
-				if $Camera2D/TextBox/Button0.button_pressed:
-					if on:
-						ray.get_collider().interaction=Global.story[Global.storystep][ray.get_collider().interaction][5]
-					on = false
-				else:
-					on = true
-				if $Camera2D/TextBox/Button1.button_pressed:
-					ray.get_collider().interaction=Global.story[Global.storystep][ray.get_collider().interaction][7]
-				if $Camera2D/TextBox/Button2.button_pressed:
-					ray.get_collider().interaction=Global.story[Global.storystep][ray.get_collider().interaction][9]
-				if $Camera2D/TextBox/Button3.button_pressed:
-					ray.get_collider().interaction=Global.story[Global.storystep][ray.get_collider().interaction][11]
+				$Camera2D/TextBox.visible = 1
+				$Camera2D/TextBox/icon.visible = 0
+				match Global.story[Global.storystep][ray.get_collider().interaction][4]: 
+					0: $Camera2D/TextBox.texture = load("res://images/lavbox.png"); $Camera2D/TextBox/Textname/text.text = (["Lavender","Lavender","·𐑤𐑨𐑝𐑩𐑯𐑛𐑼"])[Global.lang]; #aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+					1: $Camera2D/TextBox.texture = load("res://images/soapbox.png"); $Camera2D/TextBox/Textname/text.text = (["Soap","Soap","·𐑕𐑴𐑐"])[Global.lang]
+					2: $Camera2D/TextBox.texture = load("res://images/wbbox.png");$Camera2D/TextBox/Textname/text.text = (["Winterblush","Winterblush","·𐑢𐑦𐑯𐑑𐑼𐑚𐑤𐑳𐑖"])[Global.lang]
+					3: $Camera2D/TextBox.texture = load("res://images/petalbox.png");$Camera2D/TextBox/Textname/text.text = (["Petal","Petal","·𐑐𐑧𐑑𐑩𐑤"])[Global.lang]
+				$Camera2D/TextBox/text.text = Global.story[Global.storystep][ray.get_collider().interaction][5][Global.lang]
+				$anim.visible = 1
+				$anim.texture = Global.story[Global.storystep][ray.get_collider().interaction][1]
+				if boop:
+					boop = false
+					blop(ray)
 
-		$Camera2D/TextBox.visible = 1
-		$Camera2D/pause.visible = 0
-		$Camera2D/Control.visible = 0
-		$Camera2D/minimap.visible = 0
-		$Camera2D/helf.visible = 0
+		if typeof(Global.story[Global.storystep][ray.get_collider().interaction][0]) != TYPE_STRING:
+			$Camera2D/pause.visible = 0
+			$Camera2D/helf.visible = 0
+			match Global.story[Global.storystep][ray.get_collider().interaction][3]:
+				0:
+					setbutton($Camera2D/TextBox/Button0,">",Vector2(504,54),Vector2(36,24),1)
+					$Camera2D/TextBox/text.text = e(ray)
+					$Camera2D/TextBox/Button1.visible = 0
+					$Camera2D/TextBox/Button2.visible = 0
+					$Camera2D/TextBox/Button3.visible = 0
+					if $Camera2D/TextBox/Button0.button_pressed or Input.is_action_pressed("in"):
+						if on:
+							ray.get_collider().interaction=Global.story[Global.storystep][ray.get_collider().interaction][4]
+						on = false
+					else:
+						on = true
+				2:
+					setbutton($Camera2D/TextBox/Button0,Global.story[Global.storystep][ray.get_collider().interaction][4][Global.lang],Vector2(36,24),Vector2(216,24),1)
+					setbutton($Camera2D/TextBox/Button1,Global.story[Global.storystep][ray.get_collider().interaction][6][Global.lang],Vector2(36,60),Vector2(216,24),1)
+					$Camera2D/TextBox/Button2.visible = 0
+					$Camera2D/TextBox/Button3.visible = 0
+					$Camera2D/TextBox/text.text = e(ray)
+					if $Camera2D/TextBox/Button0.button_pressed:
+						if on:
+							ray.get_collider().interaction=Global.story[Global.storystep][ray.get_collider().interaction][5]
+						on = false
+					else:
+						on = true
+					if $Camera2D/TextBox/Button1.button_pressed:
+						ray.get_collider().interaction=Global.story[Global.storystep][ray.get_collider().interaction][7]
+				3:
+					setbutton($Camera2D/TextBox/Button0,Global.story[Global.storystep][ray.get_collider().interaction][4][Global.lang],Vector2(36,24),Vector2(216,24),1)
+					setbutton($Camera2D/TextBox/Button1,Global.story[Global.storystep][ray.get_collider().interaction][6][Global.lang],Vector2(216,24),Vector2(216,24),1)
+					setbutton($Camera2D/TextBox/Button2,Global.story[Global.storystep][ray.get_collider().interaction][8][Global.lang],Vector2(162,60),Vector2(216,24),1)
+					$Camera2D/TextBox/Button3.visible = 0
+					$Camera2D/TextBox/text.text = e(ray)
+					if $Camera2D/TextBox/Button0.button_pressed:
+						if on:
+							ray.get_collider().interaction=Global.story[Global.storystep][ray.get_collider().interaction][5]
+							on = false
+					else:
+						on = true
+					if $Camera2D/TextBox/Button1.button_pressed:
+						ray.get_collider().interaction=Global.story[Global.storystep][ray.get_collider().interaction][7]
+					if $Camera2D/TextBox/Button2.button_pressed:
+						ray.get_collider().interaction=Global.story[Global.storystep][ray.get_collider().interaction][9]
+				4:
+					setbutton($Camera2D/TextBox/Button0,Global.story[Global.storystep][ray.get_collider().interaction][4][Global.lang],Vector2(36,24),Vector2(216,24),1)
+					setbutton($Camera2D/TextBox/Button1,Global.story[Global.storystep][ray.get_collider().interaction][6][Global.lang],Vector2(216,24),Vector2(216,24),1)
+					setbutton($Camera2D/TextBox/Button2,Global.story[Global.storystep][ray.get_collider().interaction][8][Global.lang],Vector2(36,60),Vector2(216,24),1)
+					setbutton($Camera2D/TextBox/Button3,Global.story[Global.storystep][ray.get_collider().interaction][10][Global.lang],Vector2(216,60),Vector2(216,24),1)
+					if $Camera2D/TextBox/Button0.button_pressed:
+						if on:
+							ray.get_collider().interaction=Global.story[Global.storystep][ray.get_collider().interaction][5]
+						on = false
+					else:
+						on = true
+					if $Camera2D/TextBox/Button1.button_pressed:
+						ray.get_collider().interaction=Global.story[Global.storystep][ray.get_collider().interaction][7]
+					if $Camera2D/TextBox/Button2.button_pressed:
+						ray.get_collider().interaction=Global.story[Global.storystep][ray.get_collider().interaction][9]
+					if $Camera2D/TextBox/Button3.button_pressed:
+						ray.get_collider().interaction=Global.story[Global.storystep][ray.get_collider().interaction][11]
 
 func raycheck():
 	if $LeftRay.is_colliding() and $LeftRay.get_collider().interaction != 0:
@@ -299,12 +340,18 @@ func raycheck():
 	else:
 		$Camera2D/TextBox.visible = 0
 		$Camera2D/pause.visible = 1
-		$Camera2D/Control.visible = 1
-		$Camera2D/minimap.visible = 1
 		$Camera2D/helf.visible = 1
 		Global.talking = false
 
 func _process(delta):
+	if Global.sleeping: $Sprite2d.visible = false
+	else: $Sprite2d.visible = true
+
+	if Global.black:
+		if $black.color[3]<1: $black.color += Color(0,0,0,0.01);$black.visible = 1
+	elif $black.color[3]>0: $black.color += Color(0,0,0,-0.01)
+	else:$black.visible = 0
+	
 	del = delta
 	$Camera2D/helf.value = Global.health
 	$Camera2D/helf/hunga.value = Global.hunger

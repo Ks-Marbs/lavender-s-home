@@ -1,6 +1,6 @@
 extends Node2D
 var a = 0
-var volume_linear:=1
+var volume_linear:=0.2
 
 func _ready() -> void:
 	$masterloop.play(a)
