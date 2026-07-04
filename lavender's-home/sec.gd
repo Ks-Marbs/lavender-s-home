@@ -24,6 +24,8 @@ func _ready() -> void:
 			2:
 				$Lav.position = Vector2(15,14)*36
 				$Lav.t1 = 0
+		await get_tree().create_timer(1.5).timeout
+		Global.took_door = false
 	Global.moves = 0
 	for cell in $ice.get_used_cells():
 		Global.special_matrix[cell.x][cell.y] = 1

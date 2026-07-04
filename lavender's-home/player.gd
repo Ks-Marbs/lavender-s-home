@@ -8,7 +8,7 @@ var yes = true
 var isplayer := true
 var isgoal := false
 var tile_size := 36
-var step_size := 4
+var step_size := 6
 var last_move := Vector2.ONE
 var nextplan_move := Vector2.ONE
 var moving := false
@@ -329,14 +329,20 @@ func interact(ray):
 						ray.get_collider().interaction=Global.story[Global.storystep][ray.get_collider().interaction][11]
 
 func raycheck():
-	if $LeftRay.is_colliding() and $LeftRay.get_collider().interaction != 0:
-		interact($LeftRay)
-	elif $UpRay.is_colliding() and $UpRay.get_collider().interaction != 0:
-		interact($UpRay)
-	elif  $RightRay.is_colliding() and $RightRay.get_collider().interaction != 0:
-		interact($RightRay)
-	elif $DownRay.is_colliding() and $DownRay.get_collider().interaction != 0:
-		interact($DownRay)
+	if !Global.black:
+		if $LeftRay.is_colliding() and $LeftRay.get_collider().interaction != 0:
+			interact($LeftRay)
+		elif $UpRay.is_colliding() and $UpRay.get_collider().interaction != 0:
+			interact($UpRay)
+		elif  $RightRay.is_colliding() and $RightRay.get_collider().interaction != 0:
+			interact($RightRay)
+		elif $DownRay.is_colliding() and $DownRay.get_collider().interaction != 0:
+			interact($DownRay)
+		else:
+			$Camera2D/TextBox.visible = 0
+			$Camera2D/pause.visible = 1
+			$Camera2D/helf.visible = 1
+			Global.talking = false
 	else:
 		$Camera2D/TextBox.visible = 0
 		$Camera2D/pause.visible = 1
@@ -440,7 +446,7 @@ func move_step(dir: Vector2) -> void:
 			Global.water -= 4
 		if Global.moves % 13 == 0 and Global.hunger > 0:
 			Global.hunger -= 3
-		if Global.moves % 17 == 0 and  Global.sleep > 0:
+		if Global.moves % 15 == 0 and  Global.sleep > 0:
 			Global.sleep -= 2
 	position += dir * step_size
 	await get_tree().create_timer(Global.mini_delay).timeout

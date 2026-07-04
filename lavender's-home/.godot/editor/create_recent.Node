@@ -1,6 +1,6 @@
+RichTextLabel
 ColorRect
 Sprite2D
-RichTextLabel
 AnimatedSprite2D
 AnimationPlayer
 AudioStreamPlayer

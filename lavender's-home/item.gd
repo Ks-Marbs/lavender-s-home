@@ -29,12 +29,20 @@ func check():
 
 func _process(delta: float) -> void:
 	$RichTextLabel.visible_characters = vis
-	if Input.is_action_just_released("in") and on and Global.water < 100 and check():
-		on = false
-		visible = 0
-		Global.water += 10
-		if Global.water > 100:
-			Global.water = 100
+	if Input.is_action_just_released("in") and check():
+		match str(self.name)[0]:
+			"b": if on and Global.water < 100:
+				on = false
+				visible = 0
+				Global.water += 10
+				if Global.water > 100:
+					Global.water = 100
+			"c": if on and Global.hunger < 100:
+				on = false
+				visible = 0
+				Global.hunger += 10
+				if Global.hunger > 100:
+					Global.hunger = 100
 	if check():
 		vis += 0.05
 	else:

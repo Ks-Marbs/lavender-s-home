@@ -2,7 +2,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$lan._select_int(0)
+	$lan._select_int(Global.lang)
 	$gos.value = Global.GridT
 	$vol.value = Audio.volume_linear
 	pass # Replace with function body.

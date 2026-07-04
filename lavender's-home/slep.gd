@@ -1,6 +1,12 @@
-extends Sprite2D
+extends Area2D
 var numb=0.0
 var n=0
+var interaction = 0
+var item = 1
+var can_move := false
+var moving := false
+var on := true
+var isplayer := false
 var active = false
 var xcell := (position.x - (int(position.x) % 36)) / 36
 var ycell := (position.y - (int(position.y) % 36)) / 36
@@ -10,7 +16,7 @@ func _ready() -> void:
 
 func check():
 	if (($RightRay.is_colliding() and $RightRay.get_collider().isplayer and $RightRay.get_collider().t1==2) and Global.get_matrix(xcell,ycell,Global.room_matrix)==0) or\
- (($RightRay.is_colliding() and $RightRay.get_collider().isplayer and$RightRay.get_collider().t1==2) and ((Global.get_matrix(xcell,ycell,Global.room_matrix)==Global.get_matrix(xcell+1,ycell,Global.room_matrix)) or Global.get_matrix(xcell+1,ycell,Global.room_matrix) == 0)) : #aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+ (($RightRay.is_colliding() and $RightRay.get_collider().isplayer and $RightRay.get_collider().t1==2) and ((Global.get_matrix(xcell,ycell,Global.room_matrix)==Global.get_matrix(xcell+1,ycell,Global.room_matrix)) or Global.get_matrix(xcell+1,ycell,Global.room_matrix) == 0)) : #aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 		return true
 	else:
 		return false
@@ -18,7 +24,7 @@ func check():
 func _process(delta: float) -> void:
 	numb+=delta
 	n = floori(numb/2)%4
-	texture = load("res://images/sleep"+str(n)+".png")
+	$Sprite2d.texture = load("res://images/sleep"+str(n)+".png")
 	if Global.sleeping: visible = 1
 	else: visible = 0
 	pass
