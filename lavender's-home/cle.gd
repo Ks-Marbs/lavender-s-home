@@ -14,4 +14,4 @@ func _process(delta: float) -> void:
 	else:
 		visible = false
 	$Sprite2D.texture = load("res://images/load"+str(floori(num)%4)+".png")
-	$RichTextLabel.text = ([["Loading","Carregando","𐑤𐑴𐑛𐑦𐑙"],["Loading.","Carregando.","𐑤𐑴𐑛𐑦𐑙."],["Loading..","Carregando..","𐑤𐑴𐑛𐑦𐑙.."],["Loading...","Carregando...","𐑤𐑴𐑛𐑦𐑙..."]])[floori(num)%4][Global.lang]
+	$RichTextLabel.text = ([["Loading","Carregando","𐑤𐑴𐑛𐑦𐑙","Loading","Loading","Loading","⠠⠇⠕⠁⠙⠊⠝⠛"],["Loading.","Carregando.","𐑤𐑴𐑛𐑦𐑙.","Loading.","Loading.","Loading.","⠠⠇⠕⠁⠙⠊⠝⠛⠲"],["Loading..","Carregando..","𐑤𐑴𐑛𐑦𐑙..","Loading..","Loading..","Loading..","⠠⠇⠕⠁⠙⠊⠝⠛⠲⠲"],["Loading...","Carregando...","𐑤𐑴𐑛𐑦𐑙...","Loading...","Loading...","Loading...","⠠⠇⠕⠁⠙⠊⠝⠛⠲⠲⠲"]])[floori(num)%4][Global.lang]

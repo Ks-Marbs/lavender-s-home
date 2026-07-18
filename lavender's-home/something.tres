@@ -1,6 +1,6 @@
 [gd_resource type="Theme" format=3 uid="uid://cfbvw2nuu400q"]
 
-[ext_resource type="FontFile" uid="uid://drwdtqvn72kq0" path="res://images/something.otf" id="1_nnfoj"]
+[ext_resource type="FontFile" uid="uid://bfeydyccjuegm" path="res://images/something.otf" id="1_nnfoj"]
 
 [sub_resource type="FontVariation" id="FontVariation_fyav6"]
 base_font = ExtResource("1_nnfoj")

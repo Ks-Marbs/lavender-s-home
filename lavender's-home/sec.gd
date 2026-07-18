@@ -46,16 +46,3 @@ func _process(delta: float) -> void:
 			Global.toggle = true
 	if Global.fgoals == Global.goals and Global.fgoals != 0 and  Global.goals != 0:
 		Global.clear = true
-
-	if Global.storystep == 2 and Global.black:
-		$Winterblush.position = Vector2(9,14)*36
-		$Soap.position = Vector2(60,60)*36
-		$Lav.position = Vector2(8,14)*36
-		$Lav.t1 = 3
-		$Lav/Camera2D/TextBox.visible = false
-		$Lav/Sprite2d.visible = false
-		$Winterblush.interaction = 0
-		$Winterblush.visible = 0
-		$Winterblush/Sprite2d.visible = 0
-		await get_tree().create_timer(4).timeout
-		Global.black = 0.5

@@ -253,10 +253,10 @@ func interact(ray):
 				$Camera2D/TextBox.visible = 1
 				$Camera2D/TextBox/icon.visible = 0
 				match Global.story[Global.storystep][ray.get_collider().interaction][4]: 
-					0: $Camera2D/TextBox.texture = load("res://images/lavbox.png"); $Camera2D/TextBox/Textname/text.text = (["Lavender","Lavender","·𐑤𐑨𐑝𐑩𐑯𐑛𐑼"])[Global.lang]; #aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-					1: $Camera2D/TextBox.texture = load("res://images/soapbox.png"); $Camera2D/TextBox/Textname/text.text = (["Soap","Soap","·𐑕𐑴𐑐"])[Global.lang]
-					2: $Camera2D/TextBox.texture = load("res://images/wbbox.png");$Camera2D/TextBox/Textname/text.text = (["Winterblush","Winterblush","·𐑢𐑦𐑯𐑑𐑼𐑚𐑤𐑳𐑖"])[Global.lang]
-					3: $Camera2D/TextBox.texture = load("res://images/petalbox.png");$Camera2D/TextBox/Textname/text.text = (["Petal","Petal","·𐑐𐑧𐑑𐑩𐑤"])[Global.lang]
+					0: $Camera2D/TextBox.texture = load("res://images/lavbox.png"); $Camera2D/TextBox/Textname/text.text = (["Lavender","Lavender","·𐑤𐑨𐑝𐑩𐑯𐑛𐑼","Lavender","Lavender","Lavender","⠠⠇⠁⠝⠧⠑⠝⠙⠑⠗"])[Global.lang]; #aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+					1: $Camera2D/TextBox.texture = load("res://images/soapbox.png"); $Camera2D/TextBox/Textname/text.text = (["Soap","Soap","·𐑕𐑴𐑐","Soap","Soap","Soap","⠠⠎⠕⠁⠏"])[Global.lang]
+					2: $Camera2D/TextBox.texture = load("res://images/wbbox.png");$Camera2D/TextBox/Textname/text.text = (["Winterblush","Winterblush","·𐑢𐑦𐑯𐑑𐑼𐑚𐑤𐑳𐑖","WinterBlush","WinterBlush","WinterBlush","⠠⠺⠊⠝⠞⠑⠗⠃⠇⠥⠎⠓"])[Global.lang]
+					3: $Camera2D/TextBox.texture = load("res://images/petalbox.png");$Camera2D/TextBox/Textname/text.text = (["Petal","Petal","·𐑐𐑧𐑑𐑩𐑤","Petal","Petal","Petal","⠠⠏⠑⠞⠁⠇"])[Global.lang]
 				$Camera2D/TextBox/text.text = Global.story[Global.storystep][ray.get_collider().interaction][5][Global.lang]
 				$anim.visible = 1
 				$anim.texture = Global.story[Global.storystep][ray.get_collider().interaction][1]

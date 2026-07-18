@@ -160,25 +160,6 @@ func _process(delta):
 		0:
 			control()
 
-	if (interaction == 13 and Global.storystep == 0):
-		get_tree().change_scene_to_file("res://level_1.tscn")
-		Global.storystep+=1
-	if str(self.name) == "Soap" and interaction == 29 and Global.storystep == 1:
-		Global.black = true
-		await get_tree().create_timer(3).timeout
-		interaction = 0
-		Global.storystep = 2
-		Global.sleeping = true
-		visible = 0
-	if str(self.name) == "Winterblush" and interaction == 19 and Global.storystep == 2:
-		Global.black = true
-		await get_tree().create_timer(3).timeout
-		Global.storystep = 3
-		$Sprite2d.visible = 1
-		visible = 1
-		Global.sleeping = false
-		Global.black = false
-
 func move_step(dir: Vector2) -> void:
 	if dir != Vector2.ZERO:
 		match dir:

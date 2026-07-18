@@ -1,4 +1,9 @@
-res://start.gd
 res://Start.tscn
 res://something.tres
-res://global.gd
+res://player.gd
+res://cle.tscn
+res://images/lang/eng.txt
+res://save2.txt
+res://sec.gd
+res://setrs.tscn
+res://setrs.gd

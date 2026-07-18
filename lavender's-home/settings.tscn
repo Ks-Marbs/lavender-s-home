@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cooh78l4g1j6h"]
+[gd_scene format=3 uid="uid://cooh78l4g1j6h"]
 
 [ext_resource type="Script" uid="uid://vi4sb3skm5dd" path="res://settin.gd" id="1_3ykye"]
 [ext_resource type="Theme" uid="uid://cfbvw2nuu400q" path="res://something.tres" id="3_gc0em"]
@@ -7,11 +7,11 @@
 
 [sub_resource type="GDScript" id="GDScript_upmy7"]
 
-[node name="sets" type="Node2D"]
+[node name="sets" type="Node2D" unique_id=403430621]
 scale = Vector2(0.0036894954, 0.0036894954)
 script = ExtResource("1_3ykye")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=670919189]
 offset_left = -4266.044
 offset_top = -2074.7834
 offset_right = -2692.3264
@@ -20,7 +20,7 @@ scale = Vector2(5.5297346, 5.1559505)
 size_flags_stretch_ratio = 0.0
 color = Color(0.108259045, 3.8721188e-05, 0.14086977, 0.7254902)
 
-[node name="Stats" type="RichTextLabel" parent="."]
+[node name="Stats" type="RichTextLabel" parent="." unique_id=1852466668]
 custom_minimum_size = Vector2(36, 0)
 offset_left = -808.3056
 offset_top = -454.0195
@@ -40,7 +40,7 @@ tab_size = 1
 horizontal_alignment = 1
 script = SubResource("GDScript_upmy7")
 
-[node name="Allstats" type="RichTextLabel" parent="."]
+[node name="Allstats" type="RichTextLabel" parent="." unique_id=458184687]
 offset_left = -788.6117
 offset_top = -341.0195
 offset_right = -188.6117
@@ -62,7 +62,7 @@ tab_size = 1
 horizontal_alignment = 1
 script = SubResource("GDScript_upmy7")
 
-[node name="Settings" type="RichTextLabel" parent="."]
+[node name="Settings" type="RichTextLabel" parent="." unique_id=437722815]
 custom_minimum_size = Vector2(36, 0)
 offset_left = -234.5987
 offset_top = -464.60696
@@ -83,7 +83,7 @@ horizontal_alignment = 1
 script = SubResource("GDScript_upmy7")
 metadata/_edit_use_anchors_ = true
 
-[node name="r" type="Button" parent="."]
+[node name="r" type="Button" parent="." unique_id=1582849010]
 offset_left = -299.4397
 offset_top = 345.3204
 offset_right = 258.0655
@@ -96,7 +96,7 @@ theme_override_font_sizes/font_size = 72
 text = "Retry"
 flat = true
 
-[node name="quit" type="Button" parent="."]
+[node name="quit" type="Button" parent="." unique_id=1752819434]
 offset_left = 251.6977
 offset_top = 343.80414
 offset_right = 730.8629
@@ -109,7 +109,7 @@ theme_override_font_sizes/font_size = 72
 text = "Quit"
 flat = true
 
-[node name="back" type="Button" parent="."]
+[node name="back" type="Button" parent="." unique_id=731576438]
 offset_left = -717.41455
 offset_top = 343.03125
 offset_right = -294.02615
@@ -122,7 +122,7 @@ theme_override_font_sizes/font_size = 72
 text = "Back"
 flat = true
 
-[node name="Grid Opacity" type="RichTextLabel" parent="."]
+[node name="Grid Opacity" type="RichTextLabel" parent="." unique_id=947582122]
 custom_minimum_size = Vector2(36, 0)
 offset_left = -130.96231
 offset_top = -334.667
@@ -143,7 +143,7 @@ horizontal_alignment = 1
 script = SubResource("GDScript_upmy7")
 metadata/_edit_use_anchors_ = true
 
-[node name="Volume" type="RichTextLabel" parent="."]
+[node name="Volume" type="RichTextLabel" parent="." unique_id=1477447255]
 custom_minimum_size = Vector2(36, 0)
 offset_left = 76.768875
 offset_top = -210.78407
@@ -162,7 +162,7 @@ tab_size = 1
 horizontal_alignment = 1
 script = SubResource("GDScript_upmy7")
 
-[node name="gos" type="HSlider" parent="."]
+[node name="gos" type="HSlider" parent="." unique_id=1420402539]
 offset_left = 110.84502
 offset_top = -239.0195
 offset_right = 603.84503
@@ -177,7 +177,7 @@ ticks_on_borders = true
 ticks_position = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="vol" type="HSlider" parent="."]
+[node name="vol" type="HSlider" parent="." unique_id=1320629518]
 offset_left = 111.84502
 offset_top = -123.0195
 offset_right = 604.84503
@@ -192,7 +192,7 @@ ticks_on_borders = true
 ticks_position = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="Language" type="RichTextLabel" parent="."]
+[node name="Language" type="RichTextLabel" parent="." unique_id=1508788253]
 custom_minimum_size = Vector2(36, 0)
 offset_left = -1.79422
 offset_top = -82.68156
@@ -212,7 +212,7 @@ tab_size = 0
 horizontal_alignment = 1
 script = SubResource("GDScript_upmy7")
 
-[node name="lan" type="OptionButton" parent="."]
+[node name="lan" type="OptionButton" parent="." unique_id=2003923448]
 offset_left = 137.5625
 offset_top = 49.1185
 offset_right = 374.56253
@@ -221,10 +221,18 @@ scale = Vector2(2, 2)
 theme = ExtResource("3_gc0em")
 flat = true
 selected = 0
-item_count = 3
+item_count = 7
 popup/item_0/text = "English"
 popup/item_0/id = 0
 popup/item_1/text = "Português"
 popup/item_1/id = 1
 popup/item_2/text = "𐑖𐑱𐑝𐑾𐑯"
 popup/item_2/id = 2
+popup/item_3/text = "Español"
+popup/item_3/id = 3
+popup/item_4/text = "Français"
+popup/item_4/id = 4
+popup/item_5/text = "Suomeksi"
+popup/item_5/id = 5
+popup/item_6/text = "⠃⠗⠁⠊⠇⠇⠑"
+popup/item_6/id = 6

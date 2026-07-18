@@ -1,16 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://23d48043kb4t"]
+[gd_scene format=3 uid="uid://23d48043kb4t"]
 
 [ext_resource type="Script" uid="uid://b8rlip0gukv8i" path="res://cle.gd" id="1_j24ja"]
 [ext_resource type="Texture2D" uid="uid://c4hlm0c6hqwg8" path="res://images/load0.png" id="2_j24ja"]
 [ext_resource type="Theme" uid="uid://cfbvw2nuu400q" path="res://something.tres" id="3_mpf8o"]
 
-[node name="cle" type="Node2D"]
+[node name="cle" type="Node2D" unique_id=1214672337]
 script = ExtResource("1_j24ja")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1944300009]
 texture = ExtResource("2_j24ja")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1602053937]
 offset_left = -550.0
 offset_top = -367.0
 offset_right = 558.0
