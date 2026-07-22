@@ -37,7 +37,7 @@ var y := 0
 var loading := false
 var sleeping := false
 var objective := "Find Petal"
-
+var lan :=["res://images/lang/eng.txt","res://images/lang/port.txt"]
 var story:=[\
 	#plan: 0-character(see list) 1-icon(see list) 2-text 3-number of buttons 4,6,8... button texts 5,7,9... button leads to step x
 

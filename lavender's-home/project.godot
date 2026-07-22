@@ -81,6 +81,13 @@ in={
 ]
 }
 
+[internationalization]
+
+locale/translation_remaps={
+"res://images/lang/eng.txt": PackedStringArray("res://images/lang/port.txt:pt")
+}
+locale/translations_pot_files=PackedStringArray("res://images/lang/eng.txt")
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=3

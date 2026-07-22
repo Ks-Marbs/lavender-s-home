@@ -1,5 +1,104 @@
 extends Node2D
 var creds := false
+var dict:={
+	"retry": "Reiniciar",
+	"quit": "Quitar",
+	"back": "Voltar",
+	"settings": "Configurações",
+	"grid": "Opacidade da Grade",
+	"volume": "Volume",
+	"language": "Idioma",
+	"loading": "Carregando",
+	"stats": "Status",
+	"hunger": "Fome",
+	"sleep": "Sono",
+	"water": "Hidratação",
+	"credits": "[b]Trago por:\n[/b][i]Seni - Raposa artisa\nKs - Cão autista\n[/i]\n[b] Playtesters:[/b] [i] \nRokabane \n[manda seu user \npara adição]\n[/i]\n[b] Traduções:[/b] [i] \nShavian: Ks \nPortuguês: Ks \nEspanhol: Billy \nFrançes: Billy \nFinlandês: Billy \nBraille: Ks \n[/i]  \n[b] Música: [/b] \n[i] DOododoDodOd\n- Ks\n[/i] \n[b] Obrigados: [/b][i] \nEge\nRay\nVali!\nRokabane\nBilly\nHackclub\nGodot Forum\nMeu Laptop de 7 anos\nMatemática5\n\n\nVOCÊ!\n[/i]",
+	"y1": 'Sim',
+	"y2": 'Tá',
+	"y3": 'Claro',
+	"n1": 'Nah',
+	"n2": 'Não',
+	"n3": 'Nã',
+	"w1": 'Quê?',
+	"w2": 'Huh?',
+	"w3": 'Ãh?',
+	"dots": '...',
+
+	"L": "Lavender",
+	"S": "Soap",
+	"P": "Petal",
+	"WB": "Winterblush",
+	"Y": "Yellow",
+	"Ch": "Charcoal",
+	"Sn": "Seni",
+	"Ks": "Ks",
+
+	"Status": "Status",
+	"Thirsty": "Sede",
+	"Hungry": "Fome",
+	"Eepy": "Sonin",
+	"Sleepy": "Sono",
+	"Dizzy": "AAAAAAA",
+
+	"0-0": '"Minhas pobres flores..."',
+	"0-1": '"Você está no seu quarto, está tudo bem, só um pouco assustada... Talvez devesse olhar como seu irmão está."',
+
+	"1-0": '"Ei Lavender... Você parece assustada... Você está bem?"',
+	"1-1": '"É... eu estou bem, só dormi tarde..."',
+	"1-2": '"Você dormiu umas 9... mais cedo não dá"',
+	"1-3": '"Não, Eu... não estou bem."',
+	"1-4": '"Ei...Eu estou aqui, o que foi?"',
+	"1-5": '"...Eu tive um sonho que eu estava cuidando das flores, e ai... uma delas secou e a mãe ficou brava..."',
+	"1-6": '"Eu sinto muito, Lavender...Eu...queria poder te ajudar...A mãe está ficando mais frustrada esses dias..."',
+	"1-7": '"É...obrigado por estar aqui."',
+	"1-8": '"Um...bem, acha que eu deveria se inscrever? Eu estou um pouco indeciso aqui."',
+	"1-9": '"Claro, por que não?"',
+	"1-10": '"Sério? Você realmente acha que eu sou tão forte e atlético pra se inscrever?"',
+	"1-11": 'Você ri.',
+	"1-12": '"Hum...não tanto."',
+	"1-13": '"Justo, duvido que a mãe fosse me inscrever de qualquer forma."',
+	"1-14": '"Ela provavelmente inscreverá Winter"',
+	"1-15": 'Você afirma',
+	"1-16": '"Talvez eu possa ir?"',
+	"1-17": '"Duvido...É tipo um acampamento...exceto que com mais competição"',
+	"1-18": '"É uma competição Lavender. Você não gosta muito de competições"',
+	"1-19": 'Você diz nada, mas é verd-',
+	"1-20": 'Você ouve o barulho do portão abrindo',
+	"1-21": 'Melhor dormimos logo. Não queremos ela brava.',
+
+	"2-0": '"Eu não acredito que tudo deu errado no show. As luzes, o microfene, os acordes, o público..."',
+	"2-1": '"Tudo está arruinando o concerto."',
+	"2-2": '"...Eu também esperava mais de tu, Winterblush."',
+	"2-3": '"É claro que você esperava... nada está bom o suficiente para você, Petal."',
+	"2-4": '"Quando será o bastante pra você?"',
+	"2-5": '"Só será suficiente quando for exato, polido, perfeito! Tu não entenderias"',
+	"2-6": '"Eu estou dando o meu melhor, e ainda assim não é suficiente."',
+	"2-7": '"Se você quer elas tããããão perfeitas, podia botar um pouco de alma nelas, soam muito robóticas."',
+	"2-8": '"Até o uniforme é chato, eu pareço uma boneca."',
+	"2-9": '"...O que foi que tu disse?"',
+	"2-10": '"Não se atreva a criticar o trabalho de sua mãe, é graças a ele que tu tens comida e abrigo."',
+	"2-11": '"É gRaçAs a eLe Que tu tENs coMiDa e aBriGo."',
+	"2-12": '"Você sabe muito bem que a maior parte do dinheiro vem das mercadorias."',
+	"2-13": '"Dinheiro é dinheiro, querida, eu estou fazendo o que posso pra cuidar de vocês. Se não é bom o suficiente, então como eu deveria mimá-los?"',
+	"2-14": '"Tu és a filha mais preciosa que eu tenho, e você sabe disso. Não me faça ter que te odiar."',
+	"2-15": '"E? Um dia você vai ver por que todo mundo te abandonou."',
+	"2-16": '"Como se fosse acontecer!, Eu tenho uma otima reputação Winterblush. Isso não vai ocorrer tão cedo."',
+	"2-17": '"...Mal posso esperar fugir daqui."',
+
+	"3-0": 'Você acorda, cansada. Pelo menos o sonho esta noite não foi tão assustador',
+	"3-1": 'Você vê Winterblush do seu lado, que não conseguiu dormir',
+	"3-2": '"Pelo menos você dormiu bem né?"',
+	"3-3": '"Eu tive que lidar com a Petal e os shows dela. Fui uma das cantoras."',
+	"3-4": '"Como eu odeio minha voz, no ultimo show eu não consegui cantar e a Petal surtou, depois me ignorou, e ainda veio brava pra casa."',
+	"3-5": '"Olha... Se você não for cuidadosa com ela, quem sabe o que aconteceria?"',
+	"3-6": '"É melhor ir buscar o correio, Lavvy"',
+	"3-7": '"Okay..."',
+	"3-8": '"O que acontece?"',
+	"3-9": '"Certeza que logo saberá exatamente o que acontece."',
+	"3-10": '"Você deveria ir logo pegar o correio Lavvy."'
+}
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -8,15 +107,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	$cred.text = \
-	(["[b]Brought by:\n[/b][i]Seni - The art fox\nKs - The autism dog\n[/i]\n[b] Playtesters:[/b] [i] \nRokabane \n[send your name \nso i can add]\n[/i]\n[b] Translations:[/b] [i] \nShavian: Ks \nPortuguese: Ks \nSpanish: Billy \nFrench: Billy \nFinnish: Billy \n[/i] \n[b] Music: [/b] \n[i] DOododoDodOd\n- Ks\n[/i] \n[b] Thank yous: [/b][i] \nEge\nRay\nVali!\nRokabane\nBilly\nHackclub\nGodot Forum\nMy 7 year old laptop\nMath5\n\n\nYOU!\n[/i]",\
-	"[b]Trago por:\n[/b][i]Seni - Raposa artisa\nKs - Cão autista\n[/i]\n[b] Playtesters:[/b] [i] \nRokabane \n[manda seu user \npara adição]\n[/i]\n[b] Traduções:[/b] [i] \nShavian: Ks \nPortuguês: Ks \nEspanhol: Billy \nFrançes: Billy \nFinlandês: Billy \n[/i]  \n[b] Música: [/b] \n[i] DOododoDodOd\n- Ks\n[/i] \n[b] Obrigados: [/b][i] \nEge\nRay\nVali!\nRokabane\nBilly\nHackclub\nGodot Forum\nMeu Laptop de 7 anos\nMatemática5\n\n\nVOCÊ!\n[/i]",\
-	"[b]𐑚𐑮𐑷𐑑 𐑚𐑲:\n[/b][i]·𐑕𐑧𐑯𐑦 - 𐑞 𐑸𐑑 𐑓𐑪𐑒𐑕\n·𐑒𐑧𐑟 - 𐑞 𐑷𐑑𐑦𐑟𐑩𐑥 𐑛𐑪𐑜\n[/i]\n[b] 𐑐𐑤𐑱𐑑𐑧𐑕𐑑𐑼𐑟:[/b] [i] \n·𐑮𐑪𐑒𐑨𐑚𐑨𐑥𐑧 \n[𐑕𐑧𐑯𐑛 𐑿𐑼 𐑯𐑱𐑥 \n𐑕𐑴 𐑲 𐑒𐑨𐑯 𐑨𐑛]\n[b] 𐑑𐑮𐑨𐑯𐑟𐑤𐑱𐑖𐑩𐑯𐑟:[/b] [i] \n 𐑖𐑱𐑝𐑾𐑯: ·𐑒𐑧𐑟 \n 𐑐𐑹𐑗𐑩𐑜𐑰𐑟: ·𐑒𐑧𐑟 \n 𐑕𐑐𐑨𐑯𐑦𐑖:·𐑚𐑦𐑤𐑦  \n 𐑓𐑮𐑧𐑯𐑗: ·𐑚𐑦𐑤𐑦 \n 𐑓𐑦𐑯𐑦𐑖: ·𐑚𐑦𐑤𐑦 \n[/i]\n[/i] \n[b] 𐑥𐑿𐑟𐑦𐑒: [/b] \n[i] \nDOododoDodOd- ·𐑒𐑧𐑟\n[/i] \n[b] 𐑔𐑨𐑙𐑒 𐑿𐑟: [/b][i] \n·𐑧𐑜𐑧\n·𐑮𐑱\n·𐑝𐑨𐑤𐑦!\n·𐑮𐑪𐑒𐑨𐑚𐑨𐑥𐑧\n·𐑚𐑦𐑤𐑦\n𐑣𐑨𐑒𐑒𐑤𐑳𐑚\n𐑜𐑩𐑛𐑴𐑑 𐑓𐑹𐑩𐑥\n𐑥𐑲 7 𐑘𐑽 𐑴𐑤𐑛 𐑤𐑨𐑐𐑑𐑪𐑐\n𐑥𐑨𐑔\n\n\n𐑿!\n[/i]",\
-	"[b]Creado por:\n[/b][i]Seni - El zorro artista\nKs - El perro autista\n[/i]\n[b] Playtesters:[/b] [i] \nRokabane \n[envía tu nombre \npara agregarte]\n[/i]\n[b] Traducciones:[/b] [i] \nShavian: Ks \nPortugués: Ks \nEspañol: Billy \nFrancés: Billy \nFinlandés: Billy \n[/i] \n[b] Música: [/b] \n[i] DOododoDodOd\n- Ks\n[/i] \n[b] Agradecimientos: [/b][i] \nEge\nRay\nVali!\nRokabane\nBilly\nHackclub\nGodot Forum\nMi laptop de 7 años\nMath5\n\n\n¡TÚ!\n[/i]",\
-	"[b]Créé par:\n[/b][i]Seni - Le renard artiste\nKs - Le chien autiste\n[/i]\n[b] Playtesters:[/b] [i] \nRokabane \n[envoie ton nom \npour l'ajouter]\n[/i]\n[b] Traductions:[/b] [i] \nShavian : Ks \nPortugais : Ks \nEspagnol : Billy \nFrançais : Billy \nFinnois : Billy \n[/i] \n[b] Musique: [/b] \n[i] DOododoDodOd\n- Ks\n[/i] \n[b] Remerciements: [/b][i] \nEge\nRay\nVali!\nRokabane\nBilly\nHackclub\nGodot Forum\nMon PC portable de 7 ans\nMath5\n\n\nTOI!\n[/i]",\
-	"[b]Tekijät:\n[/b][i]Seni - Taiteilijakettu\nKs - Autistinen koira\n[/i]\n[b] Testaajat:[/b] [i] \nRokabane \n[lähetä nimesi \njotta voin lisätä]\n[/i]\n[b] Käännökset:[/b] [i] \nShavian: Ks \nPortugali: Ks \nEspanja: Billy \nRanska: Billy \nSuomi: Billy \n[/i] \n[b] Musiikki: [/b] \n[i] DOododoDodOd\n- Ks\n[/i] \n[b] Kiitokset: [/b][i] \nEge\nRay\nVali!\nRokabane\nBilly\nHackclub\nGodot Forum\n7 vuotta vanha läppärini\nMath5\n\n\nSINÄ!\n[/i]",\
-	"[b]⠠⠃⠗⠕⠥⠛⠓⠞ ⠃⠽⠒\n[/b][i]⠠⠎⠑⠝⠊ ⠤ ⠠⠞⠓⠑ ⠁⠗⠞ ⠋⠕⠭\n⠠⠒⠎ ⠤ ⠠⠞⠓⠑ ⠁⠥⠞⠊⠎⠍ ⠙⠕⠛\n[/i]\n[b] ⠠⠏⠤⠁⠽⠞⠑⠎⠞⠑⠗⠎⠒[/b] [i] \n⠠⠗⠕⠅⠁⠃⠁⠝⠑ \n[⠎⠑⠝⠙ ⠽⠕⠥⠗ ⠝⠁⠍⠑ \n⠎⠕ ⠊ ⠉⠁⠝ ⠁⠙⠙]\n[/i]\n[b] ⠠⠞⠗⠁⠝⠎⠤⠁⠞⠊⠕⠝⠎⠒[/b] [i] \n⠠⠎⠓⠁⠧⠊⠁⠝⠒ ⠠⠒⠎ \n⠠⠏⠕⠗⠞⠥⠛⠥⠑⠎⠑⠒ ⠠⠒⠎ \n⠠⠎⠏⠁⠝⠊⠎⠓⠒ ⠠⠃⠊⠇⠇⠽ \n⠠⠓⠗⠑⠝⠉⠓⠒ ⠠⠃⠊⠇⠇⠽ \n⠠⠓⠊⠝⠝⠊⠎⠓⠒ ⠠⠃⠊⠇⠇⠽ \n[/i] \n[b] ⠠⠍⠥⠎⠊⠉⠒ [/b] \n[i] ⠠⠙⠕⠕⠙⠕⠙⠕⠠⠙⠕⠙⠠⠕⠙\n⠤ ⠠⠒⠎\n[/i] \n[b] ⠠⠞⠓⠁⠝⠅ ⠽⠕⠥⠎⠒ [/b][i] \n⠠⠑⠛⠑\n⠠⠗⠁⠽\n⠠⠧⠁⠇⠊⠄\n⠠⠗⠕⠅⠁⠃⠁⠝⠑\n⠠⠚⠊⠇⠇⠽\n⠠⠓⠁⠉⠅⠉⠤⠥⠃\n⠠⠛⠕⠙⠕⠞ ⠠⠋⠕⠗⠥⠍\n⠠⠍⠽ ⠼⠛ ⠽⠑⠁⠗ ⠕⠇⠙ ⠇⠁⠏⠞⠕⠏\n⠠⠍⠁⠞⠓⠼⠑\n\n\n⠠⠽⠕⠥⠄\n[/i]"])\
-	[Global.lang]
+	FileAccess.open("res://images/lang/port.txt",FileAccess.WRITE).store_string(var_to_str(dict)) #aaaaaaaaaaaaaaaaaaaaaaaaa
+	$cred.text = str_to_var(FileAccess.open(Global.lan[Global.lang],FileAccess.READ).get_as_text().replace("\t", "")).credits #aaaaaaaaaaaaaaaaaaaaaaaaa
 	if $play.button_pressed:
 		get_tree().change_scene_to_file("res://level_3.tscn")
 	if $settings.button_pressed:
@@ -24,7 +116,7 @@ func _process(delta: float) -> void:
 	if $credits.button_pressed:
 		creds = true
 	if creds:
-		if $cred.position.y < -4400:
+		if $cred.position.y < -4700:
 			creds = false
 			$cred.position.y = 500
 		else:

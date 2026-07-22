@@ -1,81 +1,127 @@
 {
-	"retry": "Retry"
-	"quit": "Quit"
-	"back": "Back"
-	"settings": "Settings"
-	"grid": "Grid Opacity"
-	"volume": "Volume"
-	"language": "Language"
-	"loading": "Loading"
-	"stats": "Status"
-	"hunger": "Hunger"
-	"sleep": "Tiredness"
-	"water": "Hydration"
-	"credits": "[b]Brought by:\n[/b][i]Seni - The art fox\nKs - The autism dog\n[/i]\n[b] Playtesters:[/b] [i] \nRokabane \n[send your name \nso i can add]\n[/i]\n[b] Translations:[/b] [i] \nShavian: Ks \nPortuguese: Ks \nSpanish: Billy \nFrench: Billy \nFinnish: Billy \n[/i] \n[b] Music: [/b] \n[i] DOododoDodOd\n- Ks\n[/i] \n[b] Thank yous: [/b][i] \nEge\nRay\nVali!\nRokabane\nBilly\nHackclub\nGodot Forum\nMy 7 year old laptop\nMath5\n\n\nYOU!\n[/i]"
-	"y1": 'yea'
-	"y2": 'ya'
-	"y3": 'yes'
-	"n1": 'nah'
-	"n2": 'na'
-	"n3": 'no'
-	"w1": 'wha?'
-	"w2": 'whuh?'
-	"w3": 'what?'
-	"dots": '...'
+"0-0": "\"My poor wilted flowers...\"",
+"0-1": "You are in your bedroom, you are ok, just pretty scared...maybe you should check on Soap.",
+"1-0": "\"Hey Lavender, you look scared... are you...okay?\"",
+"1-1": "\"Yeah, I'm alright. I just slept late...\"",
+"1-10": "\"Really? You actually think I'm that strong and athletic to sign up?\"",
+"1-11": "You laugh slightly.",
+"1-12": "\"Hmmm...not really.\"",
+"1-13": "\"That's fair, I doubt mom would sign me up anyway.\"",
+"1-14": "\"She'll probably sign Winter instead.\"",
+"1-15": "You nod slightly",
+"1-16": "\"Maybe I could go?\"",
+"1-17": "\"I doubt...It's like a camp...except with more competition.\"",
+"1-18": "\"It's a competition, Lavender. You don't like competitions.\"",
+"1-19": "You say nothing, but it's tru-",
+"1-2": "\"You slept at 9...the earliest you could've slept...\"",
+"1-20": "You hear the sound of the door opening",
+"1-21": "\"We should sleep now. we don't want mother to get enraged\"",
+"1-3": "\"No, I'm...not okay.\"",
+"1-4": "\"Hey...I'm here for you, what's wrong?\"",
+"1-5": "\"...I had a dream that I was taking care of the flowers, and then... one of them wilted and mother got mad...\"",
+"1-6": "\"I'm so sorry, Lavender...I...wish I can help you. Mother is getting more frustrated lately...\"",
+"1-7": "\"mhm...I'm glad you're here.\"",
+"1-8": "\"Uhm...well, do you think i should sign up? I've been skeptical of this thing for a bit.\"",
+"1-9": "\"Sure, why not?\"",
+"2-0": "\"I can not believe everything went so wrong with that show. The lights, the microphone, the chords, the crowd...\"",
+"2-1": "\"Everything is ruining the concert.\"",
+"2-10": "\"Do not dare criticizing the work of your mother like that, It is the reason you have food and shelter.\"",
+"2-11": "\"It iS tHe reAsON yOu hAvE FoOD aNd SheLtEr.\"",
+"2-12": "\"You know very damn well most of the money comes from the merchandise.\"",
+"2-13": "\"Money is money, sweetie, I am doing what I can to take care of you. If it is not good enough, then how would I spoil you?\"",
+"2-14": "\"You are the most precious child I have, and you know that. Do not make me hate you.\"",
+"2-15": "\"Whatever Petal. One day you'll see why everyone else left you.\"",
+"2-16": "\"As if! I still have a good reputation, Winterblush. It is not going to happen anytime soon.\"",
+"2-17": "\"...I can't wait to leave.\"",
+"2-2": "\"...I also expected better from you, Winterblush.\"",
+"2-3": "\"Of course you do... nothing is ever good enough for you, Petal.\"",
+"2-4": "\"When will it ever be enough for you?\"",
+"2-5": "\"It will only be enough when it is perfect, spotless, smooth-landing! You do not understand.\"",
+"2-6": "\"I am trying my best, yet it is still unsufficient.\"",
+"2-7": "\"If you wan'it to be perfect sooooo bad, add some soul to your songs, they sound mechanic.\"",
+"2-8": "\"Heck, even the outfit's dull, I look like a doll.\"",
+"2-9": "\"...What did you just say?\"",
+"3-0": "You wake up, tired. At least the dream you had this time was not as scary.",
+"3-1": "You see Winterblush beside you, who couldn't have any sleep",
+"3-10": "\"You should get our mail soon Lavvy\"",
+"3-2": "\"You better have a nice sleep”",
+"3-3": "\"I had to deal with Petal and her shows. I was one of those singers.\"",
+"3-4": "\"I hate my voice and I couldn't get the lyrics out so Petal panicked and after the show she ignored me and just came home\"",
+"3-5": "\"Look...If you're not careful with her, who knows what happens?\"",
+"3-6": "\"You probably should get our mail soon, or else...\"",
+"3-7": "\"Okay...\"",
+"3-8": "\"What does happen?\"",
+"3-9": "\"Heh. I'm sure you'll know exactly what happens.\"",
+"Ch": "Charcoal",
+"Dizzy": "Dizzy",
+"Eepy": "Eepy",
+"Hungry": "Hungry",
+"Ks": "Ks",
+"L": "Lavender",
+"P": "Petal",
+"S": "Soap",
+"Sleepy": "Sleepy",
+"Sn": "Seni",
+"Status": "Status",
+"Thirsty": "Thirsty",
+"WB": "Winterblush",
+"Y": "Yellow",
+"back": "Back",
+"credits": "[b]Brought by:
+[/b][i]Seni - The art fox
+Ks - The autism dog
+[/i]
+[b] Playtesters:[/b] [i] 
+Rokabane 
+[send your name 
+so i can add]
+[/i]
+[b] Translations:[/b] [i] 
+Shavian: Ks 
+Portuguese: Ks 
+Spanish: Billy 
+French: Billy 
+Finnish: Billy 
+Braille: Ks 
+[/i] 
+[b] Music: [/b] 
+[i] DOododoDodOd
+- Ks
+[/i] 
+[b] Thank yous: [/b][i] 
+Ege
+Rayray
+Vali!
+Rokabane
+Billy
+Nathan
+Hackclub
+Godot Forum
+My 7 year old laptop
+Math5
 
-	"0-0": '"My poor wilted flowers..."'
-	"0-1": 'You are in your bedroom, you are ok, just pretty scared...maybe you should check on Soap.'
-	"1-0": '"Hey Lavender, you look scared... are you...okay?"'
-	"1-1": '"Yeah, I\'m alright. I just slept late..."'
-	"1-2": '"You slept at 9...the earliest you could\'ve slept..."'
-	"1-3": '"No, I\'m...not okay."'
-	"1-4": '"Hey...I\'m here for you, what\'s wrong?"'
-	"1-5": '"...I had a dream that I was taking care of the flowers, and then... one of them wilted and mother got mad..."'
-	"1-6": '"I\'m so sorry, Lavender...I...wish I can help you. Mother is getting more frustrated lately..."'
-	"1-7": '"mhm...I\'m glad you\'re here."'
-	"1-8": '"Uhm...well, do you think i should sign up? I\'ve been skeptical of this thing for a bit."'
-	"1-9": '"Sure, why not?"'
-	"1-10": '"Really? You actually think I\'m that strong and athletic to sign up?"'
-	"1-11": 'You laugh slightly.'
-	"1-12": '"Hmmm...not really."'
-	"1-13": '"That\'s fair, I doubt mom would sign me up anyway."'
-	"1-14": '"She\'ll probably sign Winter instead."'
-	"1-15": 'You nod slightly'
-	"1-16": '"Maybe I could go?"'
-	"1-17": '"I doubt...It\'s like a camp...except with more competition."'
-	"1-18": '"It\'s a competition, Lavender. You don\'t like competitions."'
-	"1-19": 'You say nothing, but it\'s tru-'
-	"1-20": 'You hear the sound of the door opening'
-	"1-21": '"We should sleep now. we don\'t want mother to get enraged"'
 
-	"2-0": '"I can not believe everything went so wrong with that show. The lights, the microphone, the chords, the crowd..."'
-	"2-1": '"Everything is ruining the concert."'
-	"2-2": '"...I also expected better from you, Winterblush."'
-	"2-3": '"Of course you do... nothing is ever good enough for you, Petal."'
-	"2-4": '"When will it ever be enough for you?"'
-	"2-5": '"It will only be enough when it is perfect, spotless, smooth-landing! You do not understand."'
-	"2-6": '"I am trying my best, yet it is still unsufficient."'
-	"2-7": '"If you wan\'it to be perfect sooooo bad, add some soul to your songs, they sound mechanic."'
-	"2-8": '"Heck, even the outfit\'s dull, I look like a doll."'
-	"2-9": '"...What did you just say?"','"...O que foi que tu disse?"'
-	"2-10": '"Do not dare criticizing the work of your mother like that, It is the reason you have food and shelter."'
-	"2-11": '"It iS tHe reAsON yOu hAvE FoOD aNd SheLtEr."'
-	"2-12": '"You know very damn well most of the money comes from the merchandise."'
-	"2-13": '"Money is money, sweetie, I am doing what I can to take care of you. If it is not good enough, then how would I spoil you?"'
-	"2-14": '"You are the most precious child I have, and you know that. Do not make me hate you."'
-	"2-15": '"Whatever Petal. One day you\'ll see why everyone else left you."'
-	"2-16": '"As if! I still have a good reputation, Winterblush. It is not going to happen anytime soon."'
-	"2-17": '"...I can\'t wait to leave."'
-
-	"3-0": 'You wake up, tired. At least the dream you had this time was not as scary.'
-	"3-1": 'You see Winterblush beside you, who couldn\'t have any sleep'
-	"3-2": '"You better have a nice sleep”'
-	"3-3": '"I had to deal with Petal and her shows. I was one of those singers."'
-	"3-4": '"I hate my voice and I couldn\'t get the lyrics out so Petal panicked and after the show she ignored me and just came home"'
-	"3-5": '"Look...If you\'re not careful with her, who knows what happens?"'
-	"3-6": '"You probably should get our mail soon, or else..."'
-	"3-7": '"Okay..."'
-	"3-8": '"What does happen?"'
-	"3-9": '"Heh. I\'m sure you\'ll know exactly what happens."'
-	"3-10": '"You should get our mail soon Lavvy"'
+YOU!
+[/i]",
+"dots": "...",
+"grid": "Grid Opacity",
+"hunger": "Hunger",
+"language": "Language",
+"loading": "Loading",
+"n1": "nah",
+"n2": "na",
+"n3": "no",
+"quit": "Quit",
+"retry": "Retry",
+"settings": "Settings",
+"sleep": "Tiredness",
+"stats": "Status",
+"volume": "Volume",
+"w1": "wha?",
+"w2": "whuh?",
+"w3": "what?",
+"water": "Hydration",
+"y1": "yea",
+"y2": "ya",
+"y3": "yes"
 }
