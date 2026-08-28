@@ -1,0 +1,129 @@
+{
+"0-0": "\"Voi minun kuihtuneita kukkiani...\"",
+"0-1": "Olet huoneessasi, olet turvassa, olet vain melko peloissasi... ehkä sinun pitäisi tarkistaa Soap.",
+"1-0": "\"Hei Lavender, näytät pelokkaalta... oletko... kunnossa?\"",
+"1-1": "\"Joo, olen kunnossa. Nukuin vain myöhään...\"",
+"1-10": "\"Oikeasti? Luuletko oikeasti, että olen tarpeeksi vahva ja urheilullinen ilmoittautumaan?\"",
+"1-11": "Naurat hieman.",
+"1-12": "\"Hmm... et oikeastaan.\"",
+"1-13": "\"Reilua, epäilen että äiti ilmoittaisi minut muutenkaan.\"",
+"1-14": "\"Hän ilmoittaa varmaan WinterBlushin sen sijaan.\"",
+"1-15": "Nyökkäät hieman.",
+"1-16": "\"Ehkä minä voisin mennä?\"",
+"1-17": "\"Epäilen... se on kuin leiri... mutta enemmän kilpailua.\"",
+"1-18": "\"Se on kilpailu, Lavender. Et pidä kilpailuista.\"",
+"1-19": "Et sano mitään, mutta se on tot-",
+"1-2": "\"Nukuit kello yhdeksältä... aikaisinta mitä olisit voinut nukkua...\"",
+"1-20": "Kuulet oven avautuvan äänen",
+"1-21": "\"Meidän pitäisi nyt nukkua. Emme halua, että äiti raivostuu\"",
+"1-3": "\"En, en ole kunnossa.\"",
+"1-4": "\"Hei... olen täällä sinua varten, mikä on hätänä?\"",
+"1-5": "\"...Näin unta, että hoidin kukkia, ja sitten... yksi niistä kuihtui ja äiti suuttui...\"",
+"1-6": "\"Olen todella pahoillani, Lavender... minä... toivon, että voisin auttaa sinua. Äiti on viime aikoina ollut yhä turhautuneempi...\"",
+"1-7": "\"mhm... olen iloinen, että olet täällä.\"",
+"1-8": "\"Öö... no, luuletko että minun pitäisi ilmoittautua? Olen epäröinyt tätä jo jonkin aikaa.\"",
+"1-9": "\"Toki, miksei?\"",
+"2-0": "\"En voi uskoa, että kaikki meni niin pahasti pieleen tuon esityksen kanssa. Valot, mikrofoni, johdot, yleisö...\"",
+"2-1": "\"Kaikki pilaa konsertin.\"",
+"2-10": "\"Älä uskalla arvostella äitisi työtä tuolla tavalla. Se on syy siihen, että sinulla on ruokaa ja suojaa.\"",
+"2-11": "\"Se On SyY sIiHeN eTtÄ sInUlLa On RuOkAa Ja SuOjAa.\"",
+"2-12": "\"Tiedät erittäin hyvin, että suurin osa rahasta tulee oheistuotteista.\"",
+"2-13": "\"Raha on rahaa, rakas. Teen sen, minkä voin huolehtiakseni sinusta. Jos se ei riitä, miten voisin hemmotella sinua?\"",
+"2-14": "\"Olet arvokkain lapsi, joka minulla on, ja tiedät sen. Älä pakota minua vihaamaan sinua.\"",
+"2-15": "\"Ihan sama, Petal. Jonain päivänä näet, miksi kaikki muut jättivät sinut.\"",
+"2-16": "\"Ikään kuin niin tapahtuisi. Minulla on yhä hyvä maine, WinterBlush. Se ei tapahdu lähiaikoina.\"",
+"2-17": "\"...En malta odottaa, että pääsen lähtemään.\"",
+"2-2": "\"...Odotin sinulta parempaa, WinterBlush.\"",
+"2-3": "\"Totta kai... mikään ei ole koskaan tarpeeksi hyvää sinulle, Petal.\"",
+"2-4": "\"Milloin mikään riittää sinulle?\"",
+"2-5": "\"Se on riittävää vasta silloin, kun se on täydellistä, moitteetonta ja sujuvasti toteutettua. Et ymmärrä sitä.\"",
+"2-6": "\"Yritän parhaani, ja silti se on riittämätöntä.\"",
+"2-7": "\"Jos haluat sen olevan niin täydellinen, lisää vähän tunnetta lauluihisi, ne kuulostavat mekaanisilta.\"",
+"2-8": "\"Hitto, jopa asu on tylsä, näytän nukelta.\"",
+"2-9": "\"...Mitä sinä juuri sanoit?\"",
+"3-0": "Heräät väsyneenä. Ainakaan tällä kertaa näkemäsi uni ei ollut yhtä pelottava.",
+"3-1": "Näet WinterBlushin vieressäsi, joka ei saanud lainkaan unta",
+"3-10": "\"Sinun pitäisi hakea meidän posti pian, Lavvy\"",
+"3-2": "\"Parembi olla, että nukuit hyvin\"",
+"3-3": "\"Jouduin käsittelemään Petalia ja hänen esityksiään. Olin yksi niistä laulajista.\"",
+"3-4": "\"Vihaan ääntäni enkä saanut sanoja ulos, joten Petal paniikoi ja esityksen jälkeen hän sivuutti minut ja meni vain kotiin\"",
+"3-5": "\"Kuule... jos et ole varovainen hänen kanssaan, kuka tietää mitä tapahtuu?\"",
+"3-6": "Parembi hakea meidän posti pian, tai muuten...",
+"3-7": "\"Okei...\"",
+"3-8": "\"Mitä tapahtuu?\"",
+"3-9": "\"Heh. Olen varma, että tiedät tarkalleen mitä tapahtuu.\""
+
+"Ch": "Charcoal",
+"Dizzy": "AAAAAAA",
+"Eepy": "Sonin",
+"Hungry": "Fome",
+"Ks": "Ks",
+"L": "Lavender",
+"P": "Petal",
+"S": "Soap",
+"Sleepy": "Sono",
+"Sn": "Seni",
+"Status": "Status",
+"Thirsty": "Sede",
+"WB": "Winterblush",
+"Y": "Yellow",
+"back": "Voltar",
+"credits": "[b]Trago por:
+[/b][i]Seni - Raposa artisa
+Ks - Cão autista
+[/i]
+[b] Playtesters:[/b] [i] 
+Rokabane 
+[manda seu user 
+para adição]
+[/i]
+[b] Traduções:[/b] [i] 
+Shavian: Ks 
+Português: Ks 
+Espanhol: Billy 
+Françes: Billy 
+Finlandês: Billy 
+Braille: Ks 
+[/i]  
+[b] Música: [/b] 
+[i] DOododoDodOd
+- Ks
+[/i] 
+[b] Obrigados: [/b][i] 
+Ege
+Ray
+Vali!
+Rokabane
+Billy
+Hackclub
+Godot Forum
+Meu Laptop de 7 anos
+Matemática5
+
+
+VOCÊ!
+[/i]",
+"dots": "...",
+"grid": "Opacidade da Grade",
+"hunger": "Fome",
+"healthy": "Saúde",
+"language": "Idioma",
+"loading": "Carregando",
+"n1": "Nah",
+"n2": "Não",
+"n3": "Nã",
+"quit": "Quitar",
+"healthy": "Saúde",
+"retry": "Reiniciar",
+"settings": "Configurações",
+"sleep": "Sono",
+"stats": "Status",
+"volume": "Volume",
+"w1": "Quê?",
+"w2": "Huh?",
+"w3": "Ãh?",
+"water": "Hidratação",
+"y1": "Sim",
+"y2": "Tá",
+"y3": "Claro"
+}

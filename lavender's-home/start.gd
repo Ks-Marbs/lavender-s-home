@@ -107,8 +107,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	FileAccess.open("res://images/lang/port.txt",FileAccess.WRITE).store_string(var_to_str(dict)) #aaaaaaaaaaaaaaaaaaaaaaaaa
-	$cred.text = str_to_var(FileAccess.open(Global.lan[Global.lang],FileAccess.READ).get_as_text().replace("\t", "")).credits #aaaaaaaaaaaaaaaaaaaaaaaaa
+	FileAccess.open("res://images/lang/port.txt",FileAccess.WRITE).store_string(var_to_str(dict))
+	$cred.text = str_to_var(FileAccess.open(Global.lan[Global.lang],FileAccess.READ).get_as_text().replace("\t", ""))["credits"] #aaaaaaaaaaaaaaaaaaaaaaaaa
 	if $play.button_pressed:
 		get_tree().change_scene_to_file("res://level_3.tscn")
 	if $settings.button_pressed:

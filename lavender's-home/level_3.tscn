@@ -13036,55 +13036,6 @@ offset = Vector2(0, -1)
 region_enabled = true
 region_rect = Rect2(0, 0, 36, 36)
 
-[node name="Ks" type="Area2D" parent="." unique_id=1536230353]
-position = Vector2(576, 864)
-script = ExtResource("5_tndmk")
-
-[node name="CollisionShape2d" type="CollisionShape2D" parent="Ks" unique_id=2078157583]
-shape = SubResource("RectangleShape2D_oojxo")
-
-[node name="DownRay" type="RayCast2D" parent="Ks" unique_id=1746132734]
-target_position = Vector2(0, 18.1)
-collide_with_areas = true
-
-[node name="RightRay" type="RayCast2D" parent="Ks" unique_id=947588062]
-target_position = Vector2(18.1, 0)
-collide_with_areas = true
-
-[node name="UpRay" type="RayCast2D" parent="Ks" unique_id=1302695115]
-z_index = 1
-rotation = 3.1415927
-target_position = Vector2(0, 18.1)
-collide_with_areas = true
-
-[node name="LeftRay" type="RayCast2D" parent="Ks" unique_id=1591194027]
-z_index = 1
-rotation = 3.1415927
-target_position = Vector2(18.1, 0)
-collide_with_areas = true
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Ks" unique_id=281755699]
-offset_left = -35.0
-offset_top = -29.0
-offset_right = 37.0
-offset_bottom = -9.0
-theme_override_fonts/normal_font = ExtResource("16_bx5y4")
-theme_override_font_sizes/normal_font_size = 8
-theme_override_styles/normal = SubResource("StyleBoxFlat_m2val")
-text = "Soap"
-fit_content = true
-horizontal_alignment = 1
-deselect_on_focus_loss_enabled = false
-drag_and_drop_selection_enabled = false
-
-[node name="Sprite2d" type="Sprite2D" parent="Ks" unique_id=1385905332]
-position = Vector2(-18, -18)
-texture = ExtResource("11_gkqsa")
-centered = false
-offset = Vector2(0, -1)
-region_enabled = true
-region_rect = Rect2(0, 108, 36, 36)
-
 [node name="Winterblush" type="Area2D" parent="." unique_id=1887568770]
 position = Vector2(396, 864)
 script = ExtResource("5_tndmk")
@@ -13156,7 +13107,7 @@ texture = ExtResource("30_kenis")
 
 [node name="Lav" parent="." unique_id=1722712706 groups=["box"] instance=ExtResource("17_dff1k")]
 z_index = 10
-position = Vector2(612, 1080)
+position = Vector2(540, 900)
 input_pickable = false
 priority = 1
 

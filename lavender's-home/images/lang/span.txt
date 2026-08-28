@@ -1,0 +1,128 @@
+{
+"0-0": "\"Mis pobres flores marchitas...\"",
+"0-1": "Estás en tu habitación, estás bien, solo estás bastante asustada... tal vez deberías revisar a Soap.",
+"1-0": "\"Oye Lavender, te ves asustada... ¿estás... bien?\"",
+"1-1": "\"Sí, estoy bien. Solo dormí tarde...\"",
+"1-10": "\"¿En serio? ¿De verdad crees que soy lo suficientemente fuerte y atlético para inscribirme?\"",
+"1-11": "Te ríes ligeramente.",
+"1-12": "\"Mmm... en realidad no.\"",
+"1-13": "\"Es justo, dudo que madre me inscriba de todos modos.\"",
+"1-14": "\"Probablemente inscriba a WinterBlush en su lugar.\"",
+"1-15": "Asientes ligeramente.",
+"1-16": "\"Talvez yo podría ir.\"",
+"1-17": "\"Lo dudo... es como un campamento... excepto con más competencia.\"",
+"1-18": "\"Es una competencia, Lavender. No te gustan las competencias.\"",
+"1-19": "No dices nada, pero es verda-",
+"1-2": "\"Te dormiste a las 9... lo más temprano que podías dormir...\"",
+"1-20": "Escuchas el sonido de la puerta abriéndose.",
+"1-21": "\"Deberíamos dormir ahora. No queremos que madre se enfurezca.\"",
+"1-3": "\"No, no estoy bien.\"",
+"1-4": "\"Oye... estoy aquí para ti, ¿qué pasa?\"",
+"1-5": "\"...Tuve un sueño en el que estaba cuidando las flores, y luego... una de ellas se marchitó y madre se enojó...\"",
+"1-6": "\"Lo siento mucho, Lavender... yo... desearía poder ayudarte. Madre se está frustrando más últimamente...\"",
+"1-7": "\"mmm... me alegra que estés aquí.\"",
+"1-8": "\"Eh... bueno, ¿crees que debería inscribirme? He estado dudando de esto por un tiempo.\"",
+"1-9": "\"Claro, ¿por qué no?\"",
+"2-0": "\"No puedo creer que todo haya salido tan mal con ese espectáculo. Las luces, el micrófono, los cables, el público...\"",
+"2-1": "\"Todo está arruinando el concierto.\"",
+"2-10": "\"No te atrevas a criticar el trabajo de tu madre de esa manera. Es la razón por la cual tienes comida y refugio.\"",
+"2-11": "\"Es lA rAzÓn pOr lA qUe tIeNeS cOmIdA y rEfUgIo.\"",
+"2-12": "\"Sabes perfectamente que la mayor parte del dinero viene de la mercancía.\"",
+"2-13": "\"El dinero es dinero, cariño. Estoy haciendo lo que puedo para cuidarte. Si no es suficiente, entonces ¿cómo podría consentirte?\"",
+"2-14": "\"Eres la criatura más preciada que tengo, y lo sabes. No me obligues a odiarte.\"",
+"2-15": "\"Lo que sea, Petal. Algún día verás por qué todos los demás te dejaron.\"",
+"2-16": "\"¡Como si fuera así! Todavía tengo una buena reputación, WinterBlush. No va a ocurrir pronto.\"",
+"2-17": "\"...No puedo esperar para irme.\"",
+"2-2": "\"...También esperaba algo mejor de ti, WinterBlush.\"",
+"2-3": "\"Claro que sí... nada es suficiente para ti, Petal.\"",
+"2-4": "\"¿Cuándo será suficiente para ti?\"",
+"2-5": "\"Solo será suficiente cuando sea perfecto, impecable, de ejecución suave. No lo entiendes.\"",
+"2-6": "\"Estoy intentando lo mejor que puedo, y aun así sigue siendo insuficiente.\"",
+"2-7": "\"Si quieres que sea perfecto taaaaan mal, ponle alma a tus canciones, suenan mecánicas.\"",
+"2-8": "\"Demonios, hasta el atuendo es aburrido, parezco una muñeca.\"",
+"2-9": "\"...¿Qué acabas de decir?\"",
+"3-0": "Te despiertas, cansada. Al menos el sueño que tuviste esta vez no fue tan aterrador.",
+"3-1": "Ves a WinterBlush a tu lado, que no pudo dormir nada.",
+"3-10": "\"Deberías ir a buscar nuestro correo pronto, Lavvy.\"",
+"3-2": "\"Espero que hayas dormido bien.\"",
+"3-3": "\"Tuve que lidiar con Petal y sus espectáculos. Yo era una de esas cantantes.\"",
+"3-4": "\"Odio mi voz y no pude sacar la letra, así que Petal entró en pánico y después del espectáculo me ignoró y simplemente regresó a casa\"",
+"3-5": "\"Mira... si no tienes cuidado con ella, ¿quién sabe qué podría pasar?\"",
+"3-6": "\"Será mejor que vayas a buscar nuestro correo pronto, o si no...\"",
+"3-7": "\"Está bien...\"",
+"3-8": "\"¿Qué es lo que pasa?\"",
+"3-9": "\"Heh. Estoy segura de que sabrás exactamente qué pasa.\""
+"Ch": "Charcoal",
+"Dizzy": "AAAAAAA",
+"Eepy": "Sonin",
+"Hungry": "Fome",
+"Ks": "Ks",
+"L": "Lavender",
+"P": "Petal",
+"S": "Soap",
+"Sleepy": "Sono",
+"Sn": "Seni",
+"healthy": "Saúde",
+"Status": "Status",
+"Thirsty": "Sede",
+"WB": "Winterblush",
+"Y": "Yellow",
+"back": "Voltar",
+"healthy": "Saúde",
+"credits": "[b]Trago por:
+[/b][i]Seni - Raposa artisa
+Ks - Cão autista
+[/i]
+[b] Playtesters:[/b] [i] 
+Rokabane 
+[manda seu user 
+para adição]
+[/i]
+[b] Traduções:[/b] [i] 
+Shavian: Ks 
+Português: Ks 
+Espanhol: Billy 
+Françes: Billy 
+Finlandês: Billy 
+Braille: Ks 
+[/i]  
+[b] Música: [/b] 
+[i] DOododoDodOd
+- Ks
+[/i] 
+[b] Obrigados: [/b][i] 
+Ege
+Ray
+Vali!
+Rokabane
+Billy
+Hackclub
+Godot Forum
+Meu Laptop de 7 anos
+Matemática5
+
+
+VOCÊ!
+[/i]",
+"dots": "...",
+"grid": "Opacidade da Grade",
+"hunger": "Fome",
+"language": "Idioma",
+"loading": "Carregando",
+"n1": "Nah",
+"n2": "Não",
+"n3": "Nã",
+"quit": "Quitar",
+"retry": "Reiniciar",
+"settings": "Configurações",
+"sleep": "Sono",
+"stats": "Status",
+"volume": "Volume",
+"w1": "Quê?",
+"w2": "Huh?",
+"w3": "Ãh?",
+"water": "Hidratação",
+"y1": "Sim",
+"y2": "Tá",
+"y3": "Claro"
+}

@@ -1,12 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://cpqdtcjjv1m4f"]
+[gd_scene format=3 uid="uid://cpqdtcjjv1m4f"]
 
 [ext_resource type="AudioStream" uid="uid://dwbx5vntvgk4x" path="res://images/Lav musik.mp3" id="1_q45hi"]
 [ext_resource type="Script" uid="uid://c8addbsswa8j" path="res://audio.gd" id="2_q45hi"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" unique_id=1158670003]
 script = ExtResource("2_q45hi")
 
-[node name="masterloop" type="AudioStreamPlayer" parent="."]
+[node name="masterloop" type="AudioStreamPlayer" parent="." unique_id=986229125]
 stream = ExtResource("1_q45hi")
 autoplay = true
+max_polyphony = 2
 parameters/looping = true

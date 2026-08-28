@@ -1,9 +1,9 @@
+AudioStreamPlayer
 RichTextLabel
 ColorRect
 Sprite2D
 AnimatedSprite2D
 AnimationPlayer
-AudioStreamPlayer
 TextureButton
 OptionButton
 Button

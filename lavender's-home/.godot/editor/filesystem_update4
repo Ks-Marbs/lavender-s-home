@@ -1,8 +1,5 @@
-res://start.gd
-res://images/lang/eng.txt
-res://settings.tscn
-res://something.tres
-res://images/lang/eng2.txt
-res://Start.tscn
-res://global.gd
+res://player.gd
 res://images/lang/port.txt
+res://level_1.tscn
+res://something.tres
+res://global.gd

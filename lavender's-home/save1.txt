@@ -6,5 +6,5 @@
 	"Knifes": 0,
 	"Hunger": 100,
 	"Thirst": 100,
-	"Sleepness": 100,
+	"Sleepness": 100
 }
