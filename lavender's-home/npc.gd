@@ -7,7 +7,7 @@ var yes=true
 var on=false
 var isgoal=false
 var time= 1
-var moveset = [0,0,0,0,0,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+var moveset = [0,0,0,0,0,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,2,2,2,2,2,2,2,0,0,0,0,0,0,0,0,2,2,2,2,2,2,2,2,2,2,0,0,0,2,2,2,2,2,2,2,2,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0] #aaaaaaaaaaaaaaaaaaaaaa
 var t1 = 0
 var t2 = 0
 var vis = 0.01
@@ -21,7 +21,7 @@ var ycell := (position.y - (int(position.y) % 36)) / 36
 var numb = 1
 var moving:= false
 var tile_size := 36
-var step_size := 4
+var step_size := 36
 
 func wiggle():
 	if not wiggling:
@@ -189,7 +189,8 @@ func move_step(dir: Vector2) -> void:
 		Global.x = xcell
 		Global.y = ycell
 		moving = false
-		numb += 1
+		if numb == moveset.size()-1: numb = 1 
+		else: numb += 1
 
 func ice_step(dir: Vector2) -> void:
 	match dir:

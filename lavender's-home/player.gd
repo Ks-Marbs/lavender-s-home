@@ -8,7 +8,7 @@ var yes = true
 var isplayer := true
 var isgoal := false
 var tile_size := 36
-var step_size := 9
+var step_size := 12
 var last_move := Vector2.ONE
 var nextplan_move := Vector2.ONE
 var moving := false
@@ -380,6 +380,7 @@ func raycheck():
 		Global.talking = false
 
 func _process(delta):
+	if Global.level == 5: $Camera2D.global_position = Vector2(72,138)
 	if Global.sleeping: $Sprite2d.visible = false
 	else: $Sprite2d.visible = true
 
