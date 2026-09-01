@@ -5962,7 +5962,7 @@ region_rect = Rect2(0, 0, 36, 36)
 
 [node name="Lav" parent="." unique_id=1879288176 groups=["box"] instance=ExtResource("3_ethxx")]
 z_index = 10
-position = Vector2(252, 108)
+position = Vector2(288, 504)
 input_pickable = false
 priority = 1
 

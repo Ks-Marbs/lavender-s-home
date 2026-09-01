@@ -1,5 +1,10 @@
-res://player.gd
-res://images/lang/port.txt
-res://level_1.tscn
+res://level_4.tscn
 res://something.tres
+res://images/lang/port.txt
+res://sec.gd
+res://level_3.tscn
+res://stairs.gd
 res://global.gd
+res://npc.gd
+res://soap.gd
+res://player.gd
