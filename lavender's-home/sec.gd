@@ -1,11 +1,7 @@
 extends Node2D
 
 func _ready() -> void:
-	Global.level = int(get_tree().current_scene.scene_file_path)
 	Global.prepare(Global.level)
-	$Soap.visible = Global.Soap[0];$Soap.position = Vector2(Global.Soap[2*Global.level-1],Global.Soap[2*Global.level])*36;$Soap.t1=Global.Soap[7]
-	$Petal.visible = Global.Petal[0];$Petal.position = Vector2(Global.Petal[2*Global.level-1],Global.Petal[2*Global.level])*36;$Petal.t1=Global.Petal[7]
-	$Winterblush.visible = Global.Winterblush[0];$Winterblush.position = Vector2(Global.Winterblush[2*Global.level-1],Global.Winterblush[2*Global.level])*36;$Winterblush.t1=Global.Winterblush[7] #aaaaaaaaaaaaaaa
 	if Global.took_stairs:
 		match Global.level:
 			1:

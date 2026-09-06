@@ -8,7 +8,7 @@ var yes = true
 var isplayer := true
 var isgoal := false
 var tile_size := 36
-var step_size := 12
+var step_size := 9
 var last_move := Vector2.ONE
 var nextplan_move := Vector2.ONE
 var moving := false
@@ -240,6 +240,29 @@ func interact(ray):
 				$Camera2D/TextBox.visible = 0
 				$Camera2D/TextBox/icon.visible = 0
 				$anim.visible = 0
+			7:
+				$Camera2D/TextBox.texture = load("res://images/charbox.png")
+				$Camera2D/TextBox/icon.position = Vector2(0,-216)
+				$Camera2D/TextBox.visible = 1
+				$Camera2D/TextBox/Textname.position = Vector2(0,-36)
+				$Camera2D/TextBox/Textname.self_modulate = Color(0.212, 0.271, 0.31, 1.0)
+				$Camera2D/TextBox/Textname/text.text = t("Ch")
+				$Camera2D/TextBox/icon.visible = 1
+				$Camera2D/TextBox.visible = 1
+				$Camera2D/TextBox/Textname.visible = 1
+				$Camera2D/TextBox/icon.texture = load("res://images/charicon"+str(Global.story[Global.storystep][ray.get_collider().interaction][1])+".png")
+				$anim.visible = 0
+			8:
+				$Camera2D/TextBox.texture = load("res://images/soapbox.png")
+				$Camera2D/TextBox/icon.position = Vector2(0,-216)
+				$Camera2D/TextBox/Textname.position = Vector2(0,-36)
+				$Camera2D/TextBox/Textname.self_modulate = Color(0.929, 0.753, 1.0)
+				$Camera2D/TextBox/Textname/text.text = t("S")
+				$Camera2D/TextBox/icon.visible = 1
+				$Camera2D/TextBox.visible = 1
+				$Camera2D/TextBox/Textname.visible = 1
+				$Camera2D/TextBox/icon.texture = load("res://images/soapicon1"+str(Global.story[Global.storystep][ray.get_collider().interaction][1])+".png")
+				$anim.visible = 0
 
 			"A":
 				$Camera2D/TextBox.visible = 0
@@ -292,7 +315,22 @@ func interact(ray):
 						Global.talking = false
 						$anim.visible = false
 						Global.storystep = 1
+						Global.level = 1
 						get_tree().change_scene_to_file("res://level_1.tscn")
+					1:
+						Global.talking = false
+						Global.storystep = 2
+					2:
+						Global.talking = false
+						Global.storystep = 3
+					3:
+						Global.talking = false
+						Global.storystep = 4
+					4:
+						Global.talking = false
+						Global.storystep = 5
+
+
 
 		if typeof(Global.story[Global.storystep][ray.get_collider().interaction][0]) != TYPE_STRING and Global.talking:
 			$Camera2D/pause.visible = 0
@@ -380,7 +418,6 @@ func raycheck():
 		Global.talking = false
 
 func _process(delta):
-	if Global.level == 5: $Camera2D.global_position = Vector2(72,138)
 	if Global.sleeping: $Sprite2d.visible = false
 	else: $Sprite2d.visible = true
 
@@ -480,6 +517,7 @@ func move_step(dir: Vector2) -> void:
 		if Global.moves % 15 == 0 and  Global.sleep > 0:
 			Global.sleep -= 2
 	position += dir * step_size
+	if Global.level == 5: $Camera2D.position = Vector2(72,138) - position
 	await get_tree().create_timer(Global.mini_delay).timeout
 	while int(position.x) % tile_size != 0 or int(position.y) % tile_size != 0:
 		t2+=1
@@ -487,6 +525,7 @@ func move_step(dir: Vector2) -> void:
 			t2=0
 		$Sprite2d.region_rect=Rect2(t1*72+36,t2*36,36,36)
 		position += dir * step_size
+		if Global.level == 5: $Camera2D.position = Vector2(72,138) - position
 		await get_tree().create_timer(Global.mini_delay).timeout
 	last_move = dir
 	xcell = (position.x - (int(position.x) % 36)) / 36
@@ -508,6 +547,7 @@ func ice_step(dir: Vector2) -> void:
 	if not (Global.toggle or Global.clear):
 		moving = true
 		position += dir * step_size
+		if Global.level == 5: $Camera2D.position = Vector2(72,138) - position
 		await get_tree().create_timer(Global.mini_delay).timeout
 		while int(position.x) % tile_size != 0 or int(position.y) % tile_size != 0:
 			t2+=1

@@ -1,5 +1,6 @@
 res://level_5.tscn
 res://something.tres
 res://global.gd
-res://images/lang/port.txt
 res://player.gd
+res://saf.gd
+res://aaaaa.gd

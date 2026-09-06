@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://cqo8df1n6gas5" path="res://stairs.gd" id="3_5d2jl"]
 [ext_resource type="FontFile" uid="uid://djfbke8b4o6dx" path="res://images/something.ttf" id="4_gssvh"]
 [ext_resource type="Script" uid="uid://cq685e0q7nasv" path="res://soap.gd" id="8_7otly"]
+[ext_resource type="Texture2D" uid="uid://drmoxrii0fsfj" path="res://images/charc.png" id="9_0aj8w"]
 [ext_resource type="Texture2D" uid="uid://dk052jvx2l5xb" path="res://images/soap1.0.1.png" id="9_vj61f"]
 [ext_resource type="Texture2D" uid="uid://bsfe7qviw0ad1" path="res://images/petal1.0.1.png" id="10_pdfdk"]
 [ext_resource type="Texture2D" uid="uid://cynxlyrkya6cn" path="res://images/winterblush1.0.1.png" id="11_lv3jw"]
@@ -28,8 +29,13 @@
 [ext_resource type="Texture2D" uid="uid://ded1chlqykl85" path="res://images/food over.png" id="29_04hqy"]
 [ext_resource type="Texture2D" uid="uid://cdks4vhnlmxvj" path="res://images/bar.png" id="30_pq617"]
 [ext_resource type="Texture2D" uid="uid://3ux82caew5nx" path="res://images/wat over.png" id="31_rd6d1"]
+[ext_resource type="Texture2D" uid="uid://dmkkrdkk7b60g" path="res://images/bocl.png" id="32_5d2jl"]
 [ext_resource type="Texture2D" uid="uid://hjji8eys0mb0" path="res://images/sleep over.png" id="32_i1tj2"]
 [ext_resource type="Texture2D" uid="uid://ciy0gcay1buve" path="res://images/slash3.png" id="33_fmcco"]
+[ext_resource type="Script" uid="uid://qxxtu7vvqpml" path="res://saf.gd" id="33_gssvh"]
+[ext_resource type="Texture2D" uid="uid://b1lk06je23bwx" path="res://images/bu.png" id="34_hbtd8"]
+[ext_resource type="Texture2D" uid="uid://c3a5gti3qjn4i" path="res://images/bux.png" id="35_3vcu4"]
+[ext_resource type="Script" uid="uid://b8jd2gagv8yyt" path="res://aaaaa.gd" id="36_gssvh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_btc8u"]
 texture = ExtResource("2_e85tf")
@@ -11769,11 +11775,10 @@ tile_set = SubResource("TileSet_fi1vt")
 visible = false
 modulate = Color(1, 1, 1, 0.19215687)
 position = Vector2(-18, -18)
-tile_map_data = PackedByteArray("AAABAAAAAgADAAYAAAACAAAAAgADAAYAAAADAAAAAgADAAYAAAAFAAAAAgADAAYAAAAGAAAAAgADAAYAAAAHAAAAAgADAAYAAAAIAAAAAgADAAYAAAAJAAAAAgADAAYAAAAKAAAAAgADAAYAAAAFAAEAAgADAAYAAAAHAAIAAgADAAYAAAAHAAMAAgADAAYAAAAHAAQAAgACAAcAAAAIAAIAAgADAAYAAAAJAAIAAgADAAYAAAAKAAIAAgACAAcAAAAMAAEAAgADAAYAAAAMAAIAAgADAAYAAAANAAAAAgADAAYAAAANAAEAAgADAAYAAAAOAAAAAgADAAYAAAAOAAEAAgADAAYAAAAPAAAAAgADAAYAAAAPAAEAAgADAAYAAAAAAAoAAgADAAYAAAABAAoAAgADAAYAAAACAAoAAgADAAYAAAADAAoAAgADAAYAAAABAAkAAgADAAYAAAABAAsAAgADAAYAAAABAAwAAgADAAYAAAABAA0AAgADAAYAAAABAA4AAgADAAYAAAACAAkAAgACAAcAAAACAAsAAgADAAYAAAACAAwAAgADAAYAAAACAA0AAgACAAcAAAACAA4AAgADAAYAAAAAAAwAAgADAAYAAAADAAwAAgADAAYAAAAIAAQAAgADAAYAAAAJAAMAAgADAAYAAAAKAAMAAgADAAYAAAARAAkAAgADAAYAAAARAAoAAgADAAYAAAARAAsAAgADAAYAAAANAAcAAgADAAYAAAAOAAcAAgADAAYAAAAPAAcAAgADAAYAAAAOAAkAAgADAAYAAAAOAAoAAgADAAYAAAAPAAkAAgADAAYAAAAPAAoAAgAEAAcAAAANAAwAAgADAAYAAAAOAAwAAgADAAYAAAAPAAwAAgADAAYAAAAJAA4AAgAEAAcAAAAKAA4AAgADAAYAAAALAA4AAgAEAAcAAAAGAAcAAgADAAYAAAAGAAgAAgADAAYAAAAFAAgAAgADAAYAAAAFAAcAAgADAAYAAAAIAAcAAgADAAYAAAAJAAcAAgADAAYAAAAKAAcAAgADAAYAAAALAAcAAgADAAYAAAAMAAcAAgADAAYAAAAMAAgAAgADAAYAAAAMAAkAAgADAAYAAAAQAAAAAgADAAYAAAARAAAAAgADAAYAAAARAAEAAgADAAYAAAAQAAEAAgADAAYAAAAQAAIAAgADAAYAAAARAAIAAgADAAYAAAARAAMAAgADAAYAAAAQAAMAAgADAAYAAAAQAAQAAgACAAcAAAAQAAUAAgACAAcAAAAQAAYAAgACAAcAAAARAAQAAgACAAcAAAARAAUAAgACAAcAAAARAAYAAgACAAcAAAAPAAUAAgAAAAcAAAAPAAYAAgAAAAcAAAANAAIAAgABAAcAAAANAAMAAgABAAcAAAANAAQAAgABAAcAAAAOAAIAAgABAAcAAAAOAAMAAgABAAcAAAAOAAQAAgABAAcAAAAPAAIAAgABAAcAAAAPAAMAAgABAAcAAAAPAAQAAgABAAcAAAANAAUAAgABAAcAAAANAAYAAgABAAcAAAAOAAUAAgABAAcAAAAOAAYAAgABAAcAAAALAAAAAgACAAcAAAAMAAAAAgACAAcAAAAGAAEAAgACAAcAAAAHAAEAAgACAAcAAAAIAAEAAgACAAcAAAAJAAEAAgACAAcAAAAKAAEAAgACAAcAAAALAAEAAgACAAcAAAAFAAIAAgACAAcAAAAFAAMAAgACAAcAAAAFAAQAAgACAAcAAAAFAAUAAgACAAcAAAAFAAYAAgACAAcAAAAGAAIAAgACAAcAAAAGAAMAAgACAAcAAAAGAAQAAgACAAcAAAAGAAUAAgACAAcAAAAGAAYAAgACAAcAAAAHAAUAAgACAAcAAAAHAAYAAgACAAcAAAAIAAUAAgACAAcAAAAIAAYAAgACAAcAAAAJAAUAAgACAAcAAAAJAAYAAgACAAcAAAAKAAUAAgACAAcAAAAKAAYAAgACAAcAAAALAAUAAgACAAcAAAALAAYAAgACAAcAAAAMAAUAAgAAAAcAAAAMAAYAAgAAAAcAAAALAAMAAgACAAcAAAALAAQAAgACAAcAAAAMAAMAAgACAAcAAAAMAAQAAgAAAAcAAAALAAIAAgACAAcAAAAJAAQAAgACAAcAAAAKAAQAAgACAAcAAAAIAAMAAgACAAcAAAAAAA0AAgACAAcAAAAAAA4AAgACAAcAAAAAAAsAAgACAAcAAAAAAAcAAgACAAcAAAAAAAgAAgACAAcAAAAAAAkAAgACAAcAAAABAAcAAgAAAAcAAAABAAgAAgACAAcAAAACAAcAAgACAAcAAAACAAgAAgACAAcAAAADAAcAAgACAAcAAAADAAgAAgACAAcAAAAEAAcAAgACAAcAAAAEAAgAAgACAAcAAAADAAkAAgACAAcAAAAEAAkAAgACAAcAAAAEAAoAAgACAAcAAAAEAAsAAgACAAcAAAADAAsAAgACAAcAAAAFAAsAAgACAAcAAAAGAAsAAgACAAcAAAAHAAsAAgACAAcAAAAEAAwAAgACAAcAAAAEAA0AAgACAAcAAAAEAA4AAgACAAcAAAAFAAwAAgACAAcAAAAFAA0AAgACAAcAAAAFAA4AAgACAAcAAAAGAAwAAgACAAcAAAAGAA0AAgACAAcAAAAGAA4AAgACAAcAAAAHAAwAAgAAAAcAAAAHAA0AAgAAAAcAAAAHAA4AAgACAAcAAAADAA0AAgACAAcAAAADAA4AAgACAAcAAAAAAAUAAgABAAcAAAAAAAYAAgABAAcAAAABAAUAAgABAAcAAAABAAYAAgABAAcAAAACAAUAAgABAAcAAAACAAYAAgABAAcAAAADAAUAAgABAAcAAAADAAYAAgABAAcAAAAEAAUAAgABAAcAAAAEAAYAAgABAAcAAAAEAAIAAgAAAAcAAAAEAAMAAgAAAAcAAAAEAAQAAgAAAAcAAAAEAAAAAgABAAcAAAAEAAEAAgABAAcAAAAAAAEAAgABAAcAAAAAAAIAAgABAAcAAAAAAAMAAgABAAcAAAAAAAQAAgABAAcAAAABAAEAAgABAAcAAAABAAIAAgABAAcAAAABAAMAAgABAAcAAAABAAQAAgABAAcAAAACAAEAAgABAAcAAAACAAIAAgABAAcAAAACAAMAAgABAAcAAAACAAQAAgABAAcAAAADAAEAAgABAAcAAAADAAIAAgABAAcAAAADAAMAAgABAAcAAAADAAQAAgABAAcAAAAAAAAAAgABAAcAAAAFAAoAAgADAAcAAAAGAAoAAgADAAcAAAAHAAoAAgADAAcAAAAIAAoAAgADAAcAAAAJAAoAAgADAAcAAAAKAAoAAgAAAAcAAAALAAoAAgAAAAcAAAAMAAoAAgADAAcAAAAFAAkAAgADAAcAAAAGAAkAAgADAAcAAAAHAAkAAgADAAcAAAAIAAkAAgADAAcAAAAJAAkAAgADAAcAAAAKAAkAAgADAAcAAAALAAkAAgADAAcAAAAHAAgAAgADAAcAAAAIAAgAAgADAAcAAAAJAAgAAgADAAcAAAAKAAgAAgADAAcAAAALAAgAAgADAAcAAAAHAAcAAgADAAcAAAAIAAsAAgAEAAcAAAAIAAwAAgAEAAcAAAAIAA0AAgAEAAcAAAAIAA4AAgAEAAcAAAAJAAsAAgAEAAcAAAAJAAwAAgAEAAcAAAAJAA0AAgAEAAcAAAAKAAsAAgAEAAcAAAAKAAwAAgAEAAcAAAAKAA0AAgAEAAcAAAALAAsAAgAEAAcAAAALAAwAAgAEAAcAAAALAA0AAgAEAAcAAAAMAAsAAgAEAAcAAAAMAAwAAgAEAAcAAAAMAA0AAgAEAAcAAAAMAA4AAgAEAAcAAAANAA0AAgAEAAcAAAANAA4AAgAEAAcAAAAOAA0AAgAEAAcAAAAOAA4AAgAEAAcAAAAPAA0AAgAEAAcAAAAPAA4AAgAEAAcAAAAQAA0AAgAEAAcAAAAQAA4AAgAEAAcAAAARAA0AAgAEAAcAAAARAA4AAgAEAAcAAAAQAAwAAgAEAAcAAAARAAwAAgAEAAcAAAAQAAcAAgAAAAcAAAAQAAgAAgAEAAcAAAAQAAkAAgAEAAcAAAAQAAoAAgAEAAcAAAAQAAsAAgAEAAcAAAARAAcAAgAAAAcAAAARAAgAAgAEAAcAAAANAAgAAgAEAAcAAAAOAAgAAgAEAAcAAAAPAAgAAgAEAAcAAAANAAkAAgAEAAcAAAANAAoAAgAEAAcAAAANAAsAAgAEAAcAAAAOAAsAAgAEAAcAAAAPAAsAAgAEAAcAAAAPAA8AAgAEAAcAAAA=")
+tile_map_data = PackedByteArray("AAABAAMAAgABAAcAAAABAAQAAgABAAcAAAABAAUAAgABAAcAAAABAAYAAgABAAcAAAABAAcAAgABAAcAAAACAAMAAgABAAcAAAACAAQAAgABAAcAAAACAAUAAgABAAcAAAACAAYAAgABAAcAAAACAAcAAgABAAcAAAADAAMAAgABAAcAAAADAAQAAgABAAcAAAADAAUAAgABAAcAAAADAAYAAgABAAcAAAADAAcAAgABAAcAAAAEAAMAAgABAAcAAAAAAAMAAgABAAcAAAAAAAcAAgABAAcAAAACAAgAAgABAAcAAAABAAIAAgABAAcAAAA=")
 tile_set = SubResource("TileSet_fi1vt")
 
 [node name="grid" type="TileMapLayer" parent="." unique_id=2063105014]
-visible = false
 modulate = Color(1, 1, 1, 0.73333335)
 position = Vector2(-18, -18)
 tile_map_data = PackedByteArray("AAADAAMAAQAAAAgAAAADAAQAAQAAAAgAAAADAAUAAQAAAAgAAAAEAAUAAQAAAAgAAAAAAAAAAQAAAAgAAAAAAAEAAQAAAAgAAAAAAAIAAQAAAAgAAAAAAAMAAQAAAAgAAAAAAAQAAQAAAAgAAAAAAAUAAQAAAAgAAAAAAAYAAQAAAAgAAAABAAAAAQAAAAgAAAABAAEAAQAAAAgAAAABAAMAAQAAAAgAAAABAAQAAQAAAAgAAAABAAUAAQAAAAgAAAABAAYAAQAAAAgAAAACAAAAAQAAAAgAAAACAAEAAQAAAAgAAAACAAIAAQAAAAgAAAACAAMAAQAAAAgAAAACAAQAAQAAAAgAAAACAAUAAQAAAAgAAAACAAYAAQAAAAgAAAADAAAAAQAAAAgAAAADAAEAAQAAAAgAAAADAAIAAQAAAAgAAAADAAYAAQAAAAgAAAAEAAAAAQAAAAgAAAAEAAEAAQAAAAgAAAAEAAIAAQAAAAgAAAAEAAMAAQAAAAgAAAAEAAQAAQAAAAgAAAAEAAYAAQAAAAgAAAABAAIAAQAAAAgAAAAAAAcAAQAAAAgAAAABAAcAAQAAAAgAAAACAAcAAQAAAAgAAAADAAcAAQAAAAgAAAAEAAcAAQAAAAgAAAA=")
@@ -11786,98 +11791,8 @@ position = Vector2(-18, -18)
 tile_map_data = PackedByteArray("AAAOAAIAAgACAAcAAAAPAAIAAgACAAcAAAAPAAMAAgAEAAcAAAA=")
 tile_set = SubResource("TileSet_ldfcd")
 
-[node name="Stairs" type="Area2D" parent="." unique_id=1381344063]
-position = Vector2(576, 144)
-script = ExtResource("3_5d2jl")
-
-[node name="Sprite2d" type="Sprite2D" parent="Stairs" unique_id=447055995]
-position = Vector2(-18, -18)
-centered = false
-offset = Vector2(0, -1)
-region_enabled = true
-region_rect = Rect2(0, 0, 36, 36)
-
-[node name="CollisionShape2d" type="CollisionShape2D" parent="Stairs" unique_id=1712895289]
-shape = SubResource("RectangleShape2D_tia2a")
-
-[node name="DownRay" type="RayCast2D" parent="Stairs" unique_id=111641781]
-target_position = Vector2(0, 18.1)
-collide_with_areas = true
-
-[node name="UpRay" type="RayCast2D" parent="Stairs" unique_id=556813863]
-target_position = Vector2(0, -18.1)
-collide_with_areas = true
-
-[node name="RightRay" type="RayCast2D" parent="Stairs" unique_id=403561931]
-target_position = Vector2(18.1, 0)
-collide_with_areas = true
-
-[node name="LeftRay" type="RayCast2D" parent="Stairs" unique_id=1123457016]
-target_position = Vector2(-19, 0)
-collide_with_areas = true
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Stairs" unique_id=452796287]
-offset_left = -53.0
-offset_top = -38.0
-offset_right = 19.0
-offset_bottom = -18.0
-scale = Vector2(2, 2)
-theme_override_fonts/normal_font = ExtResource("4_gssvh")
-theme_override_font_sizes/normal_font_size = 8
-theme_override_styles/normal = SubResource("StyleBoxFlat_enjog")
-text = "stairs"
-fit_content = true
-horizontal_alignment = 1
-deselect_on_focus_loss_enabled = false
-drag_and_drop_selection_enabled = false
-
-[node name="Stairs2" type="Area2D" parent="." unique_id=2041382539]
-position = Vector2(612, 144)
-script = ExtResource("3_5d2jl")
-
-[node name="Sprite2d" type="Sprite2D" parent="Stairs2" unique_id=1268195829]
-position = Vector2(-18, -18)
-centered = false
-offset = Vector2(0, -1)
-region_enabled = true
-region_rect = Rect2(0, 0, 36, 36)
-
-[node name="CollisionShape2d" type="CollisionShape2D" parent="Stairs2" unique_id=1262721655]
-shape = SubResource("RectangleShape2D_tia2a")
-
-[node name="DownRay" type="RayCast2D" parent="Stairs2" unique_id=1585637177]
-target_position = Vector2(0, 18.1)
-collide_with_areas = true
-
-[node name="UpRay" type="RayCast2D" parent="Stairs2" unique_id=753673376]
-target_position = Vector2(0, -18.1)
-collide_with_areas = true
-
-[node name="RightRay" type="RayCast2D" parent="Stairs2" unique_id=108391603]
-target_position = Vector2(18.1, 0)
-collide_with_areas = true
-
-[node name="LeftRay" type="RayCast2D" parent="Stairs2" unique_id=424530572]
-target_position = Vector2(-19, 0)
-collide_with_areas = true
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Stairs2" unique_id=1522783136]
-offset_left = -89.0
-offset_top = -38.0
-offset_right = -17.0
-offset_bottom = -18.0
-scale = Vector2(2, 2)
-theme_override_fonts/normal_font = ExtResource("4_gssvh")
-theme_override_font_sizes/normal_font_size = 8
-theme_override_styles/normal = SubResource("StyleBoxFlat_enjog")
-text = "stairs"
-fit_content = true
-horizontal_alignment = 1
-deselect_on_focus_loss_enabled = false
-drag_and_drop_selection_enabled = false
-
 [node name="Door" type="Area2D" parent="." unique_id=1623348990]
-position = Vector2(540, 540)
+position = Vector2(72, 288)
 script = ExtResource("3_5d2jl")
 
 [node name="Sprite2d" type="Sprite2D" parent="Door" unique_id=963408964]
@@ -12068,6 +11983,55 @@ offset = Vector2(0, -1)
 region_enabled = true
 region_rect = Rect2(0, 0, 36, 36)
 
+[node name="Charcoal" type="Area2D" parent="." unique_id=1205858897]
+position = Vector2(36, 72)
+script = ExtResource("8_7otly")
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="Charcoal" unique_id=608763857]
+shape = SubResource("RectangleShape2D_653n8")
+
+[node name="DownRay" type="RayCast2D" parent="Charcoal" unique_id=738204564]
+target_position = Vector2(0, 18.1)
+collide_with_areas = true
+
+[node name="RightRay" type="RayCast2D" parent="Charcoal" unique_id=1853547441]
+target_position = Vector2(18.1, 0)
+collide_with_areas = true
+
+[node name="UpRay" type="RayCast2D" parent="Charcoal" unique_id=2000226967]
+z_index = 1
+rotation = 3.1415927
+target_position = Vector2(0, 18.1)
+collide_with_areas = true
+
+[node name="LeftRay" type="RayCast2D" parent="Charcoal" unique_id=1028022848]
+z_index = 1
+rotation = 3.1415927
+target_position = Vector2(18.1, 0)
+collide_with_areas = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Charcoal" unique_id=2045733877]
+offset_left = -36.0
+offset_top = -67.0
+offset_right = 36.0
+offset_bottom = -47.0
+theme_override_fonts/normal_font = ExtResource("4_gssvh")
+theme_override_font_sizes/normal_font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_eqpf5")
+text = "Charcoal"
+fit_content = true
+horizontal_alignment = 1
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="Sprite2d" type="Sprite2D" parent="Charcoal" unique_id=1452411299]
+position = Vector2(-18, -54)
+texture = ExtResource("9_0aj8w")
+centered = false
+offset = Vector2(0, -1)
+region_enabled = true
+region_rect = Rect2(0, 0, 36, 36)
+
 [node name="Lav" parent="." unique_id=72583028 groups=["box"] instance=ExtResource("12_p0rkx")]
 z_index = 10
 position = Vector2(72, 252)
@@ -12093,6 +12057,7 @@ target_position = Vector2(18.1, 0)
 [node name="Camera2D" type="Camera2D" parent="Lav" unique_id=1727428144]
 enabled = false
 zoom = Vector2(2, 2)
+position_smoothing_enabled = true
 
 [node name="TextBox" type="NinePatchRect" parent="Lav/Camera2D" unique_id=750941614]
 visible = false
@@ -12233,6 +12198,7 @@ scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("18_1d8j7")
 stretch_mode = 0
 script = ExtResource("19_igpcn")
+metadata/_edit_use_anchors_ = true
 
 [node name="Control" parent="Lav/Camera2D" unique_id=1856040575 instance=ExtResource("20_0ujsg")]
 visible = false
@@ -12255,6 +12221,7 @@ position = Vector2(1.9073486e-06, 1.9073486e-06)
 scale = Vector2(0.5, 0.5)
 
 [node name="minimap" type="TileMapLayer" parent="Lav/Camera2D" unique_id=1806915778]
+visible = false
 self_modulate = Color(0.500095, 0.50009507, 0.5000949, 1)
 z_index = 295
 position = Vector2(-264, -105.000015)
@@ -12278,6 +12245,7 @@ texture_under = ExtResource("25_v07hk")
 texture_over = ExtResource("26_og43v")
 texture_progress = ExtResource("27_sqrsf")
 texture_progress_offset = Vector2(38, 26)
+metadata/_edit_use_anchors_ = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Lav/Camera2D/helf" unique_id=162347682]
 modulate = Color(1, 1, 1, 0.99607843)
@@ -12353,5 +12321,269 @@ color = Color(0, 0, 0, 0)
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1120316720]
 position = Vector2(72, 138)
 zoom = Vector2(2, 2)
+
+[node name="Box" type="Sprite2D" parent="." unique_id=663680393]
+position = Vector2(72, 144)
+scale = Vector2(0.667, 0.667)
+texture = ExtResource("32_5d2jl")
+script = ExtResource("33_gssvh")
+
+[node name="1" type="TextureButton" parent="Box" unique_id=600417133]
+offset_left = -98.95055
+offset_top = -136.43185
+offset_right = -44.950546
+offset_bottom = -82.431854
+texture_normal = ExtResource("34_hbtd8")
+texture_pressed = ExtResource("35_3vcu4")
+script = ExtResource("36_gssvh")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Box/1" unique_id=1487393570]
+layout_mode = 0
+offset_left = 4.497774
+offset_top = -4.4976826
+offset_right = 58.470787
+offset_bottom = 49.47534
+mouse_filter = 2
+theme = ExtResource("15_t8ga3")
+theme_override_font_sizes/normal_font_size = 36
+text = "1"
+horizontal_alignment = 1
+
+[node name="2" type="TextureButton" parent="Box" unique_id=2121662787]
+offset_left = -26.986511
+offset_top = -136.43185
+offset_right = 27.013489
+offset_bottom = -82.431854
+texture_normal = ExtResource("34_hbtd8")
+texture_pressed = ExtResource("35_3vcu4")
+script = ExtResource("36_gssvh")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Box/2" unique_id=504409841]
+layout_mode = 0
+offset_left = 4.497774
+offset_top = -4.4976826
+offset_right = 58.470787
+offset_bottom = 49.47534
+mouse_filter = 2
+theme = ExtResource("15_t8ga3")
+theme_override_font_sizes/normal_font_size = 36
+text = "1"
+horizontal_alignment = 1
+
+[node name="3" type="TextureButton" parent="Box" unique_id=916092002]
+offset_left = 44.977524
+offset_top = -136.43185
+offset_right = 98.97752
+offset_bottom = -82.431854
+texture_normal = ExtResource("34_hbtd8")
+texture_pressed = ExtResource("35_3vcu4")
+script = ExtResource("36_gssvh")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Box/3" unique_id=1197967956]
+layout_mode = 0
+offset_left = 4.497774
+offset_top = -4.4976826
+offset_right = 58.470787
+offset_bottom = 49.47534
+mouse_filter = 2
+theme = ExtResource("15_t8ga3")
+theme_override_font_sizes/normal_font_size = 36
+text = "1"
+horizontal_alignment = 1
+
+[node name="4" type="TextureButton" parent="Box" unique_id=1718799457]
+offset_left = -98.95055
+offset_top = -62.96855
+offset_right = -44.950546
+offset_bottom = -8.968552
+texture_normal = ExtResource("34_hbtd8")
+texture_pressed = ExtResource("35_3vcu4")
+script = ExtResource("36_gssvh")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Box/4" unique_id=1197542823]
+layout_mode = 0
+offset_left = 4.497774
+offset_top = -4.4976826
+offset_right = 58.470787
+offset_bottom = 49.47534
+mouse_filter = 2
+theme = ExtResource("15_t8ga3")
+theme_override_font_sizes/normal_font_size = 36
+text = "1"
+horizontal_alignment = 1
+
+[node name="5" type="TextureButton" parent="Box" unique_id=1935065933]
+offset_left = -26.986511
+offset_top = -62.96855
+offset_right = 27.013489
+offset_bottom = -8.968552
+texture_normal = ExtResource("34_hbtd8")
+texture_pressed = ExtResource("35_3vcu4")
+script = ExtResource("36_gssvh")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Box/5" unique_id=249716338]
+layout_mode = 0
+offset_left = 4.497774
+offset_top = -4.4976826
+offset_right = 58.470787
+offset_bottom = 49.47534
+mouse_filter = 2
+theme = ExtResource("15_t8ga3")
+theme_override_font_sizes/normal_font_size = 36
+text = "1"
+horizontal_alignment = 1
+
+[node name="6" type="TextureButton" parent="Box" unique_id=2065087188]
+offset_left = 44.977524
+offset_top = -62.96855
+offset_right = 98.97752
+offset_bottom = -8.968552
+texture_normal = ExtResource("34_hbtd8")
+texture_pressed = ExtResource("35_3vcu4")
+script = ExtResource("36_gssvh")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Box/6" unique_id=810987123]
+layout_mode = 0
+offset_left = 4.497774
+offset_top = -4.4976826
+offset_right = 58.470787
+offset_bottom = 49.47534
+mouse_filter = 2
+theme = ExtResource("15_t8ga3")
+theme_override_font_sizes/normal_font_size = 36
+text = "1"
+horizontal_alignment = 1
+
+[node name="7" type="TextureButton" parent="Box" unique_id=1081850886]
+offset_left = -98.95055
+offset_top = 8.995468
+offset_right = -44.950546
+offset_bottom = 62.99547
+texture_normal = ExtResource("34_hbtd8")
+texture_pressed = ExtResource("35_3vcu4")
+script = ExtResource("36_gssvh")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Box/7" unique_id=2145667648]
+layout_mode = 0
+offset_left = 4.497774
+offset_top = -4.4976826
+offset_right = 58.470787
+offset_bottom = 49.47534
+mouse_filter = 2
+theme = ExtResource("15_t8ga3")
+theme_override_font_sizes/normal_font_size = 36
+text = "1"
+horizontal_alignment = 1
+
+[node name="8" type="TextureButton" parent="Box" unique_id=356460265]
+offset_left = -26.986511
+offset_top = 8.995468
+offset_right = 27.013489
+offset_bottom = 62.99547
+texture_normal = ExtResource("34_hbtd8")
+texture_pressed = ExtResource("35_3vcu4")
+script = ExtResource("36_gssvh")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Box/8" unique_id=1568858680]
+layout_mode = 0
+offset_left = 4.497774
+offset_top = -4.4976826
+offset_right = 58.470787
+offset_bottom = 49.47534
+mouse_filter = 2
+theme = ExtResource("15_t8ga3")
+theme_override_font_sizes/normal_font_size = 36
+text = "1"
+horizontal_alignment = 1
+
+[node name="9" type="TextureButton" parent="Box" unique_id=450876214]
+offset_left = 44.977524
+offset_top = 8.995468
+offset_right = 98.97752
+offset_bottom = 62.99547
+texture_normal = ExtResource("34_hbtd8")
+texture_pressed = ExtResource("35_3vcu4")
+script = ExtResource("36_gssvh")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Box/9" unique_id=417831870]
+layout_mode = 0
+offset_left = 4.497774
+offset_top = -4.4976826
+offset_right = 58.470787
+offset_bottom = 49.47534
+mouse_filter = 2
+theme = ExtResource("15_t8ga3")
+theme_override_font_sizes/normal_font_size = 36
+text = "1"
+horizontal_alignment = 1
+
+[node name="#" type="TextureButton" parent="Box" unique_id=1148981122]
+offset_left = -98.95055
+offset_top = 80.95952
+offset_right = -44.950546
+offset_bottom = 134.95953
+texture_normal = ExtResource("34_hbtd8")
+texture_pressed = ExtResource("35_3vcu4")
+script = ExtResource("36_gssvh")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Box/#" unique_id=1509129581]
+layout_mode = 0
+offset_left = 4.497774
+offset_top = -4.4976826
+offset_right = 58.470787
+offset_bottom = 49.47534
+mouse_filter = 2
+theme = ExtResource("15_t8ga3")
+theme_override_font_sizes/normal_font_size = 36
+text = "1"
+horizontal_alignment = 1
+
+[node name="0" type="TextureButton" parent="Box" unique_id=765516913]
+offset_left = -26.986511
+offset_top = 80.95952
+offset_right = 27.013489
+offset_bottom = 134.95953
+texture_normal = ExtResource("34_hbtd8")
+texture_pressed = ExtResource("35_3vcu4")
+script = ExtResource("36_gssvh")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Box/0" unique_id=1475106193]
+layout_mode = 0
+offset_left = 4.497774
+offset_top = -4.4976826
+offset_right = 58.470787
+offset_bottom = 49.47534
+mouse_filter = 2
+theme = ExtResource("15_t8ga3")
+theme_override_font_sizes/normal_font_size = 36
+text = "1"
+horizontal_alignment = 1
+
+[node name="&" type="TextureButton" parent="Box" unique_id=2028263302]
+offset_left = 44.977524
+offset_top = 80.95952
+offset_right = 98.97752
+offset_bottom = 134.95953
+texture_normal = ExtResource("34_hbtd8")
+texture_pressed = ExtResource("35_3vcu4")
+script = ExtResource("36_gssvh")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Box/&" unique_id=1854070630]
+layout_mode = 0
+offset_left = 4.497774
+offset_top = -4.4976826
+offset_right = 58.470787
+offset_bottom = 49.47534
+mouse_filter = 2
+theme = ExtResource("15_t8ga3")
+theme_override_font_sizes/normal_font_size = 36
+text = "1"
+horizontal_alignment = 1
+
+[node name="t" type="RichTextLabel" parent="Box" unique_id=1105974695]
+offset_left = -73.46327
+offset_top = -170.91455
+offset_right = 83.95802
+offset_bottom = -143.92804
 
 [editable path="Lav"]

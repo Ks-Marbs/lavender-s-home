@@ -21,7 +21,7 @@ var ycell := (position.y - (int(position.y) % 36)) / 36
 var numb = 1
 var moving:= false
 var tile_size := 36
-var step_size := 36
+var step_size := 6
 
 func wiggle():
 	if not wiggling:
@@ -124,36 +124,36 @@ func _process(delta):
 	elif not wiggling:
 		wiggle()
 
-	match Global.get_matrix(xcell,ycell,Global.special_matrix):
+	if int(position.x) % 36 == 0 and int(position.y) % 36 == 0:match Global.get_matrix(xcell,ycell,Global.special_matrix):
 		1:
-			if may_slide(nextplan_move) == true and nextplan_move != Vector2.ZERO:
+			if may_slide(nextplan_move) and nextplan_move != Vector2.ZERO:
 				ice_step(nextplan_move)
 			else:
 				control()
 
 		2:
-			if may_slide(Vector2.UP) == true:
+			if may_slide(Vector2.UP):
 				ice_step(Vector2.UP)
 				nextplan_move=Vector2.UP
 			else:
 				control()
 
 		3:
-			if  may_slide(Vector2.DOWN) == true:
+			if  may_slide(Vector2.DOWN):
 				ice_step(Vector2.DOWN)
 				nextplan_move=Vector2.DOWN
 			else:
 				control()
 
 		4:
-			if may_slide(Vector2.LEFT) == true:
+			if may_slide(Vector2.LEFT):
 				ice_step(Vector2.LEFT)
 				nextplan_move=Vector2.LEFT
 			else:
 				control()
 
 		5:
-			if  may_slide(Vector2.RIGHT) == true:
+			if  may_slide(Vector2.RIGHT):
 				ice_step(Vector2.RIGHT)
 				nextplan_move=Vector2.RIGHT
 			else:
@@ -186,8 +186,6 @@ func move_step(dir: Vector2) -> void:
 		last_move = dir
 		xcell = (position.x - (int(position.x) % 36)) / 36
 		ycell = (position.y - (int(position.y) % 36)) / 36
-		Global.x = xcell
-		Global.y = ycell
 		moving = false
 		if numb == moveset.size()-1: numb = 1 
 		else: numb += 1
@@ -216,6 +214,4 @@ func ice_step(dir: Vector2) -> void:
 		last_move = dir
 		xcell = (position.x - (int(position.x) % 36)) / 36
 		ycell = (position.y - (int(position.y) % 36)) / 36
-		Global.x = xcell
-		Global.y = ycell
 		moving = false

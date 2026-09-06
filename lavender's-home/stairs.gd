@@ -49,6 +49,12 @@ func _process(delta: float) -> void:
 						2:
 							get_tree().change_scene_to_file("res://level_3.tscn")
 							Global.level = 3
+						4:
+							get_tree().change_scene_to_file("res://level_5.tscn")
+							Global.level = 5
+						5:
+							get_tree().change_scene_to_file("res://level_4.tscn")
+							Global.level = 4
 				"G":
 					Global.took_door = true
 					match Global.level:
