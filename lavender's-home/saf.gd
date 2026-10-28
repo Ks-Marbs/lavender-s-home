@@ -10,10 +10,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	$t.text = t
 
-	if t == "XXXXXXX":
+	if t == "171115&":
 		texture =  load("res://images/boop.png")
 		for i in range(get_child_count()-1):
 			get_child(i).visible = 0
+		$t . visible = 1
 	pass

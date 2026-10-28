@@ -276,7 +276,7 @@ offset_right = -172.0
 offset_bottom = 352.0
 theme = ExtResource("14_boguf")
 theme_override_font_sizes/normal_font_size = 48
-text = "v 0.2.0"
+text = "v 0.3.0"
 
 [node name="settings" type="TextureButton" parent="." unique_id=1745422623]
 offset_left = 44.0

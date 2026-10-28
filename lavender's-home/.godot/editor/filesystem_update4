@@ -1,6 +1,11 @@
-res://level_5.tscn
+res://audio.gd
+res://audio.tscn
 res://something.tres
-res://global.gd
-res://player.gd
-res://saf.gd
-res://aaaaa.gd
+res://Start.tscn
+res://start.gd
+res://settings.tscn
+res://setrs.tscn
+res://export_presets.cfg
+res://level_5.tscn
+res://level_3.tscn
+res://item.gd

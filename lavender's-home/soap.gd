@@ -96,14 +96,15 @@ func _ready():
 func _process(delta):
 	del = delta
 	$RichTextLabel.visible_characters = vis
-	if(($LeftRay.is_colliding() and $LeftRay.get_collider().isplayer and $LeftRay.get_collider().t1==3) or\
+	if((($LeftRay.is_colliding() and $LeftRay.get_collider().isplayer and $LeftRay.get_collider().t1==3) or\
 	 ($RightRay.is_colliding() and $RightRay.get_collider().isplayer and $RightRay.get_collider().t1==2) or\
 	($UpRay.is_colliding() and $UpRay.get_collider().isplayer and $UpRay.get_collider().t1==1) or\
 	($DownRay.is_colliding() and $DownRay.get_collider().isplayer and $DownRay.get_collider().t1==0)) and Global.get_matrix(xcell,ycell,Global.room_matrix)==0 or\
 	(($LeftRay.is_colliding() and $LeftRay.get_collider().isplayer and$LeftRay.get_collider().t1==3) and ((Global.get_matrix(xcell,ycell,Global.room_matrix)==Global.get_matrix(xcell-1,ycell,Global.room_matrix)) or Global.get_matrix(xcell-1,ycell,Global.room_matrix) == 0)) or\
 	 (($RightRay.is_colliding() and $RightRay.get_collider().isplayer and$RightRay.get_collider().t1==2) and ((Global.get_matrix(xcell,ycell,Global.room_matrix)==Global.get_matrix(xcell+1,ycell,Global.room_matrix)) or Global.get_matrix(xcell+1,ycell,Global.room_matrix) == 0)) or\
 	(($UpRay.is_colliding() and $UpRay.get_collider().isplayer and$UpRay.get_collider().t1==1)  and ((Global.get_matrix(xcell,ycell,Global.room_matrix)==Global.get_matrix(xcell,ycell-1,Global.room_matrix)) or Global.get_matrix(xcell,ycell-1,Global.room_matrix) == 0)) or\
-	(($DownRay.is_colliding() and $DownRay.get_collider().isplayer and$DownRay.get_collider().t1==0) and ((Global.get_matrix(xcell,ycell,Global.room_matrix)==Global.get_matrix(xcell,ycell+1,Global.room_matrix)) or Global.get_matrix(xcell,ycell+1,Global.room_matrix) == 0)):
+	(($DownRay.is_colliding() and $DownRay.get_collider().isplayer and$DownRay.get_collider().t1==0) and ((Global.get_matrix(xcell,ycell,Global.room_matrix)==Global.get_matrix(xcell,ycell+1,Global.room_matrix)) or Global.get_matrix(xcell,ycell+1,Global.room_matrix) == 0))) and\
+	((Global.storystep == 0 and str(name)[0] == "P") or (Global.storystep == 1 and str(name)[0] == "S") or (Global.storystep == 2 and str(name)[0] == "s") or (Global.storystep == 3 and str(name)[0] == "W") or (Global.storystep == 4 and str(name)[0] == "C")):
 		showtex()
 		$RichTextLabel.text = (str(self.name))
 		if Input.is_action_pressed("in") and on:

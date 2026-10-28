@@ -8,5 +8,4 @@ script = ExtResource("2_q45hi")
 
 [node name="masterloop" type="AudioStreamPlayer" parent="." unique_id=986229125]
 stream = ExtResource("1_q45hi")
-autoplay = true
 parameters/looping = true

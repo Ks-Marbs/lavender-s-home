@@ -3,9 +3,12 @@ var a = 0
 var volume_linear:=0.2
 
 func _ready() -> void:
+	pass
+
+func play():
 	$masterloop.play(a)
 
 func _physics_process(delta: float) -> void:
 	$masterloop.volume_linear = volume_linear
-	if $masterloop.get_playback_position() > a+8:
+	if $masterloop.get_playback_position() > a+16:
 		$masterloop.play(a)

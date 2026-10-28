@@ -102,6 +102,7 @@ var dict:={
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Audio.play()
 	pass # Replace with function body.
 
 

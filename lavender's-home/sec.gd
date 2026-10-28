@@ -1,7 +1,11 @@
 extends Node2D
+var ka = false
 
 func _ready() -> void:
 	Global.prepare(Global.level)
+	$Soap.visible = Global.Soap[0];$Soap.position = Vector2(Global.Soap[2*Global.level-1],Global.Soap[2*Global.level])*36;$Soap.t1=Global.Soap[11]
+	$Petal.visible = Global.Petal[0];$Petal.position = Vector2(Global.Petal[2*Global.level-1],Global.Petal[2*Global.level])*36;$Petal.t1=Global.Petal[11]
+	$Winterblush.visible = Global.Winterblush[0];$Winterblush.position = Vector2(Global.Winterblush[2*Global.level-1],Global.Winterblush[2*Global.level])*36;$Winterblush.t1=Global.Winterblush[11] #aaaaaaaaaaaaaaa
 	if Global.took_stairs:
 		match Global.level:
 			1:
@@ -34,6 +38,11 @@ func _ready() -> void:
 				Global.hurt_matrix[c.x][c.y] = i*5
 
 func _process(delta: float) -> void:
+	if ka:
+		$Soap.visible = Global.Soap[0];$Soap.position = Vector2(Global.Soap[2*Global.level-1],Global.Soap[2*Global.level])*36;$Soap.t1=Global.Soap[11]
+		$Petal.visible = Global.Petal[0];$Petal.position = Vector2(Global.Petal[2*Global.level-1],Global.Petal[2*Global.level])*36;$Petal.t1=Global.Petal[11]
+		$Winterblush.visible = Global.Winterblush[0];$Winterblush.position = Vector2(Global.Winterblush[2*Global.level-1],Global.Winterblush[2*Global.level])*36;$Winterblush.t1=Global.Winterblush[11] #aaaaaaaaaaaaaaa
+		ka = false
 	$grid.self_modulate = Color(1.0, 1.0, 1.0, Global.GridT)
 	if Input.is_action_just_released("esc") and not Global.clear:
 		if Global.toggle:

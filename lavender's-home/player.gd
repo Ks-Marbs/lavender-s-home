@@ -309,26 +309,36 @@ func interact(ray):
 					boop = false
 					blop(ray)
 			"E":
+				self.get_parent().ka = true
 				ray.get_collider().interaction = 0
 				match Global.storystep:
 					0:
 						Global.talking = false
 						$anim.visible = false
 						Global.storystep = 1
+						Global.sleep = 30
 						Global.level = 1
 						get_tree().change_scene_to_file("res://level_1.tscn")
+						Global.black = 0.5
+						Global.d_n = 1
+						Global.objective = "Find Soap"
 					1:
 						Global.talking = false
 						Global.storystep = 2
+						Global.objective = "Go to sleep"
 					2:
 						Global.talking = false
 						Global.storystep = 3
+						Global.d_n = 0
+						Global.objective = "Find Winterblush"
 					3:
 						Global.talking = false
 						Global.storystep = 4
+						Global.objective = "Go grab mail"
 					4:
 						Global.talking = false
 						Global.storystep = 5
+						Global.objective = "This is currently the end of the game, maybe open the safe?"
 
 
 
@@ -397,35 +407,29 @@ func interact(ray):
 						ray.get_collider().interaction=Global.story[Global.storystep][ray.get_collider().interaction][11]
 
 func raycheck():
-	if !Global.black:
-		if $LeftRay.is_colliding() and $LeftRay.get_collider().interaction != 0:
-			interact($LeftRay)
-		elif $UpRay.is_colliding() and $UpRay.get_collider().interaction != 0:
-			interact($UpRay)
-		elif  $RightRay.is_colliding() and $RightRay.get_collider().interaction != 0:
-			interact($RightRay)
-		elif $DownRay.is_colliding() and $DownRay.get_collider().interaction != 0:
-			interact($DownRay)
-		else:
-			$Camera2D/TextBox.visible = 0
-			$Camera2D/pause.visible = 1
-			$Camera2D/helf.visible = 1
-			Global.talking = false
+	if $LeftRay.is_colliding() and $LeftRay.get_collider().interaction != 0:
+		interact($LeftRay)
+	elif $UpRay.is_colliding() and $UpRay.get_collider().interaction != 0:
+		interact($UpRay)
+	elif  $RightRay.is_colliding() and $RightRay.get_collider().interaction != 0:
+		interact($RightRay)
+	elif $DownRay.is_colliding() and $DownRay.get_collider().interaction != 0:
+		interact($DownRay)
 	else:
 		$Camera2D/TextBox.visible = 0
 		$Camera2D/pause.visible = 1
 		$Camera2D/helf.visible = 1
 		Global.talking = false
 
+
 func _process(delta):
+	if Global.d_n == 1: $Sprite2d.texture = load("res://images/lav1.0.1.png")
+	if Global.d_n == 0: $Sprite2d.texture = load("res://images/lav1.1.1.png")
 	if Global.sleeping: $Sprite2d.visible = false
 	else: $Sprite2d.visible = true
 
-	if Global.black:
-		if $black.color[3]<1: $black.color += Color(0,0,0,0.01);$black.visible = 1
-	elif $black.color[3]>0: $black.color += Color(0,0,0,-0.01)
-	else:$black.visible = 0
-	
+	$black.color[3] = Global.black
+
 	del = delta
 	$Camera2D/helf.value = Global.health
 	$Camera2D/helf/hunga.value = Global.hunger
@@ -439,8 +443,12 @@ func _process(delta):
 	elif not wiggling:
 		wiggle()
 
-	raycheck()
+	if Input.is_action_pressed("shift"): step_size = 12
+	else:  step_size = 9
 
+	raycheck()
+	if Global.sleeping:
+		return
 	match Global.get_matrix(xcell,ycell,Global.special_matrix):
 		1:
 			if may_slide(nextplan_move) == true and nextplan_move != Vector2.ZERO:
@@ -485,6 +493,8 @@ func _process(delta):
 			Global.health = 100
 			get_tree().change_scene_to_file("res://Start.tscn")
 		hurten = true
+
+	$Camera2D/helf/Obj.text = "Objective: \n"+Global.objective
 
 	if Global.hunger < 21:
 		$Camera2D/helf/RichTextLabel.text = "Hungry"
